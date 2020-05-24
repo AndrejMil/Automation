@@ -18,6 +18,9 @@ import DTE from '../integration/pageObjects/DTE';
 import describes from '../integration/pageObjects/describes';
 import areaOfBusiness from '../integration/pageObjects/areaOfBusiness';
 import benefitsPlans from '../integration/pageObjects/benefitsPlans';
+import expertGuides from '../integration/pageObjects/expertGuides';
+import homeDepotSignUp from '../integration/pageObjects/homeDepotSigUp';
+import rocheSignUp from '../integration/pageObjects/rocheSignUp';
 
 import { url } from 'inspector';
 
@@ -25,7 +28,8 @@ var linkovi = [
 	'https://onboarding.qa.sleepio.com/sleepio/big-health',
 	'https://onboarding.qa.sleepio.com/sleepio/accenture',
 	'https://onboarding.qa.sleepio.com/sleepio/homedepot',
-	'https://onboarding.qa.sleepio.com/sleepio/capri'
+	'https://onboarding.qa.sleepio.com/sleepio/capri',
+	'https://onboarding.qa.sleepio.com/sleepio/roche'
 ];
 var i = 0;
 describe('Proba', () => {
@@ -156,6 +160,15 @@ describe('Proba', () => {
 					desc.homeDepot();
 					desc.spouse();
 					homePage.buttonClick().click();
+
+					const guides = new expertGuides();
+					guides.expertGuidesTitle();
+					guides.none();
+					homePage.buttonClick().click();
+
+					const homeDepotSign = new homeDepotSignUp();
+					homeDepotSign.homeZip();
+					homeDepotSign.associateID();
 				}
 				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/capri/1#2/15') {
 					const area = new areaOfBusiness();
@@ -176,6 +189,20 @@ describe('Proba', () => {
 					benefits.other();
 				}
 			});
+
+			cy.url().then((urlString) => {
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/roche/1#2/15') {
+					const expertGuide = new expertGuides();
+					expertGuide.expertGuidesTitle();
+					expertGuide.jetlag();
+					expertGuide.none();
+					homePage.buttonClick().click();
+
+					const rocheSign = new rocheSignUp();
+					rocheSign.unixID();
+				}
+			});
+
 			cy.clearCookies();
 			cy.clearLocalStorage();
 		}

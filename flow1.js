@@ -1,17 +1,9 @@
 /// <reference types="cypress" />
 
 describe('Flow1 testiranje', () => {
-	it('Prvi test', () => {
-		cy.visit('https://onboarding.qa.sleepio.com/sleepio/big-health#1/1');
-		cy.get('[type="button"].sl-button').click();
-		cy.contains('None of the above').click();
-		cy.get('.sl-button-wrapper').click();
-		cy.get('.sl-question').find('options-id-none-of-the-above').click();
-	});
-
-	it.only('Testiranje prvog flow-a', () => {
-		cy.visit('https://onboarding.qa.sleepio.com/sleepio/big-health#1/1'); //odlazak na big-health
-		cy.get('[type="button"].sl-button').click(); // nalazi dugme po tipu i klasi i klikne na njega
+	it('Testiranje prvog flow-a', () => {
+		cy.visit('https://onboarding.qa.sleepio.com/sleepio/big-health'); //odlazak na big-health
+		cy.get('.sl-button').click(); // nalazi dugme po tipu i klasi i klikne na njega
 
 		// Prva strana OST-a
 		cy.get('.sl-page-title').should('contain', 'How would you like to improve your sleep?'); // tvrdi da se ovaj naslov nalazi na stranici
@@ -294,52 +286,25 @@ describe('Flow1 testiranje', () => {
 		cy.get('[type="button"]').click();
 
 		//prvo proveravamo heder
-		cy.get('.sl-interactive--headers').should('contain', 'Get your personal sleep report');
-		cy
-			.get('.sl-interactive--headers')
-			.should(
-				'contain',
-				'Learn about your score, get a proven technique to help tonight, and a series of guides from our experts.'
-			);
-		// Proveravamo tekst svakog input polja i kucamo odgovor
-		cy.get('.sl-interactive--field-label').should('contain', 'First Name*');
-		cy.get('.sl-input-text#first_name').type('An23');
-		cy.get('.sl-interactive--field-label[for="last_name"]').should('contain', 'Last Name*');
-		cy.get('.sl-input-text#last_name').type('Mil234');
-		cy.get('.sl-interactive--field-label[for="email"]').should('contain', 'Email*');
-		cy.get('.sl-input-text#email').type('andrej.milosavljevic+13053@sleepio.com');
-		cy.get('.sl-interactive--field-label[for="password"]').should('contain', 'Choose a password*');
-		cy.get('.sl-input-text#password').type('Qwerty123');
-		cy
-			.get('.sl-password-hint')
-			.should(
-				'contain',
-				'Your password should contain at least 8 characters and at least three of the following: an uppercase letter, a lowercase letter, a symbol and a number.'
-			);
-		//selektujemo checkbox
-		cy.get('[type="checkbox"]').click();
-		// pronalazimo linkove i proveravamo im href
-		cy
-			.get('[rel="noreferrer noopener"]')
-			.contains('Privacy Policy')
-			.should('have.attr', 'href', 'https://www.sleepio.com/privacy');
-		cy
-			.get('[rel="noreferrer noopener"]')
-			.contains('Terms')
-			.should('have.attr', 'href', 'https://www.sleepio.com/terms');
-		cy.get('.sl-interactive--clinical-governance').contains('By continuing you confirm that you are sure the');
-		cy
-			.get('[rel="noreferrer noopener"]')
-			.contains('Sleepio course is suitable for you')
-			.should('have.attr', 'href', 'https://sleepio.com/suitable/');
 
-		//proveravamo da li su SSO opcije prisutne
-		cy.get('#sl-facebook-sso').contains(' with Facebook');
-		cy.get('#sl-google-sso').contains('with Google');
-		cy.get('#sl-virgin-pulse-sso').contains('with Virgin Pulse');
+		// Proveravamo tekst svakog input polja i kucamo odgovor
+
+		cy.get('.sl-interactive--field-label').should('contain', 'First Name*');
+		cy.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[1]/div/input').type('An23');
+
+		cy.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[2]/div/input').type('Mil23');
+
+		cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
+			.type('andrej.milosavljevic+220517@sleepio.com');
+
+		cy.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[4]/div/input').type('Qwerty123');
+
+		//selektujemo checkbox
+		cy.get('[data-hidden="false"] > .sl-input-checkbox').click();
+		// pronalazimo linkove i proveravamo im href
+
 		cy.get('[type="submit"]').click();
-		// cekamo 5 sekundi zbog proglema sa sinkom
-		cy.wait(5000);
 
 		// tekst u hederu
 		cy.get('.sl-header__text').should('contain', 'Your sleep score');
@@ -821,26 +786,9 @@ describe('Flow1 testiranje', () => {
 		cy.get('[data-index="2"]').contains('Please choose a community username');
 		cy.get('.sl-page-post-question').contains('You can change your username later in Account Settings');
 		// unosim i comunity username
-		cy.get('.sl-input-text').click().type('11fdscscfsdfweva');
+		cy.get('.sl-input-text').click().type('11fddsweva');
 		cy.get('[type="button"]').click();
 		// cekamo 5 sekundi zbog problema sa sinkom
 		cy.wait(5000);
 	});
 });
-
-// mozemo da pretrazujemo preko tagName, id - # , preko klase . , preko atributeName - onda ide [ovde atribute name],
-// preko atributeName i value - [atribute name="value"],
-// preko class value - ['class=vrednost'],
-// tag name i attribute value - cy.get(input[placeholder=...])
-// preko dva razlicita atributa cy.get([prvi atribut][drugi atribut])
-//preko tag name, atribut with value, id and class name
-// cy.get('input[atribut]#id.klasa')
-// najpreporucljivije je da napravis svoj element - cy.get('data-cy="inputEmail"')
-// cy.visit('lokacija'), a ako je put definisan u baseurl onda cy.visit('/')
-// cy.contains('Tekst na stranici koji trazis').click()
-// ako ima vise identicnih elemenata na stranici - cy.get('moze po id-u').parents('otac').find('bottom') - nadjemo poslednji
-// .should('contain', 'Neki tekst')
-// find je da nadje child element u parent elementu - samo tada ga koristimo
-// cy.contains('parent', 'tekst koji ima parent').find('[type="button"]')
-// razlika je u json i cypress objektima - expext za json a should za cypress
-// cy.wrap - da vratimo jquery u cypress objekat

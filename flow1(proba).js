@@ -13,11 +13,19 @@ import poorSleep from '../integration/pageObjects/poorSleep';
 import dob from '../integration/pageObjects/dob';
 import breathing from '../integration/pageObjects/breathing ';
 import snoring from '../integration/pageObjects/snoring';
+import careerLevel from '../integration/pageObjects/careerLevel';
+import DTE from '../integration/pageObjects/DTE';
+import describes from '../integration/pageObjects/describes';
+import areaOfBusiness from '../integration/pageObjects/areaOfBusiness';
+import benefitsPlans from '../integration/pageObjects/benefitsPlans';
+
 import { url } from 'inspector';
 
 var linkovi = [
 	'https://onboarding.qa.sleepio.com/sleepio/big-health',
-	'https://onboarding.qa.sleepio.com/sleepio/accenture'
+	'https://onboarding.qa.sleepio.com/sleepio/accenture',
+	'https://onboarding.qa.sleepio.com/sleepio/homedepot',
+	'https://onboarding.qa.sleepio.com/sleepio/capri'
 ];
 var i = 0;
 describe('Proba', () => {
@@ -31,6 +39,7 @@ describe('Proba', () => {
 			homePage.buttonClick().click();
 
 			// First page of OST
+			cy.screenshot();
 			const firstofOst = new improveYourSleep();
 
 			firstofOst.improveSleepTitle();
@@ -42,7 +51,7 @@ describe('Proba', () => {
 			homePage.buttonClick().click();
 
 			// Second page of OST
-
+			cy.screenshot();
 			const secondOfOst = new howLong();
 
 			secondOfOst.howLongTitle();
@@ -169,7 +178,56 @@ describe('Proba', () => {
 			homePage.buttonClick().click();
 			cy.url().then((urlString) => {
 				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/accenture/1#2/15') {
-					cy.visit('dsadas');
+					const career = new careerLevel();
+
+					career.careerTitle();
+					career.leadership();
+					career.levels5();
+					career.levels8();
+					career.levels11();
+					career.dontwork();
+					homePage.buttonClick().click();
+
+					const dte = new DTE();
+					dte.DTETitle();
+					dte.acg();
+					dte.copFunctions();
+					dte.aceOperations();
+					dte.aceTehnology();
+					dte.aceStrategy();
+					dte.aceDigital();
+					dte.finService();
+					dte.products();
+					dte.resource();
+					dte.heaktPublicSer();
+					dte.communMedi();
+					dte.iDont();
+					homePage.buttonClick().click();
+				}
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/homedepot/1#2/15') {
+					const desc = new describes();
+					desc.describesTitle();
+					desc.homeDepot();
+					desc.spouse();
+					homePage.buttonClick().click();
+				}
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/capri/1#2/15') {
+					const area = new areaOfBusiness();
+					area.areaOfBusinessTitle();
+					area.retail();
+					area.development();
+					area.corporate();
+					area.distribution();
+					area.other();
+					homePage.buttonClick().click();
+
+					const benefits = new benefitsPlans();
+					benefits.benefitsPlansTitle();
+					benefits.cignaEnh();
+					benefits.cignaCore();
+					benefits.cignaMedical();
+					benefits.no();
+					benefits.other();
 				}
 			});
 			cy.clearCookies();

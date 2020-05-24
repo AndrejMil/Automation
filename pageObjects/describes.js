@@ -4,11 +4,11 @@ class describes {
 	}
 
 	homeDepot() {
-		cy.get('#options-id-0').click();
+		return cy.get('#options-id-0').click();
 	}
 
 	spouse() {
-		cy.get('#options-id-1').click();
+		return cy.get('#options-id-1').click();
 	}
 }
 

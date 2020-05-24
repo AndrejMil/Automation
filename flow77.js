@@ -1,5 +1,5 @@
 it('Flow 77', () => {
-	cy.visit('https://onboarding.qa.sleepio.com/sleepio/amerihealthcaritas/77#1/1');
+	cy.visit('https://onboarding.qa.sleepio.com/sleepio/access');
 	cy.get('[type="button"]').first().click();
 
 	cy.get('.sl-page-title').should('contain', 'To what extent has sleep troubled you in general?');
@@ -180,42 +180,16 @@ it('Flow 77', () => {
 
 	// Sigh up strana
 
-	cy.get('.sl-interactive-headers').should('contain', 'Get Your Sleep Score');
+	cy.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[1]/div/input').type('An23');
+	cy.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[2]/div/input').type('Mil234');
 	cy
-		.get('.sl-interactive-headers')
-		.should(
-			'contain',
-			'Sign up to get your Sleep Score and learn effective ways to address even the most stubborn sleep problems.'
-		);
-	cy.get('.sl-interactive--field-label').should('contain', 'First Name*');
-	cy.get('#first_name').type('An23');
-	cy.get('.sl-interactive--field-label[for="last_name"]').should('contain', 'Last Name*');
-	cy.get('#last_name').type('Mil234');
-	cy.get('.sl-interactive--field-label[for="email"]').should('contain', 'Email*');
-	cy.get('#email').type('andrej.milosavljevic+13055@sleepio.com');
-	cy.get('.sl-interactive--field-label[for="password"]').should('contain', 'Choose a password*');
-	cy.get('#password').type('Qwerty123');
-	cy
-		.get('.sl-password-hint')
-		.should(
-			'contain',
-			'Your password should contain at least 8 characters and at least three of the following: an uppercase letter, a lowercase letter, a symbol and a number.'
-		);
-	cy.get('[type="checkbox"]').click();
-	cy
-		.get('[rel="noreferrer noopener"]')
-		.contains('Privacy Policy')
-		.should('have.attr', 'href', 'https://www.sleepio.com/privacy');
-	cy
-		.get('[rel="noreferrer noopener"]')
-		.contains('Terms')
-		.should('have.attr', 'href', 'https://www.sleepio.com/terms');
-	cy.get('.sl-interactive--clinical-governance').contains('By continuing you confirm that you are sure the');
-	cy
-		.get('[rel="noreferrer noopener"]')
-		.contains('Sleepio course is suitable for you')
-		.should('have.attr', 'href', 'https://sleepio.com/suitable/');
-	cy.get('[type="submit"]').click();
+		.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
+		.type('andrej.milosavljevic+220524@sleepio.com');
+	cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/form/div[4]/div/input').type('Qwerty123');
+
+	cy.get('[data-hidden="false"] > .sl-input-checkbox').click();
+
+	cy.get('.sl-button').click();
 	cy.wait(5000);
 
 	cy.get('h1').should('contain', 'Your sleep score');
@@ -498,7 +472,7 @@ it('Flow 77', () => {
 	cy.get('[type="button"]').click();
 
 	cy.get('[data-index="0"]').contains('One last thing...');
-	cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/div/input').click().type('11dsdsafdxbf');
+	cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/div/input').click().type('11dffrdxbf');
 
 	cy.wait(5000);
 	cy.get('[type="button"]').click();

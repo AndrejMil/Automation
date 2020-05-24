@@ -1,5 +1,5 @@
 it('Flow 76', () => {
-	cy.visit('https://onboarding.qa.sleepio.com/sleepio/hubbell/76#1/1');
+	cy.visit('https://onboarding.sleepio.com/sleepio/hubbell/76#1/1');
 	cy.get('[type="button"]').first().click();
 
 	cy.get('[for="options-id-4"]').should('contain', 'Very much').click();

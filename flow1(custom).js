@@ -462,7 +462,9 @@ describe('Flow1 testiranje custom pitanja', () => {
 		cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[1]/div/div[2]/div/div/div[5]/label/input').click();
 		cy.get('[type="button"]').click();
 
-		cy.get('.sl-interactive--field-label').contains('Your 9-digit Associate ID or Healthy Living Program ID');
+		cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[1]/div[3]/div[2]/label[1]')
+			.contains('Your 9-Digit Associate ID or Healthy Living Program ID');
 		cy.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[1]/div[3]/div[2]/div/input').type('123456789');
 
 		// novi flow

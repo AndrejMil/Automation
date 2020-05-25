@@ -5,7 +5,7 @@ describe('Flow1 testiranje', () => {
 		cy.visit('https://onboarding.qa.sleepio.com/sleepio/big-health'); //odlazak na big-health
 		cy.get('.sl-button').click(); // nalazi dugme po tipu i klasi i klikne na njega
 
-		// Prva strana OST-a
+		// Prva strana OST-acxc
 		cy.get('.sl-page-title').should('contain', 'How would you like to improve your sleep?'); // tvrdi da se ovaj naslov nalazi na stranici
 		cy.get('.sl-options-wrapper').then(function(prviTest) {
 			// svakoj opciji dodeljujemo varijablu i uzimamo tekst

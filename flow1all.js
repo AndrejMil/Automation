@@ -205,7 +205,7 @@ describe('Proba', () => {
 			signUp.signUpGoogle();
 			signUp.signUpFacebook();
 			signUp.signUpButton();
-
+			cy.wait(4000);
 			const report = new flow1SleepReport();
 			report.headerSleepReport();
 			report.logOut();
@@ -230,9 +230,9 @@ describe('Proba', () => {
 			const lst2 = new flow1Lst2();
 			lst2.headerLst();
 			lst2.headerLst1();
-			lst2.tryGoSleep();
+			lst2.getIntoBad();
 			lst2.tryGoSleepLabel();
-			lst2.fallAsleep();
+			lst2.tryGoSleep();
 			lst2.fallAsleepLabel();
 			lst2.duringNightWake();
 			lst2.duringNightWakeLabel();
@@ -334,25 +334,25 @@ describe('Proba', () => {
 			lst7.smokeTobacco();
 			lst7.smokeTobaccoAnswer();
 			lst7.drinkAlcohol();
-			lst7.drinkAlcoholAnswer();
+			lst7.drinkAlcoholAnswer1();
 			lst7.consumeCaffeine();
-			lst7.consumeCaffeineAnswer();
+			lst7.consumeCaffeineAnswer1();
 			lst7.regularlyExercise();
-			lst7.regularlyExerciseAnswer();
+			lst7.regularlyExerciseAnswer1();
 			lst7.sleepingPills();
-			lst7.sleepingPillsAnswer();
+			lst7.sleepingPillsAnswer1();
 			lst7.nonPrescription();
-			lst7.nonPrescriptionAnswer();
+			lst7.nonPrescriptionAnswer1();
 			lst7.yourselfOverweight();
-			lst7.yourselfOverweightAnswer();
+			lst7.yourselfOverweightAnswer1();
 			lst7.currentlyPartner();
-			lst7.currentlyPartnerAnswer();
-			lst7.disruptedPartner();
-			lst7.disruptedPartnerAnswer();
+			lst7.currentlyPartnerAnswer1();
+			lst7.disruptedPartner1();
+			lst7.disruptedPartnerAnswer1();
 			lst7.childrenLiveYou();
-			lst7.childrenLiveYouAnswer();
-			lst7.disruptedChildren();
-			lst7.disruptedChildrenAnswer();
+			lst7.childrenLiveYouAnswer1();
+			lst7.disruptedChildren1();
+			lst7.disruptedChildrenAnswer1();
 			homePage.buttonClick();
 		}
 	});

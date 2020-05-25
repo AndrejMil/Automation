@@ -18,7 +18,15 @@ class flow1Lst7 {
 			.get('[data-semantic-id="drink_alcohol"]')
 			.should('contain', 'How often (if ever) do you drink alcohol?');
 	}
-	drinkAlcoholAnswer() {
+	drinkAlcoholNew() {
+		return cy
+			.get('[data-semantic-id="drink_alcohol"]')
+			.should('contain', 'How often do you drink alcohol within 4 hours of bed?');
+	}
+	drinkAlcoholNewAnswer() {
+		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select').select('Never');
+	}
+	drinkAlcoholAnswer1() {
 		return cy.get('#61_0').click();
 	}
 	consumeCaffeine() {
@@ -26,7 +34,7 @@ class flow1Lst7 {
 			.get('[data-semantic-id="consume_caffeine"]')
 			.should('contain', 'How often (if ever) do you consume caffeine?');
 	}
-	consumeCaffeineAnswer() {
+	consumeCaffeineAnswer1() {
 		return cy.get('#62_0').click();
 	}
 	regularlyExercise() {
@@ -34,7 +42,7 @@ class flow1Lst7 {
 			.get('[data-semantic-id="regularly_exercise"]')
 			.should('contain', 'How regularly (if ever) do you exercise?');
 	}
-	regularlyExerciseAnswer() {
+	regularlyExerciseAnswer1() {
 		return cy.get('#63_0').click();
 	}
 	sleepingPills() {
@@ -45,7 +53,7 @@ class flow1Lst7 {
 				'How many nights in the last 2 weeks have you taken sleeping pills prescribed by your doctor?'
 			);
 	}
-	sleepingPillsAnswer() {
+	sleepingPillsAnswer1() {
 		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select').select('1 night');
 	}
 
@@ -54,7 +62,7 @@ class flow1Lst7 {
 			.get('[data-semantic-id="taken_non-prescription_sleep_remedies"]')
 			.should('contain', 'How many nights in the last 2 weeks have you taken non-prescription sleep remedies?');
 	}
-	nonPrescriptionAnswer() {
+	nonPrescriptionAnswer1() {
 		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/div/div/select').select('1 night');
 	}
 	yourselfOverweight() {
@@ -62,21 +70,21 @@ class flow1Lst7 {
 			.get('[data-semantic-id="yourself_overweight"]')
 			.should('contain', 'Do you consider yourself to be overweight?');
 	}
-	yourselfOverweightAnswer() {
+	yourselfOverweightAnswer1() {
 		return cy.get('#66_1').click();
 	}
 	currentlyPartner() {
 		return cy.get('[data-semantic-id="currently_partner"]').should('contain', 'Do you currently have a partner?');
 	}
-	currentlyPartnerAnswer() {
+	currentlyPartnerAnswer1() {
 		return cy.get('#67_1').click();
 	}
-	disruptedPartner() {
+	disruptedPartner1() {
 		return cy
 			.get('[data-semantic-id="sleep_disrupted_partner"]')
 			.should('contain', 'Over the past month, how often has your sleep been disrupted by your partner?');
 	}
-	disruptedPartnerAnswer() {
+	disruptedPartnerAnswer1() {
 		return cy.get('#68_0').click();
 	}
 	childrenLiveYou() {
@@ -84,15 +92,15 @@ class flow1Lst7 {
 			.get('[data-semantic-id="children_live_you"]')
 			.should('contain', 'Do you have children who live with you?');
 	}
-	childrenLiveYouAnswer() {
+	childrenLiveYouAnswer1() {
 		return cy.get('#69_1').click();
 	}
-	disruptedChildren() {
+	disruptedChildren1() {
 		return cy
 			.get('[data-semantic-id="sleep_disrupted_children"]')
 			.should('contain', 'Over the past month, how often has your sleep been disrupted by your children?');
 	}
-	disruptedChildrenAnswer() {
+	disruptedChildrenAnswer1() {
 		return cy.get('#70_0').click();
 	}
 
@@ -116,7 +124,7 @@ class flow1Lst7 {
 	drinkAlcohol() {
 		return cy
 			.get('[data-semantic-id="drink_alcohol"]')
-			.should('contain', 'How often do you drink alcohol within 4 hours of bed?');
+			.should('contain', 'How often (if ever) do you drink alcohol?');
 	}
 
 	drinkAlcoholAnswer() {

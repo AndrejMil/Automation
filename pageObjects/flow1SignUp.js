@@ -22,7 +22,7 @@ class flow1SignUp {
 	emailImput() {
 		return cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
-			.type('andrej.milosavljevic+200537@sleepio.com');
+			.type('andrej.milosavljevic+250525@sleepio.com');
 	}
 	passwordLabel() {
 		return cy.get('.sl-interactive--field-label').should('contain', 'Choose a password*');

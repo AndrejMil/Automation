@@ -6,13 +6,19 @@ class flow1Lst2 {
 	headerLst1() {
 		return cy.get('[data-index="1"]').contains("Describe your average night's sleep over the past month");
 	}
-	tryGoSleep() {
+	getIntoBad() {
+		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/select').select('8:00 PM');
+	}
+	getIntoBadNew() {
 		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/div/div/select').select('8:00 PM');
 	}
 	tryGoSleepLabel() {
 		return cy.get('[data-semantic-id="try_go_sleep"]').should('contain', 'What time do you try to go to sleep?');
 	}
-	getIntoBad() {
+	tryGoSleep() {
+		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select').select('8:00 PM');
+	}
+	tryGoSleepNew() {
 		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/select').select('8:00 PM');
 	}
 
@@ -22,6 +28,9 @@ class flow1Lst2 {
 			.should('contain', 'How long does it take you to fall asleep?');
 	}
 	duringNightWake() {
+		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/div/div/select').select('5 mins');
+	}
+	duringNightWakeNew() {
 		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select').select('5 mins');
 	}
 	duringNightWakeLabel() {
@@ -30,6 +39,9 @@ class flow1Lst2 {
 			.should('contain', 'How many times during the night do you wake up on average?');
 	}
 	awakeDuringNight() {
+		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select').select('1');
+	}
+	awakeDuringNightNew() {
 		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/div/div/select').select('1');
 	}
 	awakeDuringNightLabel() {
@@ -41,6 +53,9 @@ class flow1Lst2 {
 			);
 	}
 	wakeLastTime() {
+		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/div/div/select').select('10 mins');
+	}
+	wakeLastTimeNew() {
 		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select').select('10 mins');
 	}
 
@@ -50,6 +65,9 @@ class flow1Lst2 {
 			.should('contain', 'What time do you normally wake up for the last time?');
 	}
 	intendedWakeUp() {
+		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/div/div/select').select('9:00 AM');
+	}
+	intendedWakeUpNew() {
 		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/div/div/select').select('9:00 AM');
 	}
 	intendedWakeUpLabel() {
@@ -59,6 +77,11 @@ class flow1Lst2 {
 	}
 	getOutBed() {
 		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/div/div/select')
+			.select('More than an hour too early');
+	}
+	getOutBedNew() {
+		return cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/div/div/select')
 			.select('More than an hour too early');
 	}
@@ -67,8 +90,11 @@ class flow1Lst2 {
 			.get('[data-semantic-id="time_normally_out_bed"]')
 			.should('contain', 'What time do you normally get out of bed?');
 	}
-	S;
+
 	qualitySleep() {
+		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select').select('10:45 AM');
+	}
+	qualitySleepNew() {
 		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/div/div/select').select('10:45 AM');
 	}
 	qualitySleepLabel() {
@@ -77,6 +103,9 @@ class flow1Lst2 {
 			.should('contain', 'How would you rate the quality of your sleep?');
 	}
 	quality() {
+		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[11]/div/div[2]/div/div/select').select('Very good');
+	}
+	qualityNew() {
 		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select').select('Very good');
 	}
 }

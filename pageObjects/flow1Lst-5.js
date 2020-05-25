@@ -8,7 +8,7 @@ class flow1Lst5 {
 	happenedToday() {
 		return cy
 			.get('[data-semantic-id="happened_today_tomorrow"]')
-			.should('contain', "...what happened today and what I've got on tomorrow.");
+			.should('contain', "...what happened today and what I've got on tomorrow");
 	}
 	happenedTodayNew() {
 		return cy

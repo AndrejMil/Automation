@@ -185,23 +185,23 @@ describe('Proba', () => {
 			cy.visit('https://onboarding.qa.sleepio.com/sleepio/libertymutual/78#5/1');
 			const lst2 = new flow1Lst2();
 
-			lst2.tryGoSleep();
-			lst2.getIntoBad();
+			lst2.tryGoSleepNew();
+			lst2.getIntoBadNew();
 			lst2.tryGoSleepLabel();
 			lst2.fallAsleepLabel();
-			lst2.duringNightWake();
+			lst2.duringNightWakeNew();
 			lst2.duringNightWakeLabel();
-			lst2.awakeDuringNight();
+			lst2.awakeDuringNightNew();
 			lst2.awakeDuringNightLabel();
-			lst2.wakeLastTime();
+			lst2.wakeLastTimeNew();
 			lst2.DuringNightLabel();
-			lst2.intendedWakeUp();
+			lst2.intendedWakeUpNew();
 			lst2.intendedWakeUpLabel();
-			lst2.getOutBed();
+			lst2.getOutBedNew();
 			lst2.getOutBedLabel();
-			lst2.qualitySleep();
+			lst2.qualitySleepNew();
 			lst2.qualitySleepLabel();
-			lst2.quality();
+			lst2.qualityNew();
 			home.buttonClick();
 
 			const lst4 = new flow1Lst4();
@@ -290,8 +290,8 @@ describe('Proba', () => {
 			lst7.nicotine();
 			lst7.nicotineAnswer();
 
-			lst7.drinkAlcohol();
-			lst7.drinkAlcoholAnswer();
+			lst7.drinkAlcoholNew();
+			lst7.drinkAlcoholNewAnswer();
 
 			lst7.disruptedChildren();
 			lst7.disruptedChildrenAnswer();

@@ -4,19 +4,19 @@ class improveYourSleep {
 	}
 
 	sleepMoreEasily() {
-		return cy.get('[for="options-id-0"]').click();
+		return cy.get('[for="options-id-0"]');
 	}
 
 	withoutWakingUp() {
-		return cy.get('[for="options-id-1"]').click();
+		return cy.get('[for="options-id-1"]');
 	}
 
 	wakingTooEarly() {
-		return cy.get('[for="options-id-2"]').click();
+		return cy.get('[for="options-id-2"]');
 	}
 
 	wakeUpRefreshed() {
-		return cy.get('[for="options-id-3"]').click();
+		return cy.get('[for="options-id-3"]');
 	}
 
 	noneOfTheAbove() {

@@ -2,7 +2,7 @@
 
 describe('Flow1 testiranje', () => {
 	it('Testiranje prvog flow-a', () => {
-		cy.visit('https://onboarding.qa.sleepio.com/sleepio/big-health'); //odlazak na big-health
+		cy.visit('https://onboarding.qa.sleepio.com/sleepio/generalmills'); //odlazak na big-health
 		cy.get('.sl-button').click(); // nalazi dugme po tipu i klasi i klikne na njega
 
 		// Prva strana OST-a
@@ -296,7 +296,7 @@ describe('Flow1 testiranje', () => {
 
 		cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
-			.type('andrej.milosavljevic+220517@sleepio.com');
+			.type('andrej.milosavljevic+250535@sleepio.com');
 
 		cy.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[4]/div/input').type('Qwerty123');
 
@@ -786,7 +786,7 @@ describe('Flow1 testiranje', () => {
 		cy.get('[data-index="2"]').contains('Please choose a community username');
 		cy.get('.sl-page-post-question').contains('You can change your username later in Account Settings');
 		// unosim i comunity username
-		cy.get('.sl-input-text').click().type('11fddsweva');
+		cy.get('.sl-input-text').click().type('11fdddsfdgeva');
 		cy.get('[type="button"]').click();
 		// cekamo 5 sekundi zbog problema sa sinkom
 		cy.wait(5000);

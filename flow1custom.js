@@ -40,6 +40,7 @@ describe('Proba', () => {
 			const homePage = new HomePage();
 
 			homePage.visitFirstPage(linkovi[i]);
+			cy.wait(4000);
 			homePage.buttonClick().click();
 
 			// First page of OST

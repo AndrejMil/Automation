@@ -19,8 +19,8 @@ class troubledInGeneral {
 		return cy.get('.sl-select').select('Very much');
 	}
 
-	notAtAll() {
-		return cy.get('.sl-select').select('Not at all');
+	notatAll() {
+		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[1]/div/div[2]/div/div/select');
 	}
 }
 

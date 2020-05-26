@@ -48,8 +48,7 @@ describe('Proba', () => {
 
 			firstofOst.withoutWakingUp();
 			firstofOst.wakingTooEarly();
-			firstofOst.wakeUpRefreshed();
-			firstofOst.noneOfTheAbove().click();
+			firstofOst.wakeUpRefreshed().click();
 			homePage.buttonClick();
 
 			// Second page of OST

@@ -84,7 +84,7 @@ describe('Proba', () => {
 			fourthdOfOst.somewhat();
 			fourthdOfOst.much();
 			fourthdOfOst.veryMuch();
-			fourthdOfOst.notAtAll();
+
 			homePage.buttonClick();
 
 			const fiveOfOst = new manyNights();

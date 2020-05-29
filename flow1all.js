@@ -23,21 +23,22 @@ import flow1Lst4 from '../integration/pageObjects/flow1Lst-4';
 import flow1Lst5 from '../integration/pageObjects/flow1Lst-5';
 import flow1Lst6 from '../integration/pageObjects/flow1Lst-6';
 import flow1Lst7 from '../integration/pageObjects/flow1Lst-7';
+import flow1Lst8 from '../integration/pageObjects/flow1Lst-8';
 
 import { url } from 'inspector';
 
-var links = [
+var linkovi = [
 	'https://onboarding.qa.sleepio.com/sleepio/big-health'
 ];
 var i = 0;
-describe('Test', () => {
-	console.log(links[i]);
+describe('Proba', () => {
+	console.log(linkovi[i]);
 	it('Start the test', () => {
-		    // Get started page
-		for (; i < links.length; i++) {
+		// Get started page
+		for (; i < linkovi.length; i++) {
 			const homePage = new HomePage();
 
-			homePage.visitFirstPage(links[i]);
+			homePage.visitFirstPage(linkovi[i]);
 			homePage.buttonClick();
 
 			// First page of OST
@@ -84,37 +85,31 @@ describe('Test', () => {
 			fourthdOfOst.somewhat();
 			fourthdOfOst.much();
 			fourthdOfOst.veryMuch();
-			fourthdOfOst.notatAll();
+
 			homePage.buttonClick();
 
-			// Fifth page of OST
+			const fiveOfOst = new manyNights();
 
-			const fifthOfOst = new manyNights();
-
-			fifthOfOst.manyNightsTitle();
-			fifthOfOst.night0();
-			fifthOfOst.night1();
-			fifthOfOst.night2();
-			fifthOfOst.night3();
-			fifthOfOst.night4();
-			fifthOfOst.night5();
-			fifthOfOst.night6();
-			fifthOfOst.night7();
+			fiveOfOst.manyNightsTitle();
+			fiveOfOst.night0();
+			fiveOfOst.night1();
+			fiveOfOst.night2();
+			fiveOfOst.night3();
+			fiveOfOst.night4();
+			fiveOfOst.night5();
+			fiveOfOst.night6();
+			fiveOfOst.night7();
 			homePage.buttonClick();
 
-			// Sixth page of OST
+			const sixOfOst = new importantThings();
 
-			const sixthOfOst = new importantThings();
-
-			sixthOfOst.importantThingsTitle();
-			sixthOfOst.never();
-			sixthOfOst.almostNever();
-			sixthOfOst.sometimes();
-			sixthOfOst.fairlyOften();
-			sixthOfOst.veryOften();
+			sixOfOst.importantThingsTitle();
+			sixOfOst.never();
+			sixOfOst.almostNever();
+			sixOfOst.sometimes();
+			sixOfOst.fairlyOften();
+			sixOfOst.veryOften();
 			homePage.buttonClick();
-
-			// Seventh page of OST
 
 			const seventhOfOst = new howLikely();
 
@@ -125,22 +120,20 @@ describe('Test', () => {
 			seventhOfOst.highChance();
 			homePage.buttonClick();
 
-			const snoringBothered = new snoring();
+			const neki2 = new snoring();
 
-			snoringBothered.snoringTitle();
-			snoringBothered.no();
-			snoringBothered.yes();
-			snoringBothered.snore();
+			neki2.snoringTitle();
+			neki2.no();
+			neki2.yes();
+			neki2.snore();
 			homePage.buttonClick();
 
-			const stopBreathing = new breathing();
+			const neki = new breathing();
 
-			stopBreathing.breathingTitle();
-			stopBreathing.no();
-			stopBreathing.yes();
+			neki.breathingTitle();
+			neki.no();
+			neki.yes();
 			homePage.buttonClick();
-
-			// Eight page of OST
 
 			const eightOfOst = new gender();
 
@@ -149,8 +142,6 @@ describe('Test', () => {
 			eightOfOst.female().click();
 			eightOfOst.another().click();
 			homePage.buttonClick();
-
-			// Ninth page of OST
 
 			const ninthOfOst = new dob();
 
@@ -163,8 +154,6 @@ describe('Test', () => {
 			ninthOfOst.year1997();
 			homePage.buttonClick();
 
-			// Tenth page of OST
-
 			const tenthOfOst = new employment();
 
 			tenthOfOst.employmentTitle();
@@ -176,8 +165,6 @@ describe('Test', () => {
 			tenthOfOst.fullTime();
 			homePage.buttonClick();
 
-			// Eleventh page of OST
-
 			const eleventhOfOst = new poorSleep();
 
 			eleventhOfOst.poorSleepTitle();
@@ -186,8 +173,6 @@ describe('Test', () => {
 			eleventhOfOst.sleep80();
 			eleventhOfOst.sleep70();
 			homePage.buttonClick();
-
-			// Twelfth page of OST
 
 			const twelfthOfOst = new manyHours();
 
@@ -228,8 +213,6 @@ describe('Test', () => {
 			cy.wait(2000);
 			report.reportButton();
 
-			// LST page 1
-
 			const lst1 = new flow1Lst1();
 			lst1.firtLstHeader();
 			lst1.overThePastMonth();
@@ -244,8 +227,6 @@ describe('Test', () => {
 			lst1.disruptedTemperatureLabel();
 			lst1.disruptedLightLabel();
 			homePage.buttonClick();
-
-			// LST page 2
 
 			const lst2 = new flow1Lst2();
 			lst2.headerLst();
@@ -268,8 +249,6 @@ describe('Test', () => {
 			lst2.qualitySleepLabel();
 			lst2.quality();
 			homePage.buttonClick();
-
-			// LST page 3
 
 			const lst3 = new flow1Lst3();
 			lst3.lst3header();
@@ -294,8 +273,6 @@ describe('Test', () => {
 			lst3.affectedPeopleAnswer();
 			homePage.buttonClick();
 
-			// LST page 4
-
 			const lst4 = new flow1Lst4();
 			lst4.fourthlstHeader();
 			lst4.fourthlstHeader1();
@@ -312,8 +289,6 @@ describe('Test', () => {
 			lst4.sleepWell();
 			lst4.sleepWellAnswer();
 			homePage.buttonClick();
-
-			// LST page 5
 
 			const lst5 = new flow1Lst5();
 			lst5.fiveLstHeader();
@@ -338,8 +313,6 @@ describe('Test', () => {
 			lst5.throughMindAnswer();
 			homePage.buttonClick();
 
-			// LST page 6
-
 			const lst6 = new flow1Lst6();
 			lst6.sixheader();
 			lst6.sixheader1();
@@ -357,8 +330,6 @@ describe('Test', () => {
 			lst6.howSatisfiedAnswer();
 			homePage.buttonClick();
 
-			// LST page 7
-			
 			const lst7 = new flow1Lst7();
 			lst7.sevenHeader();
 			lst7.smokeTobacco();
@@ -383,6 +354,14 @@ describe('Test', () => {
 			lst7.childrenLiveYouAnswer1();
 			lst7.disruptedChildren1();
 			lst7.disruptedChildrenAnswer1();
+			homePage.buttonClick();
+
+			const lst8 = new flow1Lst8();
+			lst8.aboutYou();
+			lst8.shiftWorker();
+			lst8.shiftWorkerAnswer();
+			lst8.communityUsername();
+			lst8.communityUsernameAnswer();
 			homePage.buttonClick();
 		}
 	});

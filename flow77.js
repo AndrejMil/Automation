@@ -1,5 +1,5 @@
 it('Flow 77', () => {
-	cy.visit('https://onboarding.qa.sleepio.com/sleepio/access');
+	cy.visit('https://onboarding.qa.sleepio.com/sleepio/demo2020');
 	cy.get('[type="button"]').first().click();
 
 	cy.get('.sl-page-title').should('contain', 'To what extent has sleep troubled you in general?');
@@ -184,7 +184,7 @@ it('Flow 77', () => {
 	cy.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[2]/div/input').type('Mil234');
 	cy
 		.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
-		.type('andrej.milosavljevic+27052@sleepio.com');
+		.type('andrej.milosavljevic+270511@sleepio.com');
 	cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/form/div[4]/div/input').type('Qwerty123');
 
 	cy.get('[data-hidden="false"] > .sl-input-checkbox').click();
@@ -472,7 +472,7 @@ it('Flow 77', () => {
 	cy.get('[type="button"]').click();
 
 	cy.get('[data-index="0"]').contains('One last thing...');
-	cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/div/input').click().type('11dfffdrdxbf');
+	cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/div/input').click().type('11fgdgtrdxbf');
 
 	cy.wait(5000);
 	cy.get('[type="button"]').click();

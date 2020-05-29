@@ -35,15 +35,19 @@ import bestReflects from '../integration/pageObjects/bestReflects';
 import following from '../integration/pageObjects/following';
 import countryLocated from '../integration/pageObjects/countryLocated';
 import stateWork from '../integration/pageObjects/stateWork';
+import workForComcast from '../integration/pageObjects/workForComcast';
+import workForSalesforce from '../integration/pageObjects/workForSalesforce';
+import nhsAccess from '../integration/pageObjects/nhsAccess';
+import eyexecutive from '../integration/pageObjects/eyexecutive';
 
 import { url } from 'inspector';
 
 var linkovi = [
 	'https://onboarding.qa.sleepio.com/sleepio/google',
-	'https://onboarding.qa.sleepio.com/sleepio/google',
-	'https://onboarding.qa.sleepio.com/sleepio/homedepot',
-	'https://onboarding.qa.sleepio.com/sleepio/capri',
-	'https://onboarding.qa.sleepio.com/sleepio/roche'
+	'https://onboarding.qa.sleepio.com/sleepio/comcast',
+	'https://onboarding.qa.sleepio.com/sleepio/salesforce',
+	'https://onboarding.qa.sleepio.com/sleepio/nhs-staff',
+	'https://onboarding.qa.sleepio.com/sleepio/eyexecutive'
 ];
 var i = 0;
 describe('Proba', () => {
@@ -166,52 +170,79 @@ describe('Proba', () => {
 
 					home.buttonClick();
 				}
-				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/homedepot/1#2/15') {
-					const desc = new describes();
-					desc.describesTitle();
-					desc.homeDepot();
-					desc.spouse();
-					homePage.buttonClick().click();
 
-					const guides = new expertGuides();
-					guides.expertGuidesTitle();
-					guides.none();
-					homePage.buttonClick().click();
+				const seventhOfOst = new howLikelyNew();
 
-					const homeDepotSign = new homeDepotSignUp();
-					homeDepotSign.homeZip();
-					homeDepotSign.associateID();
+				seventhOfOst.howLikelyTitle();
+				seventhOfOst.noChance();
+				home.buttonClick();
+
+				const neki2 = new snoring();
+
+				neki2.snoringTitle();
+				neki2.yes();
+				neki2.snore();
+				home.buttonClick();
+
+				const neki = new breathing();
+
+				neki.breathingTitle();
+				neki.yes();
+				home.buttonClick();
+
+				const firstofOst = new improveYourSleep();
+
+				firstofOst.noneOfTheAbove();
+				home.buttonClick();
+
+				const guides = new expertGuides();
+				guides.none();
+				home.buttonClick();
+
+				const eightOfOst = new gender();
+				eightOfOst.male().click();
+				home.buttonClick();
+
+				const ninthOfOst = new dob();
+
+				ninthOfOst.dobTitle();
+				ninthOfOst.monthJan();
+				ninthOfOst.monthFeb();
+				ninthOfOst.day1();
+				ninthOfOst.day2();
+				ninthOfOst.year1991();
+				ninthOfOst.year1997();
+				home.buttonClick();
+
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/comcast/77#2/12') {
+					const workComcast = new workForComcast();
+					workComcast.workForComcastTitle();
+					workComcast.usa();
+					workComcast.uk();
+					workComcast.dontWorkComcast();
 				}
-				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/capri/1#2/15') {
-					const area = new areaOfBusiness();
-					area.areaOfBusinessTitle();
-					area.retail();
-					area.development();
-					area.corporate();
-					area.distribution();
-					area.other();
-					homePage.buttonClick().click();
-
-					const benefits = new benefitsPlans();
-					benefits.benefitsPlansTitle();
-					benefits.cignaEnh();
-					benefits.cignaCore();
-					benefits.cignaMedical();
-					benefits.no();
-					benefits.other();
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/salesforce/77#2/12') {
+					const workSalesforce = new workForSalesforce();
+					workSalesforce.workForSalesforceTitle();
+					workSalesforce.italy();
+					workSalesforce.france();
+					workSalesforce.dontWorkSalesforce();
 				}
 			});
 
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/roche/1#2/15') {
-					const expertGuide = new expertGuides();
-					expertGuide.expertGuidesTitle();
-					expertGuide.jetlag();
-					expertGuide.none();
-					homePage.buttonClick().click();
-
-					const rocheSign = new rocheSignUp();
-					rocheSign.unixID();
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/nhs-staff/77#2/12') {
+					const nhs = new nhsAccess();
+					nhs.nhsAccessTitle();
+					nhs.nhsAccessAnswer();
+				}
+			});
+			cy.url().then((urlString) => {
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/eyexecutive/77#3/1') {
+					const eyeExecut = new eyexecutive();
+					eyeExecut.eyexecutiveTitle();
+					eyeExecut.eyexecutiveHeltText();
+					eyeExecut.eyexecutiveAnswer();
 				}
 			});
 

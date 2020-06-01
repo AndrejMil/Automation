@@ -13,6 +13,9 @@ class expertGuides {
 	parent() {
 		return cy.get('[for="options-id-2"]').click();
 	}
+	pregnancy() {
+		return cy.get('[for="options-id-3"]').click();
+	}
 	none() {
 		return cy.get('#options-id-none-of-the-above').click();
 	}

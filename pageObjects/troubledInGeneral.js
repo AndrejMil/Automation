@@ -4,6 +4,9 @@ class troubledInGeneral {
 	}
 
 	little() {
+		return cy.get('.sl-select').select('A little');
+	}
+	notAtAll() {
 		return cy.get('.sl-select').select('Not at all');
 	}
 

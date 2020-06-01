@@ -20,5 +20,19 @@ class dob {
 	year1997() {
 		return cy.get('#select-year').select('1997');
 	}
+	postAnswer() {
+		return cy
+			.get('.sl-page-post-answer')
+			.should(
+				'contain',
+				"People's sleep patterns change with age so knowing how old you are helps us interpret your sleep problems.  Not to worry, we will maintain the privacy of this and any other health information you give us in compliance with the law and with our own"
+			);
+	}
+	privacy() {
+		return cy
+			.get('.sl-page-post-answer')
+			.contains('Privacy Policy')
+			.should('have.attr', 'href', 'https://www.sleepio.com/privacy/');
+	}
 }
 export default dob;

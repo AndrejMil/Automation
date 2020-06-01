@@ -21,7 +21,7 @@ class flow1Lst8 {
 			.should('contain', 'Please choose a community username');
 	}
 	communityUsernameAnswer() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/input').type('11csjifvsdf');
+		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/input').type('11sdgfvsdf');
 	}
 }
 export default flow1Lst8;

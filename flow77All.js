@@ -33,7 +33,7 @@ import flow1Lst8 from '../integration/pageObjects/flow76Lst-8';
 import { url } from 'inspector';
 
 var linkovi = [
-	'https://onboarding.qa.sleepio.com/sleepio/bh2020/77#1/1'
+	'https://onboarding.sleepio.com/sleepio/bh2020/77#1/1'
 ];
 var i = 0;
 describe('Proba', () => {

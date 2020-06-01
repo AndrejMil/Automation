@@ -24,7 +24,7 @@ class flow1Lst8 {
 	}
 
 	communityUsernameAnswer() {
-		return cy.get('.sl-input-text').type('11csgyjhddfvsdf');
+		return cy.get('.sl-input-text').type('11csgysffgfvsdf');
 	}
 
 	reachOutSoon() {

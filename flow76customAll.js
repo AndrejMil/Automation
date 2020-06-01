@@ -34,7 +34,7 @@ import workLocation from '../integration/pageObjects/workLocation';
 import { url } from 'inspector';
 
 var linkovi = [
-	'https://onboarding.qa.sleepio.com/sleepio/hubbell/76#1/1'
+	'https://onboarding.sleepio.com/sleepio/hubbell/76#1/1'
 ];
 var i = 0;
 describe('Proba', () => {

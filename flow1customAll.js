@@ -22,10 +22,10 @@ import benefitsPlans from './pageObjects/benefitsPlans';
 import { url } from 'inspector';
 
 var linkovi = [
-	'https://onboarding.qa.sleepio.com/sleepio/big-health',
-	'https://onboarding.qa.sleepio.com/sleepio/accenture',
-	'https://onboarding.qa.sleepio.com/sleepio/homedepot',
-	'https://onboarding.qa.sleepio.com/sleepio/capri'
+	'https://onboarding.sleepio.com/sleepio/big-health',
+	'https://onboarding.sleepio.com/sleepio/accenture',
+	'https://onboarding.sleepio.com/sleepio/homedepot',
+	'https://onboarding.sleepio.com/sleepio/capri'
 ];
 var i = 0;
 describe('Proba', () => {
@@ -52,7 +52,7 @@ describe('Proba', () => {
 			homePage.buttonClick();
 
 			// Second page of OST
-			cy.screenshot();
+
 			const secondOfOst = new howLong();
 
 			secondOfOst.howLongTitle();

@@ -9,8 +9,40 @@ class flow1Lst7 {
 			.should('contain', 'How often (if ever) do you smoke tobacco?');
 	}
 
-	smokeTobaccoAnswer() {
-		return cy.get('#60_0').click();
+	smokeTobaccoNever() {
+		return cy.get('#60_0').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'Never');
+		});
+	}
+	smokeTobaccoRarely() {
+		return cy.get('#60_1').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'Rarely');
+		});
+	}
+	smokeTobacco10() {
+		return cy.get('#60_2').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/fieldset/div/div[3]/label/span')
+				.should('contain', '1-10 times a day');
+		});
+	}
+	smokeTobacco20() {
+		return cy.get('#60_3').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/fieldset/div/div[4]/label/span')
+				.should('contain', '11-20 times a day');
+		});
+	}
+	smokeTobacco21() {
+		return cy.get('#60_4').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/fieldset/div/div[5]/label/span')
+				.should('contain', '21 + times a day');
+		});
 	}
 
 	drinkAlcohol() {
@@ -26,24 +58,120 @@ class flow1Lst7 {
 	drinkAlcoholNewAnswer() {
 		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select').select('Never');
 	}
-	drinkAlcoholAnswer1() {
-		return cy.get('#61_0').click();
+	drinkAlcoholNever() {
+		return cy.get('#61_0').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'Never');
+		});
+	}
+	drinkAlcoholLess() {
+		return cy.get('#61_1').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'Less than once a week');
+		});
+	}
+	drinkAlcoholOnce() {
+		return cy.get('#61_2').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/fieldset/div/div[3]/label/span')
+				.should('contain', 'Once a week');
+		});
+	}
+	drinkAlcohol2() {
+		return cy.get('#61_3').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/fieldset/div/div[4]/label/span')
+				.should('contain', '2-3 times a week');
+		});
+	}
+	drinkAlcohol4() {
+		return cy.get('#61_4').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/fieldset/div/div[5]/label/span')
+				.should('contain', '4 + times a week');
+		});
 	}
 	consumeCaffeine() {
 		return cy
 			.get('[data-semantic-id="consume_caffeine"]')
 			.should('contain', 'How often (if ever) do you consume caffeine?');
 	}
-	consumeCaffeineAnswer1() {
-		return cy.get('#62_0').click();
+	consumeCaffeineNever() {
+		return cy.get('#62_0').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'Never');
+		});
+	}
+	consumeCaffeineLess() {
+		return cy.get('#62_1').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'Less than once a day');
+		});
+	}
+	consumeCaffeineOnce() {
+		return cy.get('#62_2').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/fieldset/div/div[3]/label/span')
+				.should('contain', 'Once a day');
+		});
+	}
+	consumeCaffeine2() {
+		return cy.get('#62_3').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/fieldset/div/div[4]/label/span')
+				.should('contain', '2-3 times a day');
+		});
+	}
+	consumeCaffeine4() {
+		return cy.get('#62_4').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/fieldset/div/div[5]/label/span')
+				.should('contain', '4 + times a day');
+		});
 	}
 	regularlyExercise() {
 		return cy
 			.get('[data-semantic-id="regularly_exercise"]')
 			.should('contain', 'How regularly (if ever) do you exercise?');
 	}
-	regularlyExerciseAnswer1() {
-		return cy.get('#63_0').click();
+	regularlyExerciseNever() {
+		return cy.get('#63_0').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'Never');
+		});
+	}
+	regularlyExerciseLess() {
+		return cy.get('#63_1').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'Less than once a week');
+		});
+	}
+	regularlyExercisOnce() {
+		return cy.get('#63_2').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/fieldset/div/div[3]/label/span')
+				.should('contain', 'Once a week');
+		});
+	}
+	regularlyExercis2() {
+		return cy.get('#63_3').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/fieldset/div/div[4]/label/span')
+				.should('contain', '2 - 3 times a week');
+		});
+	}
+	regularlyExercis4() {
+		return cy.get('#63_4').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/fieldset/div/div[5]/label/span')
+				.should('contain', '4 + times a week');
+		});
 	}
 	sleepingPills() {
 		return cy
@@ -54,7 +182,45 @@ class flow1Lst7 {
 			);
 	}
 	sleepingPillsAnswer1() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select').select('1 night');
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select')
+			.select('1 night')
+			.then(() => {
+				cy
+					.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select')
+					.select('2 nights')
+					.then(() => {
+						cy
+							.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select')
+							.select('3 nights')
+							.then(() => {
+								cy
+									.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select')
+									.select('0 nights')
+									.then(() => {
+										cy
+											.xpath(
+												'/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select'
+											)
+											.select('4 nights')
+											.then(() => {
+												cy
+													.xpath(
+														'/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select'
+													)
+													.select('5 nights')
+													.then(() => {
+														cy
+															.xpath(
+																'/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select'
+															)
+															.select('6 nights');
+													});
+											});
+									});
+							});
+					});
+			});
 	}
 
 	nonPrescription() {
@@ -63,45 +229,180 @@ class flow1Lst7 {
 			.should('contain', 'How many nights in the last 2 weeks have you taken non-prescription sleep remedies?');
 	}
 	nonPrescriptionAnswer1() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/div/div/select').select('1 night');
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/div/div/select')
+			.select('1 night')
+			.then(() => {
+				cy
+					.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/div/div/select')
+					.select('2 nights')
+					.then(() => {
+						cy
+							.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/div/div/select')
+							.select('3 nights')
+							.then(() => {
+								cy
+									.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/div/div/select')
+									.select('0 nights')
+									.then(() => {
+										cy
+											.xpath(
+												'/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/div/div/select'
+											)
+											.select('4 nights')
+											.then(() => {
+												cy
+													.xpath(
+														'/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/div/div/select'
+													)
+													.select('5 nights')
+													.then(() => {
+														cy
+															.xpath(
+																'/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/div/div/select'
+															)
+															.select('6 nights');
+													});
+											});
+									});
+							});
+					});
+			});
 	}
 	yourselfOverweight() {
 		return cy
 			.get('[data-semantic-id="yourself_overweight"]')
 			.should('contain', 'Do you consider yourself to be overweight?');
 	}
-	yourselfOverweightAnswer1() {
-		return cy.get('#66_1').click();
+	yourselfOverweightNo() {
+		return cy.get('#66_0').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'No');
+		});
+	}
+	yourselfOverweightYes() {
+		return cy.get('#66_1').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'Yes');
+		});
 	}
 	currentlyPartner() {
 		return cy.get('[data-semantic-id="currently_partner"]').should('contain', 'Do you currently have a partner?');
 	}
-	currentlyPartnerAnswer1() {
-		return cy.get('#67_1').click();
+	currentlyPartnerNo() {
+		return cy.get('#67_0').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'No');
+		});
+	}
+	currentlyPartnerYes() {
+		return cy.get('#67_1').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'Yes');
+		});
 	}
 	disruptedPartner1() {
 		return cy
 			.get('[data-semantic-id="sleep_disrupted_partner"]')
 			.should('contain', 'Over the past month, how often has your sleep been disrupted by your partner?');
 	}
-	disruptedPartnerAnswer1() {
-		return cy.get('#68_0').click();
+	disruptedPartnerNever() {
+		return cy.get('#68_0').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'Never');
+		});
+	}
+	disruptedPartnerRarely() {
+		return cy.get('#68_1').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'Rarely');
+		});
+	}
+	disruptedPartnerSometimes() {
+		return cy.get('#68_2').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/fieldset/div/div[3]/label/span')
+				.should('contain', 'Sometimes');
+		});
+	}
+	disruptedPartnerOften() {
+		return cy.get('#68_3').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/fieldset/div/div[4]/label/span')
+				.should('contain', 'Often');
+		});
+	}
+	disruptedPartnerVeryOften() {
+		return cy.get('#68_4').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/fieldset/div/div[5]/label/span')
+				.should('contain', 'Very often');
+		});
 	}
 	childrenLiveYou() {
 		return cy
 			.get('[data-semantic-id="children_live_you"]')
 			.should('contain', 'Do you have children who live with you?');
 	}
-	childrenLiveYouAnswer1() {
-		return cy.get('#69_1').click();
+	childrenLiveYouNo() {
+		return cy.get('#69_0').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[11]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'No');
+		});
+	}
+	childrenLiveYouYes() {
+		return cy.get('#69_1').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[11]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'Yes');
+		});
 	}
 	disruptedChildren1() {
 		return cy
 			.get('[data-semantic-id="sleep_disrupted_children"]')
 			.should('contain', 'Over the past month, how often has your sleep been disrupted by your children?');
 	}
-	disruptedChildrenAnswer1() {
-		return cy.get('#70_0').click();
+	disruptedChildrenNever() {
+		return cy.get('#70_0').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[12]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'Never');
+		});
+	}
+	disruptedChildrenRarely() {
+		return cy.get('#70_1').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[12]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'Rarely');
+		});
+	}
+	disruptedChildrenSometimes() {
+		return cy.get('#70_2').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[12]/div/div[2]/fieldset/div/div[3]/label/span')
+				.should('contain', 'Sometimes');
+		});
+	}
+	disruptedChildrenOften() {
+		return cy.get('#70_3').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[12]/div/div[2]/fieldset/div/div[4]/label/span')
+				.should('contain', 'Often');
+		});
+	}
+	disruptedChildrenVeryOften() {
+		return cy.get('#70_4').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[12]/div/div[2]/fieldset/div/div[5]/label/span')
+				.should('contain', 'Very often');
+		});
 	}
 
 	exercise() {

@@ -33,7 +33,7 @@ import flow1Lst8 from '../integration/pageObjects/flow76Lst-8';
 import { url } from 'inspector';
 
 var linkovi = [
-	'https://onboarding.qa.sleepio.com/sleepio/libertymutual/78#1/1'
+	'https://onboarding.sleepio.com/sleepio/libertymutual/78#1/1'
 ];
 var i = 0;
 describe('Proba', () => {
@@ -182,7 +182,7 @@ describe('Proba', () => {
 			eligibility.zipLabel();
 			eligibility.zipImput();
 
-			cy.visit('https://onboarding.qa.sleepio.com/sleepio/libertymutual/78#5/1');
+			cy.visit('https://onboarding.sleepio.com/sleepio/libertymutual/78#5/1');
 			const lst2 = new flow1Lst2();
 
 			lst2.tryGoSleepNew();

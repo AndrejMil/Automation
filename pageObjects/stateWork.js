@@ -13,5 +13,13 @@ class stateWork {
 	arizona() {
 		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[1]/div/div[2]/div/div/select').select('Arizona');
 	}
+
+	checkinhEveryOptionGoogle(state, value) {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[1]/div/div[2]/div/div/select')
+			.select(state)
+			.invoke('val')
+			.should('deep.equal', value);
+	}
 }
 export default stateWork;

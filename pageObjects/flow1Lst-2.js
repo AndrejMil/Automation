@@ -108,6 +108,155 @@ class flow1Lst2 {
 	qualityNew() {
 		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select').select('Very good');
 	}
+	validator1() {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/select')
+			.select('12:00 AM')
+			.then(() => {
+				cy
+					.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select')
+					.select('8:00 PM')
+					.then(() => {
+						cy
+							.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/p')
+							.should('contain', 'This seems too early based on when you normally get into bed.')
+							.then(() => {
+								cy
+									.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select')
+									.select('9:00 PM')
+									.then(() => {
+										cy
+											.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/p')
+											.should(
+												'contain',
+												'This seems too early based on when you normally get into bed.'
+											)
+											.then(() => {
+												cy
+													.xpath(
+														'/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select'
+													)
+													.select('10:00 PM')
+													.then(() => {
+														cy
+															.xpath(
+																'/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/p'
+															)
+															.should(
+																'contain',
+																'This seems too early based on when you normally get into bed.'
+															)
+															.then(() => {
+																cy
+																	.xpath(
+																		'/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select'
+																	)
+																	.select('11:00 PM')
+																	.then(() => {
+																		cy
+																			.xpath(
+																				'/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/p'
+																			)
+																			.should(
+																				'contain',
+																				'This seems too early based on when you normally get into bed.'
+																			)
+																			.then(() => {
+																				cy
+																					.xpath(
+																						'/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select'
+																					)
+																					.select('8:00 PM')
+																					.then(() => {
+																						cy
+																							.xpath(
+																								'/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/select'
+																							)
+																							.select('8:00 PM');
+																					});
+																			});
+																	});
+															});
+													});
+											});
+									});
+							});
+					});
+			});
+	}
+
+	validator2() {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/div/div/select')
+			.select('11:00 AM')
+			.then(() => {
+				cy
+					.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select')
+					.select('7:45 AM')
+					.then(() => {
+						cy
+							.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/p')
+							.should(
+								'contain',
+								'This seems too early based on when you normally wake up for the last time.'
+							)
+							.then(() => {
+								cy
+									.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select')
+									.select('8:45 AM')
+									.then(() => {
+										cy
+											.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/p')
+											.should(
+												'contain',
+												'This seems too early based on when you normally wake up for the last time.'
+											)
+											.then(() => {
+												cy
+													.xpath(
+														'/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select'
+													)
+													.select('9:45 AM')
+													.then(() => {
+														cy
+															.xpath(
+																'/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/p'
+															)
+															.should(
+																'contain',
+																'This seems too early based on when you normally wake up for the last time.'
+															)
+															.then(() => {
+																cy
+																	.xpath(
+																		'/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select'
+																	)
+																	.select('10:45 AM')
+																	.then(() => {
+																		cy
+																			.xpath(
+																				'/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/p'
+																			)
+																			.should(
+																				'contain',
+																				'This seems too early based on when you normally wake up for the last time.'
+																			)
+																			.then(() => {
+																				cy
+																					.xpath(
+																						'/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select'
+																					)
+																					.select('11:45 AM');
+																			});
+																	});
+															});
+													});
+											});
+									});
+							});
+					});
+			});
+	}
 }
 
 export default flow1Lst2;

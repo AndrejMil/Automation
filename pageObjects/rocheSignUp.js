@@ -1,8 +1,11 @@
 class rocheSignUp {
 	unixID() {
 		return cy
-			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[1]/div[3]/div/label[1]')
-			.contains('UNIX ID or User ID');
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[4]/label')
+			.contains('UNIX ID or User ID')
+			.then(() => {
+				cy.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[4]/div/input').click().type('12345');
+			});
 	}
 }
 export default rocheSignUp;

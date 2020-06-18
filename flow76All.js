@@ -29,24 +29,32 @@ import sleepioExperts from '../integration/pageObjects/sleepioExperts';
 import flow76Eligibility from '../integration/pageObjects/flow76Eligibility';
 import perscription from '../integration/pageObjects/flow76prescription ';
 import flow1Lst8 from '../integration/pageObjects/flow76Lst-8';
+import flow1LogIn from '../integration/pageObjects/flow1LogIn';
 
 import { url } from 'inspector';
 
 var linkovi = [
-	'https://onboarding.sleepio.com/sleepio/holman/76#1/1'
+	'https://onboarding.qa.sleepio.com/sleepio/holman/76#1/1'
 ];
 var i = 0;
 describe('Proba', () => {
 	console.log(linkovi[i]);
 	it('Start the test', () => {
+		Cypress.currentTest.retries(5);
 		// Get started page
 		for (; i < linkovi.length; i++) {
 			const home = new HomePage();
 			const homePage = new homePageNew();
 
 			homePage.visitFirstPage(linkovi[i]);
+			const logIn = new flow1LogIn();
+
+			logIn.logIn();
 			homePage.buttonNew();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
+			logIn.logIn();
 			const fourthdOfOst = new troubledInGeneralNew();
 
 			fourthdOfOst.little();
@@ -56,6 +64,9 @@ describe('Proba', () => {
 			fourthdOfOst.notAtAll();
 			home.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
+			logIn.logIn();
 			const fiveOfOst = new manyNights();
 
 			fiveOfOst.manyNightsTitle();
@@ -69,22 +80,36 @@ describe('Proba', () => {
 			fiveOfOst.night7();
 			home.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
+			logIn.logIn();
 			const still = new stillProblem();
 			still.stillProblemTitle();
 			still.yes();
 			still.no();
 			home.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
+			logIn.logIn();
 			const secondOfOst = new howLong();
 
 			secondOfOst.howLongTitle();
-			secondOfOst.weeks();
-			secondOfOst.months();
-			secondOfOst.years();
-			secondOfOst.moreYears();
 			secondOfOst.dontHaveProblem();
+			secondOfOst.weekOrLess();
+			secondOfOst.weeks();
+			secondOfOst.month();
+			secondOfOst.months();
+			secondOfOst.sevenMonths();
+			secondOfOst.years();
+			secondOfOst.fiveYears();
+			secondOfOst.sixYears();
+			secondOfOst.moreYears();
 			home.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
+			logIn.logIn();
 			const seventhOfOst = new howLikelyNew();
 
 			seventhOfOst.howLikelyTitle();
@@ -94,14 +119,20 @@ describe('Proba', () => {
 			seventhOfOst.highChance();
 			home.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
+			logIn.logIn();
 			const neki2 = new snoring();
 
 			neki2.snoringTitle();
 			neki2.no();
 			neki2.yes();
-			neki2.snore();
+			neki2.dontsnore();
 			home.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
+			logIn.logIn();
 			const neki = new breathing();
 
 			neki.breathingTitle();
@@ -109,6 +140,9 @@ describe('Proba', () => {
 			neki.yes();
 			home.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
+			logIn.logIn();
 			const firstofOst = new improveYourSleep();
 
 			firstofOst.improveSleepTitle();
@@ -119,13 +153,20 @@ describe('Proba', () => {
 			firstofOst.noneOfTheAbove();
 			home.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
+			logIn.logIn();
 			const guides = new expertGuides();
 			guides.jetlag();
 			guides.shiftWork();
 			guides.parent();
+			guides.pregnancy();
 			guides.none();
 			home.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
+			logIn.logIn();
 			const eightOfOst = new gender();
 
 			eightOfOst.genderTitle();
@@ -134,6 +175,9 @@ describe('Proba', () => {
 			eightOfOst.another().click();
 			home.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
+			logIn.logIn();
 			const ninthOfOst = new dob();
 
 			ninthOfOst.dobTitle();
@@ -145,6 +189,9 @@ describe('Proba', () => {
 			ninthOfOst.year1997();
 			home.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
+			logIn.logIn();
 			const experts = new sleepioExperts();
 			experts.expertsTitle();
 			experts.expertsTitle1();
@@ -153,6 +200,9 @@ describe('Proba', () => {
 			cy.go(-1);
 			experts.expertsSkip();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
+			logIn.logIn();
 			const signUp = new flow76SignUp();
 
 			signUp.signUpHeader();
@@ -173,14 +223,18 @@ describe('Proba', () => {
 			signUp.suitable();
 
 			signUp.signUpButton();
+			cy.wait(7000);
 
 			const report = new flow1SleepReport();
+
 			report.headerSleepReport();
 			report.logOut();
-			cy.wait(5000);
+
 			cy.get('.dark-blue-bg > div > .sl-button').click();
 
 			const eligibility = new flow76Eligibility();
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			eligibility.coverage();
 			eligibility.firstNameLabel();
 			eligibility.firstName();
@@ -196,6 +250,8 @@ describe('Proba', () => {
 
 			const lst2 = new flow1Lst2();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			lst2.tryGoSleepNew();
 			lst2.getIntoBadNew();
 			lst2.tryGoSleepLabel();
@@ -217,121 +273,198 @@ describe('Proba', () => {
 
 			const lst4 = new flow1Lst4();
 
-			lst4.comfortablePosition();
-			lst4.comfortablePositionAnswer();
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
+			lst4.comfortablePositionNever();
+			lst4.comfortablePositionRarely();
+			lst4.comfortablePositionSometimes();
+			lst4.comfortablePositionOften();
+			lst4.comfortablePositionVeryOften();
 			lst4.relaxMyBody();
-			lst4.relaxMyBodyAnswer();
+			lst4.relaxMyBodyNever();
+			lst4.relaxMyBodyRarely();
+			lst4.relaxMyBodySometimes();
+			lst4.relaxMyBodyOften();
+			lst4.relaxMyBodyVeryOften();
 			lst4.hardSleep();
-			lst4.hardSleepAnswer();
+			lst4.hardSleepNeverNew();
+			lst4.hardSleepRarelyNew();
+			lst4.hardSleepSometimesNew();
+			lst4.hardSleepOftenNew();
+			lst4.hardSleepVeryOftenNew();
 			lst4.feelTired();
-			lst4.feelTiredAnswer();
-
-			lst4.difficult();
-			lst4.difficultAnswer();
+			lst4.feelTiredNeverNew();
+			lst4.feelTiredRarelyNew();
+			lst4.feelTiredSometimesNew();
+			lst4.feelTiredOftenNew();
+			lst4.feelTiredVeryOftenNew();
+			lst4.worriesNever();
+			lst4.worriesRarely();
+			lst4.worriesSometimes();
+			lst4.worriesOften();
+			lst4.worriesVeryOften();
 			home.buttonClick();
 
 			const lst3 = new flow1Lst3();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			lst3.abilityStayAwake();
-			lst3.abilityStayAwakeAnswer();
+			lst3.abilityStayAwakeNot();
+			lst3.abilityStayAwakeLitle();
+			lst3.abilityStayAwakeSomewhat();
+			lst3.abilityStayAwakeMuch();
+			lst3.abilityStayAwakeVeryMuch();
+
 			lst3.affectedRelationships();
-			lst3.affectedRelationshipsAnswer();
+			lst3.affectedRelationshipsNotNew();
+			lst3.affectedRelationshipsLitleNew();
+			lst3.affectedRelationshipsSomewhatNew();
+			lst3.affectedRelationshipsMuchNew();
+			lst3.affectedRelationshipsVeryMuchNew();
+
 			home.buttonClick();
 
 			const lst5 = new flow1Lst5();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			lst5.happenedTodayNew();
-			lst5.happenedTodayAnsweNew();
+			lst5.happenedTodayAnsweNeverNew();
+			lst5.happenedTodayAnsweSometimesNew();
+			lst5.happenedTodayAnsweVeryOftenNew();
 
 			lst5.controlSleepNew();
-			lst5.controlSleepAnswerNew();
+			lst5.controlSleepAnswerNeverNew();
+			lst5.controlSleepAnswerSometimesNew();
+			lst5.controlSleepAnswerVeryOftenNew();
 
 			lst5.hearOutsideNew();
-			lst5.hearOutsideAnswerNew();
+			lst5.hearOutsideNeverNew();
+			lst5.hearOutsideSometimesNew();
+			lst5.hearOutsideVeryOftenNew();
 
 			lst5.future();
-			lst5.futureAnswer();
+			lst5.futureNever();
+			lst5.futureSometimes();
+			lst5.futureVeryOften();
 
 			lst5.lyingAwake();
-			lst5.lyingAwakeAnswerNew();
+			lst5.lyingAwakeNeverNew();
+			lst5.lyingAwakeSometimesNew();
+			lst5.lyingAwakeVeryOftenNew();
 
 			lst5.sleepTonightNew();
-			lst5.sleepTonightAnswerNew();
+			lst5.sleepTonightNeverNew();
+			lst5.sleepTonightSometimesNew();
+			lst5.sleepTonightVeryOftenNew();
 
 			home.buttonClick();
 
 			const lstpills = new perscription();
+
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			lstpills.perscriptionTitle();
 			lstpills.prescriptionPills();
-			lstpills.prescriptionPillsAnswer();
+			lstpills.prescriptionPillsNo();
+			lstpills.prescriptionPillsTake();
+			lstpills.prescriptionPillsMostNights();
+
 			lstpills.nonPrescriptionPills();
-			lstpills.nonPrescriptionPillsAnswer();
+			lstpills.nonPrescriptionPillsNo();
+			lstpills.nonPrescriptionPillsTake();
+			lstpills.nonPrescriptionPillsMostNights();
+
 			home.buttonClick();
 
 			const lst6 = new flow1Lst6();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			lst6.littleInterest();
-			lst6.littleInterestAnsver();
+			lst6.littleInterestNot();
+			lst6.littleInterestSeveral();
+			lst6.littleInterestMore();
+			lst6.littleInterestNearly();
 
 			lst6.feelingDepressed();
-			lst6.feelingDepressedAnswer();
+			lst6.feelingDepressedNot();
+			lst6.feelingDepressedSeveral();
+			lst6.feelingDepressedMore();
+			lst6.feelingDepressedNearly();
 
 			lst6.feelingAnxious();
-			lst6.feelingAnxiousAnswer();
+			lst6.feelingAnxiousNot();
+			lst6.feelingAnxiousSeveral();
+			lst6.feelingAnxiousMore();
+			lst6.feelingAnxiousNearly();
 
 			lst6.controlWorrying();
-			lst6.controlWorryingAnswer();
+			lst6.controlWorryingNotNew();
+			lst6.controlWorryingSeveralNew();
+			lst6.controlWorryingMoreNew();
+			lst6.controlWorryingNearlyNew();
 
 			lst6.unableToControl();
-			lst6.unableToControlAnswer();
+			lst6.unableToControlAnswers();
 
 			lst6.yourHealthIs();
-			lst6.yourHealthIsAnswer();
+			lst6.yourHealthIsAnswers();
 
 			lst6.overweight();
-			lst6.overweightAnswer();
+			lst6.overweightNo();
+			lst6.overweightYes();
 
 			home.buttonClick();
 
 			const lst7 = new flow1Lst7();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			lst7.exercise();
-			lst7.exerciseAnswer();
+			lst7.regularlyExerciseAnswers();
 
 			lst7.nicotine();
-			lst7.nicotineAnswer();
+			lst7.nicotineAnswers();
 
 			lst7.drinkAlcoholNew();
-			lst7.drinkAlcoholNewAnswer();
+			lst7.drinkAlcoholAnswers();
 
 			lst7.disruptedChildren();
-			lst7.disruptedChildrenAnswer();
+			lst7.disruptedChildrenAnswers();
 
 			lst7.shiftWorker();
-			lst7.shiftWorkerAnswer();
+			lst7.shiftWorkerNo();
+			lst7.shiftWorkerYes();
 
 			lst7.employmentStatus();
-			lst7.employmentStatusAnswer();
+			lst7.employmentStatusAnswers();
 
 			lst7.affectProductivity();
-			lst7.affectProductivityAnswer();
+			lst7.affectProductivityAnswers();
 
 			lst7.hoursMissed();
 			lst7.hoursMissedAnswer();
 
 			lst7.disruptedPartner();
-			lst7.disruptedPartnerAnswer();
+			lst7.disruptedPartnerAnswers();
 
 			home.buttonClick();
 
 			const lst8 = new flow1Lst8();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			lst8.timeOfDay();
-			lst8.timeOfDayAnswer();
+			lst8.timeOfDayAnswers();
+
 			lst8.helpfulSleepioExpert();
-			lst8.helpfulSleepioExpertAnswer();
+			lst8.helpfulSleepioExpertAnswers();
+
 			lst8.communityUsername();
 			lst8.communityUsernameAnswer();
+
 			lst8.reachOutSoon();
 			home.buttonClick();
 			cy.wait(5000);

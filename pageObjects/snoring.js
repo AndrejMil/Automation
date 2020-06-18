@@ -8,7 +8,7 @@ class snoring {
 	no() {
 		return cy.get('#options-id-1').click();
 	}
-	snore() {
+	dontsnore() {
 		return cy.get('#options-id-2').click();
 	}
 }

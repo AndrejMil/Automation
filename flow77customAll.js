@@ -48,7 +48,7 @@ import nhsScotlandPostcode from '../integration/pageObjects/nhsScotlandPostcode'
 import nhsSelectFunction from '../integration/pageObjects/nhsSelectFunction';
 
 import { url } from 'inspector';
-var states = [
+var countryes = [
 	{ country: 'United Kingdom', value: 'GB' },
 	{ country: 'United States', value: 'US' },
 	{ country: 'Afghanistan', value: 'AF' },
@@ -297,13 +297,104 @@ var states = [
 	{ country: 'Zimbabwe', value: 'ZW' }
 ];
 
+var states = [
+	{ state: 'Alabama', value: 'Alabama' },
+	{ state: 'Alaska', value: 'Alaska' },
+	{ state: 'Arizona', value: 'Arizona' },
+	{ state: 'Arkansas', value: 'Arkansas' },
+	{ state: 'California', value: 'California' },
+	{ state: 'Colorado', value: 'Colorado' },
+	{ state: 'Connecticut', value: 'Connecticut' },
+	{ state: 'Delaware', value: 'Delaware' },
+	{ state: 'Florida', value: 'Florida' },
+	{ state: 'Georgia', value: 'Georgia' },
+	{ state: 'Hawaii', value: 'Hawaii' },
+	{ state: 'Idaho', value: 'Idaho' },
+	{ state: 'Illinois', value: 'Illinois' },
+	{ state: 'Indiana', value: 'Indiana' },
+	{ state: 'Iowa', value: 'Iowa' },
+	{ state: 'Kansas', value: 'Kansas' },
+	{ state: 'Kentucky', value: 'Kentucky' },
+	{ state: 'Louisiana', value: 'Louisiana' },
+	{ state: 'Maine', value: 'Maine' },
+	{ state: 'Maryland', value: 'Maryland' },
+	{ state: 'Massachusetts', value: 'Massachusetts' },
+	{ state: 'Michigan', value: 'Michigan' },
+	{ state: 'Minnesota', value: 'Minnesota' },
+	{ state: 'Mississippi', value: 'Mississippi' },
+	{ state: 'Missouri', value: 'Missouri' },
+	{ state: 'Montana', value: 'Montana' },
+	{ state: 'Nebraska', value: 'Nebraska' },
+	{ state: 'Nevada', value: 'Nevada' },
+	{ state: 'New Hampshire', value: 'NewHampshire' },
+	{ state: 'New Jersey', value: 'NewJersey' },
+	{ state: 'New Mexico', value: 'NewMexico' },
+	{ state: 'New York', value: 'NewYork' },
+	{ state: 'North Carolina', value: 'NorthCarolina' },
+	{ state: 'North Dakota', value: 'NorthDakota' },
+	{ state: 'Ohio', value: 'Ohio' },
+	{ state: 'Oklahoma', value: 'Oklahoma' },
+	{ state: 'Oregon', value: 'Oregon' },
+	{ state: 'Pennsylvania', value: 'Pennsylvania' },
+	{ state: 'Rhode Island', value: 'RhodeIsland' },
+	{ state: 'South Carolina', value: 'SouthCarolina' },
+	{ state: 'South Dakota', value: 'SouthDakota' },
+	{ state: 'Tennessee', value: 'Tennessee' },
+	{ state: 'Texas', value: 'Texas' },
+	{ state: 'Utah', value: 'Utah' },
+	{ state: 'Vermont', value: 'Vermont' },
+	{ state: 'Virginia', value: 'Virginia' },
+	{ state: 'Washington', value: 'Washington' },
+	{ state: 'West Virginia', value: 'WestVirginia' },
+	{ state: 'Wisconsin', value: 'Wisconsin' },
+	{ state: 'Wyoming', value: 'Wyoming' },
+	{ state: 'District of Columbia', value: 'DistrictOfColumbia' },
+	{ state: 'American Samoa', value: 'AmericanSamoa' },
+	{ state: 'Guam', value: 'Guam' },
+	{ state: 'Northern Mariana Islands', value: 'NorthernMarianaIslands' },
+	{ state: 'Puerto Rico', value: 'PuertoRico' },
+	{ state: 'United States Minor Outlying Islands', value: 'UnitedStatesMinorOutlyingIslands' },
+	{ state: 'Virgin Islands', value: 'VirginIslands' }
+];
+
+var salesforceStates = [
+	{ state: "I don't work for Salesforce", value: 'notSalesforce' },
+	{ state: 'Argentina', value: 'argentina' },
+	{ state: 'Australia', value: 'australia' },
+	{ state: 'Belgium', value: 'belgium' },
+	{ state: 'Brazil', value: 'brazil' },
+	{ state: 'Canada', value: 'canada' },
+	{ state: 'Denmark', value: 'denmark' },
+	{ state: 'Finland', value: 'finland' },
+	{ state: 'France', value: 'france' },
+	{ state: 'Germany', value: 'germany' },
+	{ state: 'Hong Kong', value: 'hongKong' },
+	{ state: 'India', value: 'india' },
+	{ state: 'Ireland', value: 'ireland' },
+	{ state: 'Israel', value: 'israel' },
+	{ state: 'Italy', value: 'italy' },
+	{ state: 'Japan', value: 'japan' },
+	{ state: 'Korea', value: 'korea' },
+	{ state: 'Mexico', value: 'mexico' },
+	{ state: 'Morocco', value: 'morocco' },
+	{ state: 'Norway', value: 'norway' },
+	{ state: 'The Netherlands', value: 'theNetherlands' },
+	{ state: 'New Zealand', value: 'newZealand' },
+	{ state: 'Singapore', value: 'singapore' },
+	{ state: 'Spain', value: 'spain' },
+	{ state: 'Sweden', value: 'sweden' },
+	{ state: 'Switzerland', value: 'switzerland' },
+	{ state: 'United Kingdom', value: 'uk' },
+	{ state: 'United States', value: 'unitedStates' }
+];
+
 var linkovi = [
-	'https://onboarding.qa.sleepio.com/sleepio/google',
-	'https://onboarding.qa.sleepio.com/sleepio/comcast',
-	'https://onboarding.qa.sleepio.com/sleepio/salesforce',
-	'https://onboarding.qa.sleepio.com/sleepio/nhs-staff',
-	'https://onboarding.qa.sleepio.com/sleepio/eyexecutive',
-	'https://onboarding.qa.sleepio.com/sleepio/healthandcare-scot'
+	'https://onboarding.sleepio.com/sleepio/google',
+	'https://onboarding.sleepio.com/sleepio/comcast',
+	'https://onboarding.sleepio.com/sleepio/salesforce',
+	'https://onboarding.sleepio.com/sleepio/nhs-staff',
+	'https://onboarding.sleepio.com/sleepio/eyexecutive',
+	'https://onboarding.sleepio.com/sleepio/healthandcare-scot'
 ];
 var i = 0;
 describe('Proba', () => {
@@ -315,6 +406,7 @@ describe('Proba', () => {
 			const homePage = new homePageNew();
 
 			homePage.visitFirstPage(linkovi[i]);
+			cy.wait(5000);
 			homePage.buttonNew();
 
 			const fourthdOfOst = new troubledInGeneralNew();
@@ -338,7 +430,7 @@ describe('Proba', () => {
 			home.buttonClick();
 
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/google/77#2/5') {
+				if (urlString == 'https://onboarding.sleepio.com/sleepio/google/77#2/5') {
 					const improvment = new improvmentProgram();
 
 					improvment.improvmentProgramTitle();
@@ -415,25 +507,26 @@ describe('Proba', () => {
 					country.unitedKingdom();
 					country.italy();
 
-					for (var p = 0; p < states.length; p++) {
-						country.checkinhEveryOption(states[p].country, states[p].value);
+					for (var p = 0; p < countryes.length; p++) {
+						country.checkinhEveryOption(countryes[p].country, countryes[p].value);
 					}
 
 					home.buttonClick();
 
-					const state = new stateWork();
+					const stateGoogle = new stateWork();
 
-					state.stateWorkTitle();
-					state.alabama();
-					state.outside();
-					state.arizona();
+					stateGoogle.stateWorkTitle();
+
+					for (var p = 0; p < states.length; p++) {
+						stateGoogle.checkinhEveryOptionGoogle(states[p].state, states[p].value);
+					}
 
 					home.buttonClick();
 				}
 			});
 
 			cy.url().then((urlString) => {
-				if (urlString != 'https://onboarding.qa.sleepio.com/sleepio/google/77#3/1') {
+				if (urlString != 'https://onboarding.sleepio.com/sleepio/google/77#3/1') {
 					const neki5 = new howLikelyNew();
 
 					neki5.howLikelyTitle();
@@ -445,7 +538,7 @@ describe('Proba', () => {
 
 					neki3.snoringTitle();
 					neki3.yes();
-					neki3.snore();
+					neki3.dontsnore();
 					home.buttonClick();
 
 					const neki4 = new breathing();
@@ -480,7 +573,7 @@ describe('Proba', () => {
 				}
 			});
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/comcast/77#2/12') {
+				if (urlString == 'https://onboarding.sleepio.com/sleepio/comcast/77#2/12') {
 					const workComcast = new workForComcast();
 					workComcast.workForComcastTitle();
 					workComcast.usa();
@@ -488,61 +581,65 @@ describe('Proba', () => {
 					workComcast.dontWorkComcast();
 				}
 
-				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/salesforce/77#2/12') {
+				if (urlString == 'https://onboarding.sleepio.com/sleepio/salesforce/77#2/12') {
 					const workSalesforce = new workForSalesforce();
 					workSalesforce.workForSalesforceTitle();
-					workSalesforce.italy();
-					workSalesforce.france();
-					workSalesforce.dontWorkSalesforce();
+
+					for (var p = 0; p < salesforceStates.length; p++) {
+						workSalesforce.checkinhEveryOptionSalesForce(
+							salesforceStates[p].state,
+							salesforceStates[p].value
+						);
+					}
 				}
 
-				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/nhs-staff/77#2/12') {
+				if (urlString == 'https://onboarding.sleepio.com/sleepio/nhs-staff/77#2/12') {
 					const nhs = new nhsAccess();
 					nhs.nhsAccessTitle();
 					nhs.nhsAccessAnswer();
 				}
 
-				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/eyexecutive/77#3/1') {
+				if (urlString == 'https://onboarding.sleepio.com/sleepio/eyexecutive/77#3/1') {
 					const eyeExecut = new eyexecutive();
 					eyeExecut.eyexecutiveTitle();
 					eyeExecut.eyexecutiveHeltText();
 					eyeExecut.eyexecutiveAnswer();
 
-					cy.visit('https://onboarding.qa.sleepio.com/sleepio/ey/77#3/1');
+					cy.visit('https://onboarding.sleepio.com/sleepio/ey/77#3/1');
 
 					const ey = new eyUpn();
 					ey.eyUpnTitle();
 					ey.eyUpnHelpText();
 					ey.eyUpnAnswer();
 
-					cy.visit('https://onboarding.qa.sleepio.com/sleepio/fujifilm/77#3/1');
+					cy.visit('https://onboarding.sleepio.com/sleepio/fujifilm/77#3/1');
 
 					const fujifilm = new fujifilmId();
 					fujifilm.fujifilmIdTitle();
 					fujifilm.fujifilmIdHelpText();
 					fujifilm.fujifilmIdAnswer();
 
-					cy.visit('https://onboarding.qa.sleepio.com/sleepio/bjc/77#3/1');
+					cy.visit('https://onboarding.sleepio.com/sleepio/bjc/77#3/1');
 
 					const bjc = new bjcId();
 					bjc.bjcTitle();
 					bjc.bjcIdHelpText();
 					bjc.bjcIdAnswer();
 
-					cy.visit('https://onboarding.qa.sleepio.com/sleepio/3m/77#3/1');
+					cy.visit('https://onboarding.sleepio.com/sleepio/3m/77#3/1');
 					const threeM = new threeMId();
 					threeM.threeMTitle();
 					threeM.threeMHelpText();
 					threeM.threeMAnswer();
 
-					cy.visit('https://onboarding.qa.sleepio.com/sleepio/target/77#3/1');
+					cy.visit('https://onboarding.sleepio.com/sleepio/target/77#3/1');
 
 					const tmNum = new tmNumber();
 					tmNum.tmNumberTitle();
 					tmNum.tmNumberHelpText();
 					tmNum.tmNumberAnswer();
 				}
-				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/healthandcare-scot/77#2/12') {
+				if (urlString == 'https://onboarding.sleepio.com/sleepio/healthandcare-scot/77#2/12') {
 					const nhsScotPostcode = new nhsScotlandPostcode();
 					nhsScotPostcode.nhsScotPostcodeTitle();
 					nhsScotPostcode.nhsScotPostcodeAnswer();

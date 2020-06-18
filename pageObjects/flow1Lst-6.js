@@ -118,10 +118,24 @@ class flow1Lst6 {
 				.should('contain', 'Not at all');
 		});
 	}
+	controlWorryingNotNew() {
+		return cy.get('#57_0').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'Not at all');
+		});
+	}
 	controlWorryingSeveral() {
 		return cy.get('#57_1').click().then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'Several days');
+		});
+	}
+	controlWorryingSeveralNew() {
+		return cy.get('#57_1').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/fieldset/div/div[2]/label/span')
 				.should('contain', 'Several days');
 		});
 	}
@@ -132,10 +146,24 @@ class flow1Lst6 {
 				.should('contain', 'More than half the days');
 		});
 	}
+	controlWorryingMoreNew() {
+		return cy.get('#57_2').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/fieldset/div/div[3]/label/span')
+				.should('contain', 'More than half the days');
+		});
+	}
 	controlWorryingNearly() {
 		return cy.get('#57_3').click().then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/fieldset/div/div[4]/label/span')
+				.should('contain', 'Nearly every day');
+		});
+	}
+	controlWorryingNearlyNew() {
+		return cy.get('#57_3').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/fieldset/div/div[4]/label/span')
 				.should('contain', 'Nearly every day');
 		});
 	}
@@ -218,6 +246,102 @@ class flow1Lst6 {
 		return cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/fieldset/div/div[1]/label/input')
 			.click();
+	}
+	overweightNo() {
+		return cy.get('#192_0').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'No');
+		});
+	}
+	overweightYes() {
+		return cy.get('#192_1').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'Yes');
+		});
+	}
+	unableToControlAnswers() {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select')
+			.select('Never')
+			.then(() => {
+				cy
+					.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select')
+					.select('Almost never')
+					.then(() => {
+						cy
+							.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select')
+							.select('Sometimes')
+							.then(() => {
+								cy
+									.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select')
+									.select('Fairly often')
+									.then(() => {
+										cy
+											.xpath(
+												'/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select'
+											)
+											.select('Very often')
+											.then(() => {
+												cy
+													.xpath(
+														'/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select'
+													)
+													.select('Sometimes')
+													.then(() => {
+														cy
+															.xpath(
+																'/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select'
+															)
+															.select('Never');
+													});
+											});
+									});
+							});
+					});
+			});
+	}
+	yourHealthIsAnswers() {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/div/div/select')
+			.select('Poor')
+			.then(() => {
+				cy
+					.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/div/div/select')
+					.select('Average')
+					.then(() => {
+						cy
+							.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/div/div/select')
+							.select('Good')
+							.then(() => {
+								cy
+									.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/div/div/select')
+									.select('Very Good')
+									.then(() => {
+										cy
+											.xpath(
+												'/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/div/div/select'
+											)
+											.select('Excellent')
+											.then(() => {
+												cy
+													.xpath(
+														'/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/div/div/select'
+													)
+													.select('Very Good')
+													.then(() => {
+														cy
+															.xpath(
+																'/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/div/div/select'
+															)
+															.select('Excellent');
+													});
+											});
+									});
+							});
+					});
+			});
 	}
 }
 

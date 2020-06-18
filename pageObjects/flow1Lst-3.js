@@ -27,7 +27,7 @@ class flow1Lst3 {
 	abilityStayAwakeSomewhat() {
 		return cy.get('#30_2').click().then(() => {
 			cy
-				.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/fieldset/div/div[3]/label/span')
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/fieldset/div/div[3]/label/span')
 				.should('contain', 'Somewhat');
 		});
 	}
@@ -57,10 +57,24 @@ class flow1Lst3 {
 				.should('contain', 'Not at all');
 		});
 	}
+	affectedRelationshipsNotNew() {
+		return cy.get('#31_0').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'Not at all');
+		});
+	}
 	affectedRelationshipsLitle() {
 		return cy.get('#31_1').click().then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'A little');
+		});
+	}
+	affectedRelationshipsLitleNew() {
+		return cy.get('#31_1').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/fieldset/div/div[2]/label/span')
 				.should('contain', 'A little');
 		});
 	}
@@ -71,6 +85,13 @@ class flow1Lst3 {
 				.should('contain', 'Somewhat');
 		});
 	}
+	affectedRelationshipsSomewhatNew() {
+		return cy.get('#31_2').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/fieldset/div/div[3]/label/span')
+				.should('contain', 'Somewhat');
+		});
+	}
 	affectedRelationshipsMuch() {
 		return cy.get('#31_3').click().then(() => {
 			cy
@@ -78,10 +99,24 @@ class flow1Lst3 {
 				.should('contain', 'Much');
 		});
 	}
+	affectedRelationshipsMuchNew() {
+		return cy.get('#31_3').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/fieldset/div/div[4]/label/span')
+				.should('contain', 'Much');
+		});
+	}
 	affectedRelationshipsVeryMuch() {
 		return cy.get('#31_4').click().then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/fieldset/div/div[5]/label/span')
+				.should('contain', 'Very much');
+		});
+	}
+	affectedRelationshipsVeryMuchNew() {
+		return cy.get('#31_4').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/fieldset/div/div[5]/label/span')
 				.should('contain', 'Very much');
 		});
 	}

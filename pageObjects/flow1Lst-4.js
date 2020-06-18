@@ -139,10 +139,24 @@ class flow1Lst4 {
 				.should('contain', 'Never');
 		});
 	}
+	hardSleepNeverNew() {
+		return cy.get('#42_0').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'Never');
+		});
+	}
 	hardSleepRarely() {
 		return cy.get('#42_1').click().then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'Rarely');
+		});
+	}
+	hardSleepRarelyNew() {
+		return cy.get('#42_1').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/fieldset/div/div[2]/label/span')
 				.should('contain', 'Rarely');
 		});
 	}
@@ -153,6 +167,13 @@ class flow1Lst4 {
 				.should('contain', 'Sometimes');
 		});
 	}
+	hardSleepSometimesNew() {
+		return cy.get('#42_2').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/fieldset/div/div[3]/label/span')
+				.should('contain', 'Sometimes');
+		});
+	}
 	hardSleepOften() {
 		return cy.get('#42_3').click().then(() => {
 			cy
@@ -160,10 +181,24 @@ class flow1Lst4 {
 				.should('contain', 'Often');
 		});
 	}
+	hardSleepOftenNew() {
+		return cy.get('#42_3').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/fieldset/div/div[4]/label/span')
+				.should('contain', 'Often');
+		});
+	}
 	hardSleepVeryOften() {
 		return cy.get('#42_4').click().then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/fieldset/div/div[5]/label/span')
+				.should('contain', 'Very often');
+		});
+	}
+	hardSleepVeryOftenNew() {
+		return cy.get('#42_4').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/fieldset/div/div[5]/label/span')
 				.should('contain', 'Very often');
 		});
 	}
@@ -179,10 +214,24 @@ class flow1Lst4 {
 				.should('contain', 'Never');
 		});
 	}
+	feelTiredNeverNew() {
+		return cy.get('#43_0').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'Never');
+		});
+	}
 	feelTiredRarely() {
 		return cy.get('#43_1').click().then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'Rarely');
+		});
+	}
+	feelTiredRarelyNew() {
+		return cy.get('#43_1').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/fieldset/div/div[2]/label/span')
 				.should('contain', 'Rarely');
 		});
 	}
@@ -193,6 +242,13 @@ class flow1Lst4 {
 				.should('contain', 'Sometimes');
 		});
 	}
+	feelTiredSometimesNew() {
+		return cy.get('#43_2').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/fieldset/div/div[3]/label/span')
+				.should('contain', 'Sometimes');
+		});
+	}
 	feelTiredOften() {
 		return cy.get('#43_3').click().then(() => {
 			cy
@@ -200,10 +256,59 @@ class flow1Lst4 {
 				.should('contain', 'Often');
 		});
 	}
+	feelTiredOftenNew() {
+		return cy.get('#43_3').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/fieldset/div/div[4]/label/span')
+				.should('contain', 'Often');
+		});
+	}
 	feelTiredVeryOften() {
 		return cy.get('#43_4').click().then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/fieldset/div/div[5]/label/span')
+				.should('contain', 'Very often');
+		});
+	}
+	feelTiredVeryOftenNew() {
+		return cy.get('#43_4').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/fieldset/div/div[5]/label/span')
+				.should('contain', 'Very often');
+		});
+	}
+	worriesNever() {
+		return cy.get('#84_0').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'Never');
+		});
+	}
+	worriesRarely() {
+		return cy.get('#84_1').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'Rarely');
+		});
+	}
+	worriesSometimes() {
+		return cy.get('#84_2').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/fieldset/div/div[3]/label/span')
+				.should('contain', 'Sometimes');
+		});
+	}
+	worriesOften() {
+		return cy.get('#84_3').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/fieldset/div/div[4]/label/span')
+				.should('contain', 'Often');
+		});
+	}
+	worriesVeryOften() {
+		return cy.get('#84_4').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/fieldset/div/div[5]/label/span')
 				.should('contain', 'Very often');
 		});
 	}

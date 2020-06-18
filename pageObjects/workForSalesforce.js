@@ -5,18 +5,12 @@ class workForSalesforce {
 			.should('contain', 'In which country do you work for Salesforce?');
 	}
 
-	italy() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[1]/div/div[2]/div/div/select').select('Italy');
-	}
-
-	france() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[1]/div/div[2]/div/div/select').select('France');
-	}
-
-	dontWorkSalesforce() {
+	checkinhEveryOptionSalesForce(state, value) {
 		return cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div[1]/div/div[2]/div/div/select')
-			.select("I don't work for Salesforce");
+			.select(state)
+			.invoke('val')
+			.should('deep.equal', value);
 	}
 }
 

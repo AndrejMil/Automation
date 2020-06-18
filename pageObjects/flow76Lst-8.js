@@ -5,8 +5,27 @@ class flow1Lst8 {
 			.should('contain', "What's the best time for your Sleepio Expert to reach you?");
 	}
 
-	timeOfDayAnswer() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/div/div/div[1]/label/input').click();
+	timeOfDayAnswers() {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/div/div/div[1]/label/input')
+			.click()
+			.then(() => {
+				cy
+					.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/div/div/div[2]/label/input')
+					.click()
+					.then(() => {
+						cy
+							.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/div/div/div[3]/label/input')
+							.click()
+							.then(() => {
+								cy
+									.xpath(
+										'/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/div/div/div[4]/label/input'
+									)
+									.click();
+							});
+					});
+			});
 	}
 
 	helpfulSleepioExpert() {
@@ -15,8 +34,27 @@ class flow1Lst8 {
 			.should('contain', 'Would you find any of the following helpful from a Sleepio Expert?');
 	}
 
-	helpfulSleepioExpertAnswer() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/div[1]/label/input').click();
+	helpfulSleepioExpertAnswers() {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/div[1]/label/input')
+			.click()
+			.then(() => {
+				cy
+					.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/div[2]/label/input')
+					.click()
+					.then(() => {
+						cy
+							.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/div[3]/label/input')
+							.click()
+							.then(() => {
+								cy
+									.xpath(
+										'/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/div[4]/label/input'
+									)
+									.click();
+							});
+					});
+			});
 	}
 
 	communityUsername() {
@@ -24,9 +62,8 @@ class flow1Lst8 {
 	}
 
 	communityUsernameAnswer() {
-		return cy.get('.sl-input-text').type('11csgysffgfvsdf');
+		return cy.get('.sl-input-text').click().type('11csdfcffgfvsdf');
 	}
-
 	reachOutSoon() {
 		return cy.get('.sl-continue-button-img-text').contains('Your Sleepio Expert will reach out soon!');
 	}

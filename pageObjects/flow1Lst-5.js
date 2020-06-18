@@ -51,8 +51,26 @@ class flow1Lst5 {
 				.should('contain', 'Very often');
 		});
 	}
-	happenedTodayAnsweNew() {
-		return cy.get('#85_0').click();
+	happenedTodayAnsweNeverNew() {
+		return cy.get('#85_0').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'Never');
+		});
+	}
+	happenedTodayAnsweSometimesNew() {
+		return cy.get('#85_1').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'Sometimes');
+		});
+	}
+	happenedTodayAnsweVeryOftenNew() {
+		return cy.get('#85_2').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/fieldset/div/div[3]/label/span')
+				.should('contain', 'Very Often');
+		});
 	}
 	controlSleep() {
 		return cy
@@ -99,8 +117,26 @@ class flow1Lst5 {
 				.should('contain', 'Very often');
 		});
 	}
-	controlSleepAnswerNew() {
-		return cy.get('#86_0').click();
+	controlSleepAnswerNeverNew() {
+		return cy.get('#86_0').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'Never');
+		});
+	}
+	controlSleepAnswerSometimesNew() {
+		return cy.get('#86_1').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'Sometimes');
+		});
+	}
+	controlSleepAnswerVeryOftenNew() {
+		return cy.get('#86_2').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/fieldset/div/div[3]/label/span')
+				.should('contain', 'Very Often');
+		});
 	}
 	feelingCold() {
 		return cy
@@ -220,8 +256,26 @@ class flow1Lst5 {
 				.should('contain', 'Very often');
 		});
 	}
-	lyingAwakeAnswerNew() {
-		return cy.get('#89_0').click();
+	lyingAwakeNeverNew() {
+		return cy.get('#89_0').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'Never');
+		});
+	}
+	lyingAwakeSometimesNew() {
+		return cy.get('#89_1').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'Sometimes');
+		});
+	}
+	lyingAwakeVeryOftenNew() {
+		return cy.get('#89_2').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/fieldset/div/div[3]/label/span')
+				.should('contain', 'Very Often');
+		});
 	}
 	hearOutside() {
 		return cy
@@ -268,8 +322,26 @@ class flow1Lst5 {
 				.should('contain', 'Very often');
 		});
 	}
-	hearOutsideAnswerNew() {
-		return cy.get('#87_0').click();
+	hearOutsideNeverNew() {
+		return cy.get('#87_0').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'Never');
+		});
+	}
+	hearOutsideSometimesNew() {
+		return cy.get('#87_1').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'Sometimes');
+		});
+	}
+	hearOutsideVeryOftenNew() {
+		return cy.get('#87_2').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/fieldset/div/div[3]/label/span')
+				.should('contain', 'Very often');
+		});
 	}
 	workWell() {
 		return cy
@@ -356,8 +428,26 @@ class flow1Lst5 {
 				.should('contain', 'Very often');
 		});
 	}
-	sleepTonightAnswerNew() {
-		return cy.get('#90_0').click();
+	sleepTonightNeverNew() {
+		return cy.get('#90_0').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'Never');
+		});
+	}
+	sleepTonightSometimesNew() {
+		return cy.get('#90_1').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'Sometimes');
+		});
+	}
+	sleepTonightVeryOftenNew() {
+		return cy.get('#90_2').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/fieldset/div/div[3]/label/span')
+				.should('contain', 'Very Often');
+		});
 	}
 	throughMind() {
 		return cy
@@ -404,8 +494,26 @@ class flow1Lst5 {
 			.get('[data-index="4"] > .sl-question > .sl-page-title-area > .sl-page-title')
 			.should('contain', '...things that have happened in the past or what might happen in the future.');
 	}
-	futureAnswer() {
-		return cy.get('#88_0').click();
+	futureNever() {
+		return cy.get('#88_0').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'Never');
+		});
+	}
+	futureSometimes() {
+		return cy.get('#88_1').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'Sometimes');
+		});
+	}
+	futureVeryOften() {
+		return cy.get('#88_2').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/fieldset/div/div[3]/label/span')
+				.should('contain', 'Very Often');
+		});
 	}
 }
 export default flow1Lst5;

@@ -493,6 +493,257 @@ class flow1Lst7 {
 	disruptedPartnerAnswer() {
 		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/div/div/select').select('Sometimes');
 	}
+	regularlyExerciseAnswers() {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/div/div/select')
+			.select('Less than once a week')
+			.then(() => {
+				cy
+					.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/div/div/select')
+					.select('Once a week')
+					.then(() => {
+						cy
+							.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/div/div/select')
+							.select('2 - 3 times a week')
+							.then(() => {
+								cy
+									.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/div/div/select')
+									.select('More than 4 times a week');
+							});
+					});
+			});
+	}
+	nicotineAnswers() {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/select')
+			.select('Never')
+			.then(() => {
+				cy
+					.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/select')
+					.select('Rarely')
+					.then(() => {
+						cy
+							.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/select')
+							.select('1-10 times a day')
+							.then(() => {
+								cy
+									.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/select')
+									.select('11-20 times a day')
+									.then(() => {
+										cy
+											.xpath(
+												'/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/select'
+											)
+											.select('More than 21 times a day');
+									});
+							});
+					});
+			});
+	}
+
+	drinkAlcoholAnswers() {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select')
+			.select('Never')
+			.then(() => {
+				cy
+					.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select')
+					.select('Less than once a week')
+					.then(() => {
+						cy
+							.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select')
+							.select('Once a week')
+							.then(() => {
+								cy
+									.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select')
+									.select('2-3 times a week')
+									.then(() => {
+										cy
+											.xpath(
+												'/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select'
+											)
+											.select('More than 4 times a week');
+									});
+							});
+					});
+			});
+	}
+
+	disruptedChildrenAnswers() {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select')
+			.select("Never / I don't have children")
+			.then(() => {
+				cy
+					.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select')
+					.select('Rarely')
+					.then(() => {
+						cy
+							.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select')
+							.select('Sometimes')
+							.then(() => {
+								cy
+									.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select')
+									.select('Often')
+									.then(() => {
+										cy
+											.xpath(
+												'/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select'
+											)
+											.select('Very Often');
+									});
+							});
+					});
+			});
+	}
+
+	shiftWorkerNo() {
+		return cy.get('#71_0').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'No');
+		});
+	}
+	shiftWorkerYes() {
+		return cy.get('#71_1').click().then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'Yes');
+		});
+	}
+
+	employmentStatusAnswers() {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/div/div/select')
+			.select('Employed part-time')
+			.then(() => {
+				cy
+					.xpath('/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/div/div/select')
+					.select('Unemployed')
+					.then(() => {
+						cy
+							.xpath('/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/div/div/select')
+							.select('Retired')
+							.then(() => {
+								cy
+									.xpath('/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/div/div/select')
+									.select('Full-time student')
+									.then(() => {
+										cy
+											.xpath(
+												'/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/div/div/select'
+											)
+											.select('Full-time Homemaker or carer')
+											.then(() => {
+												cy
+													.xpath(
+														'/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/div/div/select'
+													)
+													.select('Employed full-time');
+											});
+									});
+							});
+					});
+			});
+	}
+
+	affectProductivityAnswers() {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/div/div/select')
+			.select('100%-Unable to work')
+			.then(() => {
+				cy
+					.xpath('/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/div/div/select')
+					.select('90%')
+					.then(() => {
+						cy
+							.xpath('/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/div/div/select')
+							.select('80%')
+							.then(() => {
+								cy
+									.xpath('/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/div/div/select')
+									.select('70%')
+									.then(() => {
+										cy
+											.xpath(
+												'/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/div/div/select'
+											)
+											.select('60%')
+											.then(() => {
+												cy
+													.xpath(
+														'/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/div/div/select'
+													)
+													.select('50%')
+													.then(() => {
+														cy
+															.xpath(
+																'/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/div/div/select'
+															)
+															.select('40%')
+															.then(() => {
+																cy
+																	.xpath(
+																		'/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/div/div/select'
+																	)
+																	.select('30%')
+																	.then(() => {
+																		cy
+																			.xpath(
+																				'/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/div/div/select'
+																			)
+																			.select('20%')
+																			.then(() => {
+																				cy
+																					.xpath(
+																						'/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/div/div/select'
+																					)
+																					.select('10%')
+																					.then(() => {
+																						cy
+																							.xpath(
+																								'/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/div/div/select'
+																							)
+																							.select('0% - No effect');
+																					});
+																			});
+																	});
+															});
+													});
+											});
+									});
+							});
+					});
+			});
+	}
+
+	disruptedPartnerAnswers() {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/div/div/select')
+			.select("Never / I don't have a partner")
+			.then(() => {
+				cy
+					.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/div/div/select')
+					.select('Rarely')
+					.then(() => {
+						cy
+							.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/div/div/select')
+							.select('Sometimes')
+							.then(() => {
+								cy
+									.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/div/div/select')
+									.select('Often')
+									.then(() => {
+										cy
+											.xpath(
+												'/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/div/div/select'
+											)
+											.select('Very Often');
+									});
+							});
+					});
+			});
+	}
 }
 
 export default flow1Lst7;

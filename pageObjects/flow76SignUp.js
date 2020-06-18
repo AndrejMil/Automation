@@ -19,11 +19,11 @@ class flow76SignUp {
 	emailLabel() {
 		return cy.get('[data-input-name="email"] > .sl-interactive--field-label').should('contain', 'Email*');
 	}
-	sas;
+
 	emailImput() {
 		return cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
-			.type('andrej.milosavljevic+29054@sleepio.com');
+			.type('andrej.milosavljevic+180615@sleepio.com');
 	}
 	passwordLabel() {
 		return cy.get('.sl-interactive--field-label').should('contain', 'Choose a password*');

@@ -9,20 +9,40 @@ class perscription {
 			.get('[data-index="1"] > .sl-question > .sl-page-title-area > .sl-page-title')
 			.should('contain', 'Do you use prescription sleeping pills (like Ambien or Trazodone)?');
 	}
-	prescriptionPillsAnswer() {
+	prescriptionPillsNo() {
 		return cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/div/div/select')
 			.select("No, I'm not taking any right now");
+	}
+	prescriptionPillsTake() {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/div/div/select')
+			.select('I take them sometimes, but not often');
+	}
+	prescriptionPillsMostNights() {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/div/div/select')
+			.select('I rely on them most nights');
 	}
 	nonPrescriptionPills() {
 		return cy
 			.get('[data-index="2"] > .sl-question > .sl-page-title-area > .sl-page-title')
 			.should('contain', 'Do you use non-prescription sleep remedies (like melatonin or Zzzquil)?');
 	}
-	nonPrescriptionPillsAnswer() {
+	nonPrescriptionPillsNo() {
 		return cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/select')
 			.select("No, I'm not taking any right now");
+	}
+	nonPrescriptionPillsTake() {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/select')
+			.select('I take them sometimes, but not often');
+	}
+	nonPrescriptionPillsMostNights() {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/select')
+			.select('I rely on them most nights');
 	}
 }
 export default perscription;

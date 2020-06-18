@@ -24,6 +24,7 @@ import flow1Lst5 from '../integration/pageObjects/flow1Lst-5';
 import flow1Lst6 from '../integration/pageObjects/flow1Lst-6';
 import flow1Lst7 from '../integration/pageObjects/flow1Lst-7';
 import flow1Lst8 from '../integration/pageObjects/flow1Lst-8';
+import flow1LogIn from '../integration/pageObjects/flow1LogIn';
 
 import { url } from 'inspector';
 
@@ -31,18 +32,26 @@ var linkovi = [
 	'https://onboarding.qa.sleepio.com/sleepio/big-health'
 ];
 var i = 0;
-describe('Proba', () => {
+describe('Flow 1', () => {
 	console.log(linkovi[i]);
 	it('Start the test', () => {
+		Cypress.currentTest.retries(5);
 		// Get started page
 		for (; i < linkovi.length; i++) {
 			const homePage = new HomePage();
 
 			homePage.visitFirstPage(linkovi[i]);
+			const logIn = new flow1LogIn();
+
+			logIn.logIn();
 			homePage.buttonClick();
 
 			// First page of OST
-			cy.screenshot();
+
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
+			logIn.logIn();
+
 			const firstofOst = new improveYourSleep();
 
 			firstofOst.improveSleepTitle();
@@ -54,9 +63,13 @@ describe('Proba', () => {
 			homePage.buttonClick();
 
 			// Second page of OST
-			cy.screenshot();
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
+			logIn.logIn();
+
 			const secondOfOst = new howLong();
 
+			logIn.logIn();
 			secondOfOst.howLongTitle();
 			secondOfOst.weeks();
 			secondOfOst.months();
@@ -71,8 +84,11 @@ describe('Proba', () => {
 
 			// Third page of OST
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			const thirdOfOst = new stopsYou();
 
+			logIn.logIn();
 			thirdOfOst.stopsYouTitle();
 			thirdOfOst.worriesFuture();
 			thirdOfOst.worriesNotSleeping();
@@ -83,8 +99,11 @@ describe('Proba', () => {
 
 			// Fourth page of OST
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			const fourthdOfOst = new troubledInGeneral();
 
+			logIn.logIn();
 			fourthdOfOst.troubledGeneralTitle();
 			fourthdOfOst.little();
 			fourthdOfOst.somewhat();
@@ -94,8 +113,11 @@ describe('Proba', () => {
 
 			homePage.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			const fiveOfOst = new manyNights();
 
+			logIn.logIn();
 			fiveOfOst.manyNightsTitle();
 			fiveOfOst.night0();
 			fiveOfOst.night1();
@@ -107,8 +129,11 @@ describe('Proba', () => {
 			fiveOfOst.night7();
 			homePage.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			const sixOfOst = new importantThings();
 
+			logIn.logIn();
 			sixOfOst.importantThingsTitle();
 			sixOfOst.never();
 			sixOfOst.almostNever();
@@ -117,8 +142,11 @@ describe('Proba', () => {
 			sixOfOst.veryOften();
 			homePage.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			const seventhOfOst = new howLikely();
 
+			logIn.logIn();
 			seventhOfOst.howLikelyTitle();
 			seventhOfOst.noChance();
 			seventhOfOst.slightChance();
@@ -126,31 +154,43 @@ describe('Proba', () => {
 			seventhOfOst.highChance();
 			homePage.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			const neki2 = new snoring();
 
+			logIn.logIn();
 			neki2.snoringTitle();
 			neki2.no();
 			neki2.yes();
-			neki2.snore();
+			neki2.dontsnore();
 			homePage.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			const neki = new breathing();
 
+			logIn.logIn();
 			neki.breathingTitle();
 			neki.no();
 			neki.yes();
 			homePage.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			const eightOfOst = new gender();
 
+			logIn.logIn();
 			eightOfOst.genderTitle();
 			eightOfOst.male().click();
 			eightOfOst.female().click();
 			eightOfOst.another().click();
 			homePage.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			const ninthOfOst = new dob();
 
+			logIn.logIn();
 			ninthOfOst.dobTitle();
 			ninthOfOst.monthJan();
 			ninthOfOst.monthFeb();
@@ -162,8 +202,11 @@ describe('Proba', () => {
 			ninthOfOst.privacy();
 			homePage.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			const tenthOfOst = new employment();
 
+			logIn.logIn();
 			tenthOfOst.employmentTitle();
 			tenthOfOst.partTime();
 			tenthOfOst.unemployed();
@@ -173,8 +216,11 @@ describe('Proba', () => {
 			tenthOfOst.fullTime();
 			homePage.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			const eleventhOfOst = new poorSleep();
 
+			logIn.logIn();
 			eleventhOfOst.poorSleepTitle();
 			eleventhOfOst.sleep100();
 			eleventhOfOst.sleep90();
@@ -189,13 +235,20 @@ describe('Proba', () => {
 			eleventhOfOst.sleep0();
 			homePage.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			const twelfthOfOst = new manyHours();
 
+			logIn.logIn();
 			twelfthOfOst.manyHoursTitle();
 			twelfthOfOst.numberHours().type('5');
 			homePage.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
+			logIn.logIn();
 			const guides = new expertGuides();
+
 			guides.jetlag();
 			guides.shiftWork();
 			guides.parent();
@@ -203,8 +256,11 @@ describe('Proba', () => {
 			guides.pregnancy();
 			homePage.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			const signUp = new flow1SignUp();
 
+			logIn.logIn();
 			signUp.signUpHeader();
 			signUp.firstNameLabel();
 			signUp.firstNameImput();
@@ -223,15 +279,19 @@ describe('Proba', () => {
 			signUp.signUpFacebook();
 			signUp.signUpButton();
 
-			cy.wait(4000);
+			cy.wait(7000);
 
 			const report = new flow1SleepReport();
+
 			report.headerSleepReport();
 			report.logOut();
-			cy.wait(2000);
+			cy.wait(5000);
 			report.reportButton();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			const lst1 = new flow1Lst1();
+
 			lst1.firtLstHeader();
 			lst1.overThePastMonth();
 			lst1.discomfortLabel();
@@ -266,6 +326,8 @@ describe('Proba', () => {
 			lst1.disruptedLightVeryOften();
 			homePage.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			const lst2 = new flow1Lst2();
 			lst2.headerLst();
 			lst2.headerLst1();
@@ -286,8 +348,12 @@ describe('Proba', () => {
 			lst2.qualitySleep();
 			lst2.qualitySleepLabel();
 			lst2.quality();
+			lst2.validator1();
+			lst2.validator2();
 			homePage.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			const lst3 = new flow1Lst3();
 			lst3.lst3header();
 			lst3.lst3header1();
@@ -347,6 +413,8 @@ describe('Proba', () => {
 			lst3.affectedPeopleVeryMuch();
 			homePage.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			const lst4 = new flow1Lst4();
 			lst4.fourthlstHeader();
 			lst4.fourthlstHeader1();
@@ -389,6 +457,8 @@ describe('Proba', () => {
 			lst4.sleepWellVeryOften();
 			homePage.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			const lst5 = new flow1Lst5();
 			lst5.fiveLstHeader();
 			lst5.fiveLstHeader1();
@@ -449,6 +519,8 @@ describe('Proba', () => {
 
 			homePage.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			const lst6 = new flow1Lst6();
 			lst6.sixheader();
 			lst6.sixheader1();
@@ -483,6 +555,8 @@ describe('Proba', () => {
 			lst6.howSatisfiedAnswer();
 			homePage.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			const lst7 = new flow1Lst7();
 			lst7.sevenHeader();
 			lst7.smokeTobacco();
@@ -536,10 +610,13 @@ describe('Proba', () => {
 			lst7.disruptedChildrenVeryOften();
 			homePage.buttonClick();
 
+			cy.wait(2000);
+			cy.document().toMatchImageSnapshot();
 			const lst8 = new flow1Lst8();
 			lst8.aboutYou();
 			lst8.shiftWorker();
-			lst8.shiftWorkerAnswer();
+			lst8.shiftWorkerNo();
+			lst8.shiftWorkerYes();
 			lst8.communityUsername();
 			lst8.communityUsernameAnswer();
 			homePage.buttonClick();

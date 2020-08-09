@@ -35,7 +35,13 @@ class flow1Lst8 {
 			.should('contain', 'Please choose a community username');
 	}
 	communityUsernameAnswer() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/input').type('11sdgfdfdfvvsdf');
+		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/input').type('11hdfdgfhubythdfsdf');
+	}
+	IFUlink() {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[1]/div/p/a')
+			.contains('Instructions for Use')
+			.should('have.attr', 'href', 'https://go.bighealth.com/hubfs/Sleepio%20Instructions%20for%20Use.pdf');
 	}
 }
 export default flow1Lst8;

@@ -10,7 +10,7 @@ class daylightSignUp {
 	email() {
 		return cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
-			.type('andrej.milosavljevic+170617@sleepio.com');
+			.type('andrej.milosavljevic+26067@sleepio.com');
 	}
 
 	password() {

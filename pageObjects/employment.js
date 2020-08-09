@@ -18,7 +18,7 @@ class employment {
 		return cy.get('.sl-select').select('Full-time student');
 	}
 	homemaker() {
-		return cy.get('.sl-select').select('Full-time Homemaker or carer');
+		return cy.get('.sl-select').select('Full-time homemaker or carer');
 	}
 }
 export default employment;

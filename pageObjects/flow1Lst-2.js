@@ -7,19 +7,27 @@ class flow1Lst2 {
 		return cy.get('[data-index="1"]').contains("Describe your average night's sleep over the past month");
 	}
 	getIntoBad() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/select').select('8:00 PM');
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/select')
+			.select('8:00 PM', { force: true });
 	}
 	getIntoBadNew() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/div/div/select').select('8:00 PM');
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/div/div/select')
+			.select('8:00 PM', { force: true });
 	}
 	tryGoSleepLabel() {
 		return cy.get('[data-semantic-id="try_go_sleep"]').should('contain', 'What time do you try to go to sleep?');
 	}
 	tryGoSleep() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select').select('8:00 PM');
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select')
+			.select('8:00 PM', { force: true });
 	}
 	tryGoSleepNew() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/select').select('8:00 PM');
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/select')
+			.select('8:00 PM', { force: true });
 	}
 
 	fallAsleepLabel() {
@@ -28,10 +36,14 @@ class flow1Lst2 {
 			.should('contain', 'How long does it take you to fall asleep?');
 	}
 	duringNightWake() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/div/div/select').select('5 mins');
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/div/div/select')
+			.select('5 mins', { force: true });
 	}
 	duringNightWakeNew() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select').select('5 mins');
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select')
+			.select('5 mins', { force: true });
 	}
 	duringNightWakeLabel() {
 		return cy
@@ -39,10 +51,14 @@ class flow1Lst2 {
 			.should('contain', 'How many times during the night do you wake up on average?');
 	}
 	awakeDuringNight() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select').select('1');
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select')
+			.select('1', { force: true });
 	}
 	awakeDuringNightNew() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/div/div/select').select('1');
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/div/div/select')
+			.select('1', { force: true });
 	}
 	awakeDuringNightLabel() {
 		return cy
@@ -53,10 +69,14 @@ class flow1Lst2 {
 			);
 	}
 	wakeLastTime() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/div/div/select').select('10 mins');
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/div/div/select')
+			.select('10 mins', { force: true });
 	}
 	wakeLastTimeNew() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select').select('10 mins');
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/div/div/select')
+			.select('10 mins', { force: true });
 	}
 
 	DuringNightLabel() {
@@ -65,10 +85,14 @@ class flow1Lst2 {
 			.should('contain', 'What time do you normally wake up for the last time?');
 	}
 	intendedWakeUp() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/div/div/select').select('9:00 AM');
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/div/div/select')
+			.select('9:00 AM', { force: true });
 	}
 	intendedWakeUpNew() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/div/div/select').select('9:00 AM');
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/div/div/select')
+			.select('9:00 AM', { force: true });
 	}
 	intendedWakeUpLabel() {
 		return cy
@@ -78,12 +102,12 @@ class flow1Lst2 {
 	getOutBed() {
 		return cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/div/div/select')
-			.select('More than an hour too early');
+			.select('More than an hour too early', { force: true });
 	}
 	getOutBedNew() {
 		return cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/div/div/select')
-			.select('More than an hour too early');
+			.select('More than an hour too early', { force: true });
 	}
 	getOutBedLabel() {
 		return cy
@@ -92,10 +116,14 @@ class flow1Lst2 {
 	}
 
 	qualitySleep() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select').select('10:45 AM');
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select')
+			.select('10:45 AM', { force: true });
 	}
 	qualitySleepNew() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/div/div/select').select('10:45 AM');
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/div/div/select')
+			.select('10:45 AM', { force: true });
 	}
 	qualitySleepLabel() {
 		return cy
@@ -103,19 +131,23 @@ class flow1Lst2 {
 			.should('contain', 'How would you rate the quality of your sleep?');
 	}
 	quality() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[11]/div/div[2]/div/div/select').select('Very good');
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[11]/div/div[2]/div/div/select')
+			.select('Very good', { force: true });
 	}
 	qualityNew() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select').select('Very good');
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select')
+			.select('Very good', { force: true });
 	}
 	validator1() {
 		return cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/select')
-			.select('12:00 AM')
+			.select('12:00 AM', { force: true })
 			.then(() => {
 				cy
 					.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select')
-					.select('8:00 PM')
+					.select('8:00 PM', { force: true })
 					.then(() => {
 						cy
 							.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/p')
@@ -123,7 +155,7 @@ class flow1Lst2 {
 							.then(() => {
 								cy
 									.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select')
-									.select('9:00 PM')
+									.select('9:00 PM', { force: true })
 									.then(() => {
 										cy
 											.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/p')
@@ -136,7 +168,7 @@ class flow1Lst2 {
 													.xpath(
 														'/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select'
 													)
-													.select('10:00 PM')
+													.select('10:00 PM', { force: true })
 													.then(() => {
 														cy
 															.xpath(
@@ -151,7 +183,7 @@ class flow1Lst2 {
 																	.xpath(
 																		'/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select'
 																	)
-																	.select('11:00 PM')
+																	.select('11:00 PM', { force: true })
 																	.then(() => {
 																		cy
 																			.xpath(
@@ -166,13 +198,15 @@ class flow1Lst2 {
 																					.xpath(
 																						'/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select'
 																					)
-																					.select('8:00 PM')
+																					.select('8:00 PM', { force: true })
 																					.then(() => {
 																						cy
 																							.xpath(
 																								'/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/select'
 																							)
-																							.select('8:00 PM');
+																							.select('8:00 PM', {
+																								force : true
+																							});
 																					});
 																			});
 																	});
@@ -188,11 +222,11 @@ class flow1Lst2 {
 	validator2() {
 		return cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/div/div/select')
-			.select('11:00 AM')
+			.select('11:00 AM', { force: true })
 			.then(() => {
 				cy
 					.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select')
-					.select('7:45 AM')
+					.select('7:45 AM', { force: true })
 					.then(() => {
 						cy
 							.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/p')
@@ -203,7 +237,7 @@ class flow1Lst2 {
 							.then(() => {
 								cy
 									.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select')
-									.select('8:45 AM')
+									.select('8:45 AM', { force: true })
 									.then(() => {
 										cy
 											.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/p')
@@ -216,7 +250,7 @@ class flow1Lst2 {
 													.xpath(
 														'/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select'
 													)
-													.select('9:45 AM')
+													.select('9:45 AM', { force: true })
 													.then(() => {
 														cy
 															.xpath(
@@ -231,7 +265,7 @@ class flow1Lst2 {
 																	.xpath(
 																		'/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select'
 																	)
-																	.select('10:45 AM')
+																	.select('10:45 AM', { force: true })
 																	.then(() => {
 																		cy
 																			.xpath(
@@ -246,7 +280,9 @@ class flow1Lst2 {
 																					.xpath(
 																						'/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select'
 																					)
-																					.select('11:45 AM');
+																					.select('11:45 AM', {
+																						force : true
+																					});
 																			});
 																	});
 															});

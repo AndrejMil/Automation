@@ -8,7 +8,10 @@ class nhsScotlandPostcode {
 			);
 	}
 	nhsScotPostcodeAnswer() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[1]/div/div[2]/div/input').type('12345');
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[1]/div/div[2]/div/input')
+			.click({ force: true })
+			.type('12345');
 	}
 }
 export default nhsScotlandPostcode;

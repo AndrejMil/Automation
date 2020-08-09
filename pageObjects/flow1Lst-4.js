@@ -15,35 +15,35 @@ class flow1Lst4 {
 			.should('contain', "...I can't get into a comfortable position in bed.");
 	}
 	comfortablePositionNever() {
-		return cy.get('#39_0').click().then(() => {
+		return cy.get('#39_0').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/fieldset/div/div[1]/label/span')
 				.should('contain', 'Never');
 		});
 	}
 	comfortablePositionRarely() {
-		return cy.get('#39_1').click().then(() => {
+		return cy.get('#39_1').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/fieldset/div/div[2]/label/span')
 				.should('contain', 'Rarely');
 		});
 	}
 	comfortablePositionSometimes() {
-		return cy.get('#39_2').click().then(() => {
+		return cy.get('#39_2').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/fieldset/div/div[3]/label/span')
 				.should('contain', 'Sometimes');
 		});
 	}
 	comfortablePositionOften() {
-		return cy.get('#39_3').click().then(() => {
+		return cy.get('#39_3').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/fieldset/div/div[4]/label/span')
 				.should('contain', 'Often');
 		});
 	}
 	comfortablePositionVeryOften() {
-		return cy.get('#39_4').click().then(() => {
+		return cy.get('#39_4').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/fieldset/div/div[5]/label/span')
 				.should('contain', 'Very often');
@@ -55,35 +55,35 @@ class flow1Lst4 {
 			.should('contain', "...I can't get my sleep pattern into a proper routine.");
 	}
 	properRoutineNever() {
-		return cy.get('#40_0').click().then(() => {
+		return cy.get('#40_0').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/fieldset/div/div[1]/label/span')
 				.should('contain', 'Never');
 		});
 	}
 	properRoutineRarely() {
-		return cy.get('#40_1').click().then(() => {
+		return cy.get('#40_1').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/fieldset/div/div[2]/label/span')
 				.should('contain', 'Rarely');
 		});
 	}
 	properRoutineSometimes() {
-		return cy.get('#40_2').click().then(() => {
+		return cy.get('#40_2').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/fieldset/div/div[3]/label/span')
 				.should('contain', 'Sometimes');
 		});
 	}
 	properRoutineOften() {
-		return cy.get('#40_3').click().then(() => {
+		return cy.get('#40_3').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/fieldset/div/div[4]/label/span')
 				.should('contain', 'Often');
 		});
 	}
 	properRoutineVeryOften() {
-		return cy.get('#40_4').click().then(() => {
+		return cy.get('#40_4').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/fieldset/div/div[5]/label/span')
 				.should('contain', 'Very often');
@@ -95,35 +95,35 @@ class flow1Lst4 {
 			.should('contain', "...I find it hard to 'let go' and relax my body.");
 	}
 	relaxMyBodyNever() {
-		return cy.get('#41_0').click().then(() => {
+		return cy.get('#41_0').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/fieldset/div/div[1]/label/span')
 				.should('contain', 'Never');
 		});
 	}
 	relaxMyBodyRarely() {
-		return cy.get('#41_1').click().then(() => {
+		return cy.get('#41_1').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/fieldset/div/div[2]/label/span')
 				.should('contain', 'Rarely');
 		});
 	}
 	relaxMyBodySometimes() {
-		return cy.get('#41_2').click().then(() => {
+		return cy.get('#41_2').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/fieldset/div/div[3]/label/span')
 				.should('contain', 'Sometimes');
 		});
 	}
 	relaxMyBodyOften() {
-		return cy.get('#41_3').click().then(() => {
+		return cy.get('#41_3').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/fieldset/div/div[4]/label/span')
 				.should('contain', 'Often');
 		});
 	}
 	relaxMyBodyVeryOften() {
-		return cy.get('#41_4').click().then(() => {
+		return cy.get('#41_4').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/fieldset/div/div[5]/label/span')
 				.should('contain', 'Very often');
@@ -133,70 +133,70 @@ class flow1Lst4 {
 		return cy.get('[data-semantic-id="hard_sleep"]').should('contain', '...I try too hard to get to sleep.');
 	}
 	hardSleepNever() {
-		return cy.get('#42_0').click().then(() => {
+		return cy.get('#42_0').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/fieldset/div/div[1]/label/span')
 				.should('contain', 'Never');
 		});
 	}
 	hardSleepNeverNew() {
-		return cy.get('#42_0').click().then(() => {
+		return cy.get('#42_0').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/fieldset/div/div[1]/label/span')
 				.should('contain', 'Never');
 		});
 	}
 	hardSleepRarely() {
-		return cy.get('#42_1').click().then(() => {
+		return cy.get('#42_1').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/fieldset/div/div[2]/label/span')
 				.should('contain', 'Rarely');
 		});
 	}
 	hardSleepRarelyNew() {
-		return cy.get('#42_1').click().then(() => {
+		return cy.get('#42_1').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/fieldset/div/div[2]/label/span')
 				.should('contain', 'Rarely');
 		});
 	}
 	hardSleepSometimes() {
-		return cy.get('#42_2').click().then(() => {
+		return cy.get('#42_2').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/fieldset/div/div[3]/label/span')
 				.should('contain', 'Sometimes');
 		});
 	}
 	hardSleepSometimesNew() {
-		return cy.get('#42_2').click().then(() => {
+		return cy.get('#42_2').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/fieldset/div/div[3]/label/span')
 				.should('contain', 'Sometimes');
 		});
 	}
 	hardSleepOften() {
-		return cy.get('#42_3').click().then(() => {
+		return cy.get('#42_3').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/fieldset/div/div[4]/label/span')
 				.should('contain', 'Often');
 		});
 	}
 	hardSleepOftenNew() {
-		return cy.get('#42_3').click().then(() => {
+		return cy.get('#42_3').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/fieldset/div/div[4]/label/span')
 				.should('contain', 'Often');
 		});
 	}
 	hardSleepVeryOften() {
-		return cy.get('#42_4').click().then(() => {
+		return cy.get('#42_4').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/fieldset/div/div[5]/label/span')
 				.should('contain', 'Very often');
 		});
 	}
 	hardSleepVeryOftenNew() {
-		return cy.get('#42_4').click().then(() => {
+		return cy.get('#42_4').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/fieldset/div/div[5]/label/span')
 				.should('contain', 'Very often');
@@ -208,105 +208,105 @@ class flow1Lst4 {
 			.should('contain', "...I don't feel tired enough at bedtime.");
 	}
 	feelTiredNever() {
-		return cy.get('#43_0').click().then(() => {
+		return cy.get('#43_0').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/fieldset/div/div[1]/label/span')
 				.should('contain', 'Never');
 		});
 	}
 	feelTiredNeverNew() {
-		return cy.get('#43_0').click().then(() => {
+		return cy.get('#43_0').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/fieldset/div/div[1]/label/span')
 				.should('contain', 'Never');
 		});
 	}
 	feelTiredRarely() {
-		return cy.get('#43_1').click().then(() => {
+		return cy.get('#43_1').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/fieldset/div/div[2]/label/span')
 				.should('contain', 'Rarely');
 		});
 	}
 	feelTiredRarelyNew() {
-		return cy.get('#43_1').click().then(() => {
+		return cy.get('#43_1').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/fieldset/div/div[2]/label/span')
 				.should('contain', 'Rarely');
 		});
 	}
 	feelTiredSometimes() {
-		return cy.get('#43_2').click().then(() => {
+		return cy.get('#43_2').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/fieldset/div/div[3]/label/span')
 				.should('contain', 'Sometimes');
 		});
 	}
 	feelTiredSometimesNew() {
-		return cy.get('#43_2').click().then(() => {
+		return cy.get('#43_2').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/fieldset/div/div[3]/label/span')
 				.should('contain', 'Sometimes');
 		});
 	}
 	feelTiredOften() {
-		return cy.get('#43_3').click().then(() => {
+		return cy.get('#43_3').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/fieldset/div/div[4]/label/span')
 				.should('contain', 'Often');
 		});
 	}
 	feelTiredOftenNew() {
-		return cy.get('#43_3').click().then(() => {
+		return cy.get('#43_3').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/fieldset/div/div[4]/label/span')
 				.should('contain', 'Often');
 		});
 	}
 	feelTiredVeryOften() {
-		return cy.get('#43_4').click().then(() => {
+		return cy.get('#43_4').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[7]/div/div[2]/fieldset/div/div[5]/label/span')
 				.should('contain', 'Very often');
 		});
 	}
 	feelTiredVeryOftenNew() {
-		return cy.get('#43_4').click().then(() => {
+		return cy.get('#43_4').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[2]/fieldset/div/div[5]/label/span')
 				.should('contain', 'Very often');
 		});
 	}
 	worriesNever() {
-		return cy.get('#84_0').click().then(() => {
+		return cy.get('#84_0').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/fieldset/div/div[1]/label/span')
 				.should('contain', 'Never');
 		});
 	}
 	worriesRarely() {
-		return cy.get('#84_1').click().then(() => {
+		return cy.get('#84_1').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/fieldset/div/div[2]/label/span')
 				.should('contain', 'Rarely');
 		});
 	}
 	worriesSometimes() {
-		return cy.get('#84_2').click().then(() => {
+		return cy.get('#84_2').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/fieldset/div/div[3]/label/span')
 				.should('contain', 'Sometimes');
 		});
 	}
 	worriesOften() {
-		return cy.get('#84_3').click().then(() => {
+		return cy.get('#84_3').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/fieldset/div/div[4]/label/span')
 				.should('contain', 'Often');
 		});
 	}
 	worriesVeryOften() {
-		return cy.get('#84_4').click().then(() => {
+		return cy.get('#84_4').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[6]/div/div[2]/fieldset/div/div[5]/label/span')
 				.should('contain', 'Very often');
@@ -318,35 +318,35 @@ class flow1Lst4 {
 			.should('contain', "...I worry that I won't cope tomorrow if I don't sleep well");
 	}
 	sleepWellNever() {
-		return cy.get('#44_0').click().then(() => {
+		return cy.get('#44_0').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/fieldset/div/div[1]/label/span')
 				.should('contain', 'Never');
 		});
 	}
 	sleepWellRarely() {
-		return cy.get('#44_1').click().then(() => {
+		return cy.get('#44_1').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/fieldset/div/div[2]/label/span')
 				.should('contain', 'Rarely');
 		});
 	}
 	sleepWellSometimes() {
-		return cy.get('#44_2').click().then(() => {
+		return cy.get('#44_2').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/fieldset/div/div[3]/label/span')
 				.should('contain', 'Sometimes');
 		});
 	}
 	sleepWellOften() {
-		return cy.get('#44_3').click().then(() => {
+		return cy.get('#44_3').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/fieldset/div/div[4]/label/span')
 				.should('contain', 'Often');
 		});
 	}
 	sleepWellVeryOften() {
-		return cy.get('#44_4').click().then(() => {
+		return cy.get('#44_4').click({ force: true }).then(() => {
 			cy
 				.xpath('/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/fieldset/div/div[5]/label/span')
 				.should('contain', 'Very often');
@@ -357,7 +357,7 @@ class flow1Lst4 {
 	}
 
 	difficultAnswer() {
-		return cy.get('#84_0').click();
+		return cy.get('#84_0').click({ force: true });
 	}
 }
 

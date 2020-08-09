@@ -1,35 +1,36 @@
 class flow1SignUp {
 	signUpHeader() {
-		return cy.get('.sl-interactive-v2 > h1').should('contain', 'Get Your Sleep Score');
+		return cy.get('h1').should('contain', 'Get Your Sleep Score');
 	}
 
 	firstNameLabel() {
-		return cy.get('[data-input-name="first_name"] > .sl-interactive--field-label').should('contain', 'First Name*');
+		return cy.get('[data-input-name="first_name"]').should('contain', 'First Name*');
 	}
 	firstNameImput() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[1]/div/input').type('An23');
+		return cy.get('[name="first_name"]').click({ force: true }).type('An23');
 	}
 	lastNameLabel() {
-		return cy.get('[data-input-name="last_name"] > .sl-interactive--field-label').should('contain', 'Last Name*');
+		return cy.get('[data-input-name="last_name"]').should('contain', 'Last Name*');
 	}
 	lastNameImput() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[2]/div/input').type('Mil234');
+		return cy.get("[name = 'last_name']").click({ force: true }).type('Mil234');
 	}
 
 	emailLabel() {
-		return cy.get('[data-input-name="email"] > .sl-interactive--field-label').should('contain', 'Email*');
+		return cy.get('[data-input-name="email"]').should('contain', 'Email*');
 	}
 	emailImput() {
-		return cy
-			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
-			.type('andrej.milosavljevic+180611@sleepio.com');
+		return cy.get('[name= "email"]').click({ force: true }).type('andrej.milosavljevic+030816@sleepio.com');
 	}
 	passwordLabel() {
 		return cy.get('.sl-interactive--field-label').should('contain', 'Choose a password*');
 	}
 
 	passwordImput() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[4]/div/input').type('Qwerty123');
+		return cy.get('[name="password"]').click({ force: true }).type('Qwerty123');
+	}
+	phoneNumberImput() {
+		return cy.get('[data-input-name="phone_number"]').click({ force: true }).type('555-777');
 	}
 	passwordHint() {
 		return cy
@@ -39,9 +40,7 @@ class flow1SignUp {
 				'Your password should contain at least 8 characters and at least three of the following: an uppercase letter, a lowercase letter, a symbol and a number.'
 			);
 	}
-	signUpCheckBox() {
-		return cy.get('[data-hidden="false"] > .sl-input-checkbox').click();
-	}
+
 	privacy() {
 		return cy
 			.get('[href="https://www.sleepio.com/privacy"]')
@@ -69,6 +68,26 @@ class flow1SignUp {
 
 	signUpButton() {
 		return cy.get('.sl-button').click();
+	}
+	doctorLabel() {
+		return cy
+			.get('.sl-interactive--field-label')
+			.contains(
+				'I acknowledge that if I have been previously diagnosed with insomnia disorder, I should review the'
+			);
+	}
+
+	doctorLink() {
+		return cy
+			.get('[href="https://www.sleepio.com/suitable/"]')
+			.contains('suitability information')
+			.should('have.attr', 'href', 'https://www.sleepio.com/suitable/');
+	}
+	privacyCheck() {
+		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[5]/input').click();
+	}
+	doctorCheck() {
+		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[6]/input').click();
 	}
 }
 export default flow1SignUp;

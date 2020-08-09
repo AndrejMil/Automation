@@ -29,7 +29,7 @@ import flow1LogIn from '../integration/pageObjects/flow1LogIn';
 import { url } from 'inspector';
 
 var linkovi = [
-	'https://onboarding.qa.sleepio.com/sleepio/big-health'
+	'https://onboarding.sleepio.com/sleepio/big-health'
 ];
 var i = 0;
 describe('Flow 1', () => {
@@ -271,21 +271,23 @@ describe('Flow 1', () => {
 			signUp.passwordLabel();
 			signUp.passwordImput();
 			signUp.passwordHint();
-			signUp.signUpCheckBox();
 			signUp.privacy();
+			signUp.doctorLabel();
+			signUp.doctorLink();
+			signUp.privacyCheck();
+			signUp.doctorCheck();
 			signUp.terms();
-			signUp.suitable();
 			signUp.signUpGoogle();
 			signUp.signUpFacebook();
 			signUp.signUpButton();
 
-			cy.wait(7000);
+			cy.wait(17000);
 
 			const report = new flow1SleepReport();
 
 			report.headerSleepReport();
 			report.logOut();
-			cy.wait(5000);
+			cy.wait(9000);
 			report.reportButton();
 
 			cy.wait(2000);
@@ -617,6 +619,7 @@ describe('Flow 1', () => {
 			lst8.shiftWorker();
 			lst8.shiftWorkerNo();
 			lst8.shiftWorkerYes();
+			lst8.IFUlink();
 			lst8.communityUsername();
 			lst8.communityUsernameAnswer();
 			homePage.buttonClick();

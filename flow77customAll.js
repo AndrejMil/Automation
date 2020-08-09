@@ -2,34 +2,15 @@ import homePageNew from '../integration/pageObjects/homePageNew';
 import HomePage from '../integration/pageObjects/homePage';
 import improveYourSleep from '../integration/pageObjects/improveYourSleep';
 import howLong from '../integration/pageObjects/howLong';
-import stopsYou from '../integration/pageObjects/stopsYou';
 import troubledInGeneralNew from '../integration/pageObjects/troubledInGeneralNew';
-import importantThings from '../integration/pageObjects/importantThings';
 import manyNights from '../integration/pageObjects/manyNights';
 import gender from '../integration/pageObjects/gender';
-import employment from '../integration/pageObjects/employment';
-import manyHours from '../integration/pageObjects/howManyHours';
 import howLikelyNew from '../integration/pageObjects/howLikelyNew';
-import poorSleep from '../integration/pageObjects/poorSleep';
 import dob from '../integration/pageObjects/dob';
 import breathing from '../integration/pageObjects/breathing ';
 import snoring from '../integration/pageObjects/snoring';
 import expertGuides from '../integration/pageObjects/expertGuides';
-import flow76SignUp from '../integration/pageObjects/flow76SignUp';
-import flow1SleepReport from '../integration/pageObjects/flow1SleepReport';
-import flow1Lst1 from '../integration/pageObjects/flow1Lst-1';
-import flow1Lst2 from '../integration/pageObjects/flow1Lst-2';
-import flow1Lst3 from '../integration/pageObjects/flow1Lst-3';
-import flow1Lst4 from '../integration/pageObjects/flow1Lst-4';
-import flow1Lst5 from '../integration/pageObjects/flow1Lst-5';
-import flow1Lst6 from '../integration/pageObjects/flow1Lst-6';
-import flow1Lst7 from '../integration/pageObjects/flow1Lst-7';
 import stillProblem from '../integration/pageObjects/stillProblem';
-import sleepioExperts from '../integration/pageObjects/sleepioExperts';
-import flow76Eligibility from '../integration/pageObjects/flow76Eligibility';
-import perscription from '../integration/pageObjects/flow76prescription ';
-import flow1Lst8 from '../integration/pageObjects/flow76Lst-8';
-import workLocation from '../integration/pageObjects/workLocation';
 import improvmentProgram from '../integration/pageObjects/improvmentProgram';
 import bestReflects from '../integration/pageObjects/bestReflects';
 import following from '../integration/pageObjects/following';
@@ -47,7 +28,6 @@ import tmNumber from '../integration/pageObjects/tmNumber';
 import nhsScotlandPostcode from '../integration/pageObjects/nhsScotlandPostcode';
 import nhsSelectFunction from '../integration/pageObjects/nhsSelectFunction';
 
-import { url } from 'inspector';
 var countryes = [
 	{ country: 'United Kingdom', value: 'GB' },
 	{ country: 'United States', value: 'US' },
@@ -389,12 +369,12 @@ var salesforceStates = [
 ];
 
 var linkovi = [
-	'https://onboarding.sleepio.com/sleepio/google',
-	'https://onboarding.sleepio.com/sleepio/comcast',
-	'https://onboarding.sleepio.com/sleepio/salesforce',
-	'https://onboarding.sleepio.com/sleepio/nhs-staff',
-	'https://onboarding.sleepio.com/sleepio/eyexecutive',
-	'https://onboarding.sleepio.com/sleepio/healthandcare-scot'
+	'https://onboarding.qa.sleepio.com/sleepio/eyexecutive',
+	'https://onboarding.qa.sleepio.com/sleepio/google',
+	'https://onboarding.qa.sleepio.com/sleepio/comcast',
+	'https://onboarding.qa.sleepio.com/sleepio/salesforce',
+	'https://onboarding.qa.sleepio.com/sleepio/nhs-staff',
+	'https://onboarding.qa.sleepio.com/sleepio/healthandcare-scot'
 ];
 var i = 0;
 describe('Proba', () => {
@@ -407,7 +387,7 @@ describe('Proba', () => {
 
 			homePage.visitFirstPage(linkovi[i]);
 			cy.wait(5000);
-			homePage.buttonNew();
+			cy.get('.sl-order-2 > .sl-button').click({ force: true });
 
 			const fourthdOfOst = new troubledInGeneralNew();
 
@@ -430,7 +410,7 @@ describe('Proba', () => {
 			home.buttonClick();
 
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/google/77#2/5') {
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/google/77#2/5') {
 					const improvment = new improvmentProgram();
 
 					improvment.improvmentProgramTitle();
@@ -526,7 +506,7 @@ describe('Proba', () => {
 			});
 
 			cy.url().then((urlString) => {
-				if (urlString != 'https://onboarding.sleepio.com/sleepio/google/77#3/1') {
+				if (urlString != 'https://onboarding.qa.sleepio.com/sleepio/google/77#3/1') {
 					const neki5 = new howLikelyNew();
 
 					neki5.howLikelyTitle();
@@ -573,7 +553,7 @@ describe('Proba', () => {
 				}
 			});
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/comcast/77#2/12') {
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/comcast/77#2/12') {
 					const workComcast = new workForComcast();
 					workComcast.workForComcastTitle();
 					workComcast.usa();
@@ -581,7 +561,7 @@ describe('Proba', () => {
 					workComcast.dontWorkComcast();
 				}
 
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/salesforce/77#2/12') {
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/salesforce/77#2/12') {
 					const workSalesforce = new workForSalesforce();
 					workSalesforce.workForSalesforceTitle();
 
@@ -593,53 +573,53 @@ describe('Proba', () => {
 					}
 				}
 
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/nhs-staff/77#2/12') {
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/nhs-staff/77#2/12') {
 					const nhs = new nhsAccess();
 					nhs.nhsAccessTitle();
 					nhs.nhsAccessAnswer();
 				}
 
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/eyexecutive/77#3/1') {
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/eyexecutive/77#3/1') {
 					const eyeExecut = new eyexecutive();
 					eyeExecut.eyexecutiveTitle();
 					eyeExecut.eyexecutiveHeltText();
-					eyeExecut.eyexecutiveAnswer();
+					eyeExecut.eyexecutiveAnswer({ force: true });
 
-					cy.visit('https://onboarding.sleepio.com/sleepio/ey/77#3/1');
+					cy.visit('https://onboarding.qa.sleepio.com/sleepio/ey/77#3/1');
 
 					const ey = new eyUpn();
 					ey.eyUpnTitle();
 					ey.eyUpnHelpText();
 					ey.eyUpnAnswer();
 
-					cy.visit('https://onboarding.sleepio.com/sleepio/fujifilm/77#3/1');
+					cy.visit('https://onboarding.qa.sleepio.com/sleepio/fujifilm/77#3/1');
 
 					const fujifilm = new fujifilmId();
 					fujifilm.fujifilmIdTitle();
 					fujifilm.fujifilmIdHelpText();
 					fujifilm.fujifilmIdAnswer();
 
-					cy.visit('https://onboarding.sleepio.com/sleepio/bjc/77#3/1');
+					cy.visit('https://onboarding.qa.sleepio.com/sleepio/bjc/77#3/1');
 
 					const bjc = new bjcId();
 					bjc.bjcTitle();
 					bjc.bjcIdHelpText();
 					bjc.bjcIdAnswer();
 
-					cy.visit('https://onboarding.sleepio.com/sleepio/3m/77#3/1');
+					cy.visit('https://onboarding.qa.sleepio.com/sleepio/3m/77#3/1');
 					const threeM = new threeMId();
 					threeM.threeMTitle();
 					threeM.threeMHelpText();
 					threeM.threeMAnswer();
 
-					cy.visit('https://onboarding.sleepio.com/sleepio/target/77#3/1');
+					cy.visit('https://onboarding.qa.sleepio.com/sleepio/target/77#3/1');
 
 					const tmNum = new tmNumber();
 					tmNum.tmNumberTitle();
 					tmNum.tmNumberHelpText();
 					tmNum.tmNumberAnswer();
 				}
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/healthandcare-scot/77#2/12') {
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/healthandcare-scot/77#2/12') {
 					const nhsScotPostcode = new nhsScotlandPostcode();
 					nhsScotPostcode.nhsScotPostcodeTitle();
 					nhsScotPostcode.nhsScotPostcodeAnswer();

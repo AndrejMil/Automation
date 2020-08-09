@@ -8,7 +8,7 @@ class manyNights {
 		return cy.get('.sl-select').select('0 nights');
 	}
 	night1() {
-		return cy.get('.sl-select').select('1 nights');
+		return cy.get('.sl-select').select('1 night');
 	}
 	night2() {
 		return cy.get('.sl-select').select('2 nights');

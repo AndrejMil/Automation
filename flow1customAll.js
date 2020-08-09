@@ -25,10 +25,7 @@ import homeDepotSignUp from './pageObjects/homeDepotSigUp';
 import { url } from 'inspector';
 
 var linkovi = [
-	'https://onboarding.sleepio.com/sleepio/roche',
-	'https://onboarding.sleepio.com/sleepio/accenture',
-	'https://onboarding.sleepio.com/sleepio/homedepot',
-	'https://onboarding.sleepio.com/sleepio/capri'
+	'https://onboarding.qa.sleepio.com/sleepio/roche'
 ];
 var i = 0;
 describe('Proba', () => {
@@ -178,7 +175,7 @@ describe('Proba', () => {
 			twelfthOfOst.numberHours().type('5');
 			homePage.buttonClick();
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/accenture/1#2/15') {
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/accenture/1#2/15') {
 					const career = new careerLevel();
 
 					career.careerTitle();
@@ -205,7 +202,7 @@ describe('Proba', () => {
 					dte.iDont();
 					homePage.buttonClick();
 				}
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/homedepot/1#2/15') {
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/homedepot/1#2/15') {
 					const desc = new describes();
 					desc.describesTitle();
 					desc.homeDepot();
@@ -220,7 +217,7 @@ describe('Proba', () => {
 					const homeSignUp = new homeDepotSignUp();
 					homeSignUp.associateID();
 				}
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/roche/1#2/15') {
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/roche/1#2/15') {
 					const expert = new expertGuides();
 					expert.expertGuidesTitle();
 					expert.none();
@@ -229,7 +226,7 @@ describe('Proba', () => {
 					const roche = new rocheSignUp();
 					roche.unixID();
 				}
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/capri/1#2/15') {
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/capri/1#2/15') {
 					const area = new areaOfBusiness();
 					area.areaOfBusinessTitle();
 					area.retail();

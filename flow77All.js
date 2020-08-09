@@ -2,22 +2,16 @@ import homePageNew from '../integration/pageObjects/homePageNew';
 import HomePage from '../integration/pageObjects/homePage';
 import improveYourSleep from '../integration/pageObjects/improveYourSleep';
 import howLong from '../integration/pageObjects/howLong';
-import stopsYou from '../integration/pageObjects/stopsYou';
 import troubledInGeneralNew from '../integration/pageObjects/troubledInGeneralNew';
-import importantThings from '../integration/pageObjects/importantThings';
 import manyNights from '../integration/pageObjects/manyNights';
 import gender from '../integration/pageObjects/gender';
-import employment from '../integration/pageObjects/employment';
-import manyHours from '../integration/pageObjects/howManyHours';
 import howLikelyNew from '../integration/pageObjects/howLikelyNew';
-import poorSleep from '../integration/pageObjects/poorSleep';
 import dob from '../integration/pageObjects/dob';
 import breathing from '../integration/pageObjects/breathing ';
 import snoring from '../integration/pageObjects/snoring';
 import expertGuides from '../integration/pageObjects/expertGuides';
 import flow76SignUp from '../integration/pageObjects/flow76SignUp';
 import flow1SleepReport from '../integration/pageObjects/flow1SleepReport';
-import flow1Lst1 from '../integration/pageObjects/flow1Lst-1';
 import flow1Lst2 from '../integration/pageObjects/flow1Lst-2';
 import flow1Lst3 from '../integration/pageObjects/flow1Lst-3';
 import flow1Lst4 from '../integration/pageObjects/flow1Lst-4';
@@ -25,16 +19,12 @@ import flow1Lst5 from '../integration/pageObjects/flow1Lst-5';
 import flow1Lst6 from '../integration/pageObjects/flow1Lst-6';
 import flow1Lst7 from '../integration/pageObjects/flow1Lst-7';
 import stillProblem from '../integration/pageObjects/stillProblem';
-import sleepioExperts from '../integration/pageObjects/sleepioExperts';
-import flow76Eligibility from '../integration/pageObjects/flow76Eligibility';
 import perscription from '../integration/pageObjects/flow76prescription ';
 import flow1Lst8 from '../integration/pageObjects/flow76Lst-8';
 import flow1LogIn from '../integration/pageObjects/flow1LogIn';
 
-import { url } from 'inspector';
-
 var linkovi = [
-	'https://onboarding.qa.sleepio.com/sleepio/bh2020/77#1/1'
+	'https://onboarding.sleepio.com/sleepio/bh2020/77#1/1'
 ];
 var i = 0;
 describe('Flow 77', () => {
@@ -49,7 +39,7 @@ describe('Flow 77', () => {
 			homePage.visitFirstPage(linkovi[i]);
 			const logIn = new flow1LogIn();
 			logIn.logIn();
-			homePage.buttonNew();
+			cy.get('.sl-order-2 > .sl-button').click({ force: true });
 
 			cy.wait(2000);
 			cy.document().toMatchImageSnapshot();
@@ -204,10 +194,12 @@ describe('Flow 77', () => {
 			signUp.passwordLabel();
 			signUp.passwordImput77();
 			signUp.passwordHint();
-			signUp.signUpCheckBox();
+			signUp.doctorLabel77();
+			signUp.doctorLink77();
+			signUp.privacyCheck77();
+			signUp.doctorCheck77();
 			signUp.privacy();
 			signUp.terms();
-			signUp.suitable();
 
 			signUp.signUpButton();
 			cy.wait(7000);
@@ -216,7 +208,7 @@ describe('Flow 77', () => {
 			report.headerSleepReport();
 			report.logOut();
 
-			cy.get('.dark-blue-bg > div > .sl-button').click();
+			cy.get('.dark-blue-bg > div > .sl-button').click({ force: true });
 
 			cy.wait(4000);
 			cy.document().toMatchImageSnapshot();
@@ -428,7 +420,9 @@ describe('Flow 77', () => {
 
 			lst8.communityUsername();
 			cy.wait(3000);
+			lst8.IFUlinkNew();
 			lst8.communityUsernameAnswer();
+
 			home.buttonClick();
 		}
 	});

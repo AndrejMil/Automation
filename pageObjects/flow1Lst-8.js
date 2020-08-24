@@ -10,24 +10,18 @@ class flow1Lst8 {
 			.should('contain', 'Are you a shift worker?');
 	}
 	shiftWorkerNo() {
-		return cy
-			.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/fieldset/div/div[1]/label/input')
-			.click()
-			.then(() => {
-				cy
-					.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/fieldset/div/div[1]/label/span')
-					.should('contain', 'No');
-			});
+		return cy.get('[name="71_0"]').click({ force: ture }).then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'No');
+		});
 	}
 	shiftWorkerYes() {
-		return cy
-			.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/fieldset/div/div[2]/label/input')
-			.click()
-			.then(() => {
-				cy
-					.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/fieldset/div/div[2]/label/span')
-					.should('contain', 'Yes');
-			});
+		return cy.get('[name="71_1"]').click((force: true)).then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'Yes');
+		});
 	}
 	communityUsername() {
 		return cy

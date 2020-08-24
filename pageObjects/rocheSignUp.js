@@ -1,11 +1,11 @@
 class rocheSignUp {
 	unixID() {
-		return cy
-			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[4]/label')
-			.contains('UNIX ID or User ID')
-			.then(() => {
-				cy.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[4]/div/input').click().type('12345');
-			});
+		return cy.get('.sl-interactive--field-label').should('contain', 'UNIX ID or User ID*');
+	}
+
+	unixIDAnswer() {
+		return cy.get('[name="employee_id"]').click({ force: true }).type('1');
 	}
 }
+
 export default rocheSignUp;

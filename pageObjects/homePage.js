@@ -4,7 +4,7 @@ class HomePage {
 	}
 
 	buttonClick() {
-		return cy.get('[type="button"].sl-button').click();
+		return cy.get('[type="button"].sl-button').click({ force: true });
 	}
 }
 

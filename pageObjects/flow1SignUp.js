@@ -20,7 +20,7 @@ class flow1SignUp {
 		return cy.get('[data-input-name="email"]').should('contain', 'Email*');
 	}
 	emailImput() {
-		return cy.get('[name= "email"]').click({ force: true }).type('andrej.milosavljevic+030816@sleepio.com');
+		return cy.get('[name= "email"]').click({ force: true }).type('andrej.milosavljevic+19081@sleepio.com');
 	}
 	passwordLabel() {
 		return cy.get('.sl-interactive--field-label').should('contain', 'Choose a password*');

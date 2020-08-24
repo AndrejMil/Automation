@@ -1,12 +1,12 @@
 class nhspostcode {
 	nhspostcodeTitle() {
 		return cy
-			.xpath('/html/body/div[1]/div/div[3]/div/div/div[1]/div/div[1]/label')
-			.should('contain', 'We’ve partnered with the NHS to provide you access. Please first enter your postcode.');
+			.get('.sl-page-title')
+			.should('contain', 'We’ve partnered with the NHS to provide you access. Please enter your postcode.');
 	}
 
 	nhspostcodeAnswer() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[1]/div/div[2]/div/input').type('5');
+		return cy.get('.sl-input-text ').type('5');
 	}
 }
 

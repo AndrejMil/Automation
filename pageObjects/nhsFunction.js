@@ -1,24 +1,22 @@
 class nhsFunction {
 	nhsFunctionTitle() {
-		return cy
-			.xpath('/html/body/div[1]/div/div[3]/div/div/div[1]/div/div[1]/label')
-			.should('contain', 'Please select your function:');
+		return cy.get('.sl-page-title').should('contain', 'Please select your function:');
 	}
 
 	nhsSocial() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[1]/div/div[2]/div/div/div[1]/label/input').click();
+		return cy.get('[id="options-id-0"]').click({ force: true });
 	}
 
 	thirdSector() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[1]/div/div[2]/div/div/div[2]/label/input').click();
+		return cy.get('[id="options-id-1"]').click({ force: true });
 	}
 
 	otherPublic() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[1]/div/div[2]/div/div/div[3]/label/input').click();
+		return cy.get('[id="options-id-2"]').click({ force: true });
 	}
 
 	other() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[1]/div/div[2]/div/div/div[4]/label/input').click();
+		return cy.get('[id="options-id-3"]').click({ force: true });
 	}
 }
 

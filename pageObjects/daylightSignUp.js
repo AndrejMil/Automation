@@ -1,57 +1,83 @@
 class daylightSignUp {
 	firstName() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[1]/div/input').type('Andrej23');
+		return cy.get('[name="first_name"]').type('An');
+	}
+
+	firstNameLabel() {
+		return cy.get('.sl-interactive--field-label').should('contain', 'First Name*');
 	}
 
 	lastName() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[2]/div/input').type('Mil23');
+		return cy.get('[name="last_name"]').type('Mi');
+	}
+
+	lastNameLabel() {
+		return cy.get('.sl-interactive--field-label').should('contain', 'Last Name*');
 	}
 
 	email() {
-		return cy
-			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
-			.type('andrej.milosavljevic+19087@sleepio.com');
+		return cy.get('[name="email"]').click({ force: true }).type('andrej.m');
+	}
+
+	emailLabel() {
+		return cy.get('.sl-interactive--field-label').should('contain', 'Email*');
+	}
+
+	emailLabelQueens() {
+		return cy.get('.sl-interactive--field-label').should('contain', 'Email (Personal Email Recommended)*');
 	}
 
 	password() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[4]/div/input').type('Qwerty123');
+		return cy.get('[name="password"]').click({ force: true }).type('Qwerty123');
+	}
+
+	passwordLabel() {
+		return cy.get('.sl-interactive--field-label').should('contain', 'Choose a password*');
+	}
+
+	passwordLabelII() {
+		return cy.get('.sl-interactive--field-label').should('contain', 'Password*');
 	}
 	passwordText() {
 		return cy
-			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[4]/label[2]')
+			.get('.sl-interactive--help-text')
 			.should(
 				'contain',
 				'Your password should contain at least 8 characters and at least three of the following: an uppercase letter, a lowercase letter, a symbol and a number.'
 			);
 	}
 
-	checkBox() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[5]/input').click();
+	privacyCheckBox() {
+		return cy.get('[type="checkbox"]').first().click({ force: true });
+	}
+
+	doctorCheckBox() {
+		return cy.get('[type="checkbox"]').last().click({ force: true });
 	}
 
 	privacy() {
 		return cy
-			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[5]/label/a[1]')
+			.get('.sl-interactive--field-label')
 			.contains('Privacy Policy')
 			.should('have.attr', 'href', 'http://www.trydaylight.com/privacy');
 	}
 
 	terms() {
 		return cy
-			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[5]/label/a[2]')
+			.get('.sl-interactive--field-label')
 			.contains('Terms of Service')
 			.should('have.attr', 'href', 'http://www.trydaylight.com/terms');
 	}
 
 	suitable() {
 		return cy
-			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[7]/div/a')
-			.contains('click here')
-			.should('have.attr', 'href', 'http://www.trydaylight.com/suitable');
+			.get('.sl-interactive--field-label')
+			.contains('suitability information')
+			.should('have.attr', 'href', ' https://www.trydaylight.com/suitable');
 	}
 
 	signUpButton() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[6]/button').click();
+		return cy.get('[type="submit"]').click({ force: true });
 	}
 }
 export default daylightSignUp;

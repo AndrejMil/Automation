@@ -203,7 +203,7 @@ describe('Flow 78', () => {
 			signUp.terms();
 
 			signUp.signUpButton();
-			cy.wait(15000);
+			cy.wait(10000);
 
 			const report = new flow1SleepReport();
 			report.headerSleepReport();
@@ -213,7 +213,7 @@ describe('Flow 78', () => {
 
 			cy.get('.dark-blue-bg > div > .sl-button').click({ force: true });
 
-			cy.wait(2000);
+			cy.wait(10000);
 			cy.document().toMatchImageSnapshot();
 			const eligibility = new flow76Eligibility();
 			eligibility.coverage();

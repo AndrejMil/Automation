@@ -16,15 +16,18 @@ import workLocation from '../integration/pageObjects/workLocation';
 import flow1SignUp from '../integration/pageObjects/flow1SignUp';
 
 var linkovi = [
-	'https://onboarding.qa.sleepio.com/sleepio/cuhealthplan/78#1/1',
-	'https://onboarding.qa.sleepio.com/sleepio/usfoods_deprecated/78#1/1',
-	'https://onboarding.qa.sleepio.com/sleepio/libertymutual/78',
-	'https://onboarding.qa.sleepio.com/sleepio/libertysleepio/78',
-	'https://onboarding.qa.sleepio.com/sleepio/libertysleep/78',
-	'https://onboarding.qa.sleepio.com/sleepio/liberty2/78#1/1',
-	'https://onboarding.qa.sleepio.com/sleepio/libertysleepy/78#1/1',
-	'https://onboarding.qa.sleepio.com/sleepio/libertymutual1/78',
-	'https://onboarding.qa.sleepio.com/sleepio/bnymellon/78#1/1'
+	'https://onboarding.sleepio.com/sleepio/bnymsleep/78#1/1',
+	'https://onboarding.sleepio.com/sleepio/bnysleep/78#1/1',
+	'https://onboarding.sleepio.com/sleepio/cusleep/78#1/1',
+	'https://onboarding.sleepio.com/sleepio/cuhealthplan/78#1/1',
+	'https://onboarding.sleepio.com/sleepio/usfoods_deprecated/78#1/1',
+	'https://onboarding.sleepio.com/sleepio/libertymutual/78',
+	'https://onboarding.sleepio.com/sleepio/libertysleepio/78',
+	'https://onboarding.sleepio.com/sleepio/libertysleep/78',
+	'https://onboarding.sleepio.com/sleepio/liberty2/78#1/1',
+	'https://onboarding.sleepio.com/sleepio/libertysleepy/78#1/1',
+	'https://onboarding.sleepio.com/sleepio/libertymutual1/78',
+	'https://onboarding.sleepio.com/sleepio/bnymellon/78#1/1'
 ];
 
 var i = 0;
@@ -93,7 +96,7 @@ describe('Proba', () => {
 			const signUp = new flow1SignUp();
 
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/usfoods_deprecated/78#3/1') {
+				if (urlString == 'https://onboarding.sleepio.com/sleepio/usfoods_deprecated/78#3/1') {
 					signUp.phoneNumberLabel();
 					signUp.phoneNumberImput();
 				}

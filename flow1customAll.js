@@ -2,7 +2,6 @@ import HomePage from './pageObjects/homePage';
 import improveYourSleep from './pageObjects/improveYourSleep';
 import howLong from './pageObjects/howLong';
 import stopsYou from './pageObjects/stopsYou';
-import troubledInGeneral from './pageObjects/troubledInGeneral';
 import importantThings from './pageObjects/importantThings';
 import manyNights from './pageObjects/manyNights';
 import gender from './pageObjects/gender';
@@ -20,13 +19,11 @@ import areaOfBusiness from './pageObjects/areaOfBusiness';
 import benefitsPlans from './pageObjects/benefitsPlans';
 import expertGuides from './pageObjects/expertGuides';
 import rocheSignUp from './pageObjects/rocheSignUp';
-import homeDepotSignUp from './pageObjects/homeDepotSigUp';
+import troubledInGeneral from '../integration/pageObjects/troubledInGeneral';
 
 import { url } from 'inspector';
 
-var linkovi = [
-	'https://onboarding.qa.sleepio.com/sleepio/roche'
-];
+var linkovi = [];
 var i = 0;
 describe('Proba', () => {
 	console.log(linkovi[i]);
@@ -41,6 +38,13 @@ describe('Proba', () => {
 			homePage.buttonClick();
 
 			// First page of OST
+
+			const fourthdOfOst = new troubledInGeneral();
+
+			fourthdOfOst.veryMuch();
+			homePage.buttonClick();
+
+			homePage.buttonClick();
 
 			const firstofOst = new improveYourSleep();
 
@@ -77,11 +81,6 @@ describe('Proba', () => {
 			homePage.buttonClick();
 
 			// Fourth page of OST
-
-			const fourthdOfOst = new troubledInGeneral();
-
-			fourthdOfOst.veryMuch();
-			homePage.buttonClick();
 
 			const fiveOfOst = new manyNights();
 

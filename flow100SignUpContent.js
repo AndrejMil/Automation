@@ -15,13 +15,14 @@ import howOften from '../integration/pageObjects/howOften';
 import daylightSignUp from '../integration/pageObjects/daylightSignUp';
 import thehartfordEID from '../integration/pageObjects/thehartfordEID';
 import TMEID from '../integration/pageObjects/daylightTMEID';
+import ukredeemEID from '../integration/pageObjects/ukredeemEID';
 
 var linkovi = [
-	'https://onboarding.qa.trydaylight.com/daylight/test_the_bh_qwerty',
-	'https://onboarding.qa.trydaylight.com/daylight/nhs-staff',
-	'https://onboarding.qa.trydaylight.com/daylight/bmc/100#1/1',
-	'https://onboarding.qa.trydaylight.com/daylight/TheHartford',
-	'https://onboarding.qa.trydaylight.com/daylight/Target'
+	'https://onboarding.trydaylight.com/daylight/test_the_bh_qwerty',
+	'https://onboarding.trydaylight.com/daylight/nhs-staff',
+	'https://onboarding.trydaylight.com/daylight/bmc/100#1/1',
+	'https://onboarding.trydaylight.com/daylight/TheHartford',
+	'https://onboarding.trydaylight.com/daylight/Target'
 ];
 var i = 0;
 describe('Flow 100', () => {
@@ -44,9 +45,9 @@ describe('Flow 100', () => {
 			intro.daylightButton();
 
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.qa.trydaylight.com/daylight/nhs-staff/100#1/3') {
+				if (urlString == 'https://onboarding.trydaylight.com/daylight/nhs-staff/100#1/3') {
 					const nhspostc = new nhspostcode();
-					nhspostc.nhspostcodeTitle();
+					nhspostc.nhspostcodeTitleII();
 					nhspostc.nhspostcodeAnswer();
 					intro.daylightButton();
 
@@ -136,8 +137,8 @@ describe('Flow 100', () => {
 			intro.daylightButton();
 
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.qa.trydaylight.com/daylight/test_the_bh_qwerty/100#2/9') {
-					cy.visit('https://onboarding.qa.trydaylight.com/daylight/test_the_bh_qwerty/100#3/1');
+				if (urlString == 'https://onboarding.trydaylight.com/daylight/test_the_bh_qwerty/100#2/9') {
+					cy.visit('https://onboarding.trydaylight.com/daylight/test_the_bh_qwerty/100#3/1');
 
 					const signUp = new daylightSignUp();
 					signUp.firstName();
@@ -155,7 +156,7 @@ describe('Flow 100', () => {
 					signUp.terms();
 					signUp.suitable();
 
-					cy.visit('https://onboarding.qa.trydaylight.com/daylight/bmcday/');
+					cy.visit('https://onboarding.trydaylight.com/daylight/bmcday/');
 					cy.wait(3000);
 
 					const daylightBmc = new daylightBmcId();
@@ -177,7 +178,7 @@ describe('Flow 100', () => {
 					signUp.terms();
 					signUp.suitable();
 
-					cy.visit('https://onboarding.qa.trydaylight.com/daylight/daylight4test');
+					cy.visit('https://onboarding.trydaylight.com/daylight/daylight4test');
 					cy.wait(3000);
 
 					signUp.firstName();
@@ -195,7 +196,7 @@ describe('Flow 100', () => {
 					signUp.terms();
 					signUp.suitable();
 
-					cy.visit('https://onboarding.qa.trydaylight.com/daylight/bigfriends');
+					cy.visit('https://onboarding.trydaylight.com/daylight/bigfriends');
 					cy.wait(3000);
 
 					signUp.firstName();
@@ -213,7 +214,7 @@ describe('Flow 100', () => {
 					signUp.terms();
 					signUp.suitable();
 
-					cy.visit('https://onboarding.qa.trydaylight.com/daylight/harvardpilgrimaccess');
+					cy.visit('https://onboarding.trydaylight.com/daylight/harvardpilgrimaccess');
 					cy.wait(3000);
 
 					signUp.firstName();
@@ -231,7 +232,7 @@ describe('Flow 100', () => {
 					signUp.terms();
 					signUp.suitable();
 
-					cy.visit('https://onboarding.qa.trydaylight.com/daylight/hubbellaccess');
+					cy.visit('https://onboarding.trydaylight.com/daylight/hubbellaccess');
 					cy.wait(3000);
 
 					signUp.firstName();
@@ -249,7 +250,7 @@ describe('Flow 100', () => {
 					signUp.terms();
 					signUp.suitable();
 
-					cy.visit('https://onboarding.qa.trydaylight.com/daylight/queens/100');
+					cy.visit('https://onboarding.trydaylight.com/daylight/queens/100');
 					cy.wait(7000);
 					signUp.firstName();
 					signUp.firstNameLabel();
@@ -266,9 +267,63 @@ describe('Flow 100', () => {
 					signUp.terms();
 					signUp.suitable();
 
-					cy.visit('https://onboarding.qa.trydaylight.com/daylight/hubbellaccess');
+					cy.visit('https://onboarding.trydaylight.com/daylight/hubbellaccess');
 					cy.wait(3000);
 
+					signUp.firstName();
+					signUp.firstNameLabel();
+					signUp.lastName();
+					signUp.lastNameLabel();
+					signUp.email();
+					signUp.emailLabel();
+					signUp.password();
+					signUp.passwordLabel();
+					signUp.passwordText();
+					signUp.privacy();
+					signUp.privacyCheckBox();
+					signUp.doctorCheckBox();
+					signUp.terms();
+					signUp.suitable();
+
+					cy.visit('https://onboarding.trydaylight.com/daylight/DHSCstaff/100#3/1');
+					cy.wait(3000);
+					signUp.firstName();
+					signUp.firstNameLabel();
+					signUp.lastName();
+					signUp.lastNameLabel();
+					signUp.email();
+					signUp.emailLabel();
+					signUp.password();
+					signUp.passwordLabel();
+					signUp.passwordText();
+					signUp.privacy();
+					signUp.privacyCheckBox();
+					signUp.doctorCheckBox();
+					signUp.terms();
+					signUp.suitable();
+
+					cy.visit('https://onboarding.trydaylight.com/daylight/dhsc-staff/100#3/1');
+					cy.wait(3000);
+					signUp.firstName();
+					signUp.firstNameLabel();
+					signUp.lastName();
+					signUp.lastNameLabel();
+					signUp.email();
+					signUp.emailLabel();
+					signUp.password();
+					signUp.passwordLabel();
+					signUp.passwordText();
+					signUp.privacy();
+					signUp.privacyCheckBox();
+					signUp.doctorCheckBox();
+					signUp.terms();
+					signUp.suitable();
+
+					cy.visit('https://onboarding.trydaylight.com/daylight/ukredeem/100#3/1');
+					cy.wait(3000);
+					const ukredeem = new ukredeemEID();
+					ukredeem.ukredeemEIDTitle();
+					ukredeem.ukredeemEIDAnswer();
 					signUp.firstName();
 					signUp.firstNameLabel();
 					signUp.lastName();
@@ -287,21 +342,21 @@ describe('Flow 100', () => {
 			});
 
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.qa.trydaylight.com/daylight/bmc/100#2/9') {
-					cy.visit('https://onboarding.qa.trydaylight.com/daylight/bmc/100#3/1');
+				if (urlString == 'https://onboarding.trydaylight.com/daylight/bmc/100#2/9') {
+					cy.visit('https://onboarding.trydaylight.com/daylight/bmc/100#3/1');
 
 					const daylightBmc = new daylightBmcId();
 					daylightBmc.bmcTitle();
 					daylightBmc.bmcIdAnswer();
 
-					cy.visit('https://onboarding.qa.trydaylight.com/daylight/bmc2019/100#3/1');
+					cy.visit('https://onboarding.trydaylight.com/daylight/bmc2019/100#3/1');
 					daylightBmc.bmcTitle();
 					daylightBmc.bmcIdAnswer();
 				}
 			});
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.qa.trydaylight.com/daylight/thehartford/100#2/9') {
-					cy.visit('https://onboarding.qa.trydaylight.com/daylight/thehartford/100#3/1');
+				if (urlString == 'https://onboarding.trydaylight.com/daylight/thehartford/100#2/9') {
+					cy.visit('https://onboarding.trydaylight.com/daylight/thehartford/100#3/1');
 
 					const daylighthartfordEID = new thehartfordEID();
 					daylighthartfordEID.thehartfordTitle();
@@ -309,13 +364,13 @@ describe('Flow 100', () => {
 				}
 			});
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.qa.trydaylight.com/daylight/nhs-staff/100#2/9') {
-					cy.visit('https://onboarding.qa.trydaylight.com/daylight/nhs-staff/100#3/1');
+				if (urlString == 'https://onboarding.trydaylight.com/daylight/nhs-staff/100#2/9') {
+					cy.visit('https://onboarding.trydaylight.com/daylight/nhs-staff/100#3/1');
 				}
 			});
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.qa.trydaylight.com/daylight/target/100#2/9') {
-					cy.visit('https://onboarding.qa.trydaylight.com/daylight/target/100#3/1');
+				if (urlString == 'https://onboarding.trydaylight.com/daylight/target/100#2/9') {
+					cy.visit('https://onboarding.trydaylight.com/daylight/target/100#3/1');
 
 					const daylightTMEID = new TMEID();
 					daylightTMEID.TMEIDTitle();

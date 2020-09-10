@@ -12,22 +12,11 @@ import snoring from '../integration/pageObjects/snoring';
 import expertGuides from '../integration/pageObjects/expertGuides';
 import stillProblem from '../integration/pageObjects/stillProblem';
 import sleepioExperts from '../integration/pageObjects/sleepioExperts';
-import workLocation from '../integration/pageObjects/workLocation';
 import flow1SignUp from '../integration/pageObjects/flow1SignUp';
+import rocheSignUp from '../integration/pageObjects/rocheSignUp';
 
 var linkovi = [
-	'https://onboarding.sleepio.com/sleepio/newscorpsleep/76',
-	'https://onboarding.sleepio.com/sleepio/newscorp',
-	'https://onboarding.sleepio.com/sleepio/holmansleep',
-	'https://onboarding.sleepio.com/sleepio/amerigasrest/76',
-	'https://onboarding.sleepio.com/sleepio/amerigas',
-	'https://onboarding.sleepio.com/sleepio/holman',
-	'https://onboarding.sleepio.com/sleepio/hubbell',
-	'https://onboarding.sleepio.com/sleepio/hubbellrest/76#1/1',
-	'https://onboarding.sleepio.com/sleepio/hubbellsleep',
-	'https://onboarding.sleepio.com/sleepio/usfoods1/',
-	'https://onboarding.sleepio.com/sleepio/usfoods2',
-	'https://onboarding.sleepio.com/sleepio/usfoodsrest/76'
+	'https://onboarding.sleepio.com/sleepio/roche/105'
 ];
 
 var i = 0;
@@ -42,7 +31,7 @@ describe('Proba', () => {
 
 			homePage.visitFirstPage(linkovi[i]);
 
-			cy.wait(10000);
+			cy.wait(5000);
 			homePage.buttonNew();
 
 			const fourthdOfOst = new troubledInGeneralNew();
@@ -93,57 +82,38 @@ describe('Proba', () => {
 			ninthOfOst.year1991();
 			home.buttonClick();
 
-			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/hubbell/76#2/12') {
-					const hubbellCustom = new workLocation();
-
-					hubbellCustom.dontWork();
-					home.buttonClick();
-				}
-			});
-			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/hubbellrest/76#2/12') {
-					const hubbellCustom = new workLocation();
-
-					hubbellCustom.dontWork();
-					home.buttonClick();
-				}
-			});
-			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/hubbellsleep/76#2/12') {
-					const hubbellCustom = new workLocation();
-
-					hubbellCustom.dontWork();
-					home.buttonClick();
-				}
-			});
-
-			const experts = new sleepioExperts();
-
-			experts.expertsInput();
-			home.buttonClick();
-
 			const signUp = new flow1SignUp();
 
-			var phone = [
-				'Phone Number',
-				'Cell/Mobile Phone Number',
-				'Mobile Number'
-			];
+			cy.url().then((urlString) => {
+				if (urlString == 'https://onboarding.sleepio.com/sleepio/roche/105#3/1') {
+					const signUp = new flow1SignUp();
+					const roche = new rocheSignUp();
+					signUp.signUpHeader();
+					signUp.firstNameLabel();
+					signUp.firstNameImput();
+					signUp.lastNameLabel();
+					signUp.lastNameImput();
+					signUp.emailLabel();
+					signUp.emailImput();
+					signUp.passwordLabel();
+					signUp.passwordImput();
+					signUp.passwordHint();
+					signUp.privacy();
+					signUp.terms();
+					signUp.doctorLabel();
+					signUp.doctorLabel();
+					signUp.doctorLink();
 
-			var matching = 0;
+					roche.unixID();
+					roche.unixIDAnswer();
 
-			cy.get('[for="23633"]').then((num) => {
-				var m = 0;
-				for (; m < phone.length; m++) {
-					if (phone[m] == num.text()) {
-						matching += 1;
-					}
+					cy.visit('https://onboarding.sleepio.com/sleepio/genentech/105#3/1');
+					cy.wait(2000);
+					roche.unixID();
+					roche.unixIDAnswer();
 				}
-				// This must always be 1 - the phone number label must match only one of the phone list
-				expect(matching).to.equal(1);
-				matching -= 1;
 			});
+
 			signUp.signUpHeader();
 			signUp.firstNameLabel();
 			signUp.firstNameImput();
@@ -154,7 +124,6 @@ describe('Proba', () => {
 			signUp.passwordLabel();
 			signUp.passwordImput();
 			signUp.passwordHint();
-			signUp.phoneNumberImput();
 			signUp.privacy();
 			signUp.terms();
 			signUp.doctorLabel();

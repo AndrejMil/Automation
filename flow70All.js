@@ -20,18 +20,17 @@ import flow1Lst6 from '../integration/pageObjects/flow1Lst-6';
 import flow1Lst7 from '../integration/pageObjects/flow1Lst-7';
 import stillProblem from '../integration/pageObjects/stillProblem';
 import sleepioExperts from '../integration/pageObjects/sleepioExperts';
-import flow76Eligibility from '../integration/pageObjects/flow76Eligibility';
 import perscription from '../integration/pageObjects/flow76prescription ';
 import flow1Lst8 from '../integration/pageObjects/flow76Lst-8';
 import flow1LogIn from '../integration/pageObjects/flow1LogIn';
 
 var linkovi = [
-	'https://onboarding.sleepio.com/sleepio/holman/76#1/1'
+	'https://onboarding.sleepio.com/sleepio/demo2020HI/70'
 ];
 var i = 0;
 describe('Proba', () => {
 	console.log(linkovi[i]);
-	it('Start the test', () => {
+	it('Flow 70', () => {
 		Cypress.currentTest.retries(5);
 		// Get started page
 		for (; i < linkovi.length; i++) {
@@ -41,8 +40,7 @@ describe('Proba', () => {
 			homePage.visitFirstPage(linkovi[i]);
 			const logIn = new flow1LogIn();
 
-			logIn.logIn();
-			homePage.buttonNew();
+			cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div/input').click();
 
 			cy.wait(2000);
 			cy.document().toMatchImageSnapshot();
@@ -205,14 +203,12 @@ describe('Proba', () => {
 			signUp.emailLabel();
 			signUp.emailImput();
 			signUp.passwordLabel();
-			signUp.passwordImput();
-			signUp.phoneLabel76();
-			signUp.phoneImput();
+			signUp.passwordImput77();
 			signUp.passwordHint();
-			signUp.doctorLabelNew();
-			signUp.doctorLinkNew();
-			signUp.privacyCheckNew();
-			signUp.doctorCheckNew();
+			signUp.doctorLabel77();
+			signUp.doctorLink77();
+			signUp.privacyCheck77();
+			signUp.doctorCheck77();
 			signUp.privacy();
 			signUp.terms();
 
@@ -223,25 +219,10 @@ describe('Proba', () => {
 
 			report.headerSleepReport();
 			report.logOut();
-
-			cy.wait(10000);
+			cy.wait(17000);
 			cy.get('.dark-blue-bg > div > .sl-button').click({ force: true });
 
-			const eligibility = new flow76Eligibility();
-			cy.wait(7000);
-			cy.document().toMatchImageSnapshot();
-			eligibility.coverage();
-			eligibility.firstNameLabel();
-			eligibility.firstName();
-			eligibility.midleNameLabel();
-			eligibility.midleName();
-			eligibility.lastNameLabel();
-			eligibility.lastName();
-			eligibility.dobLabel();
-			eligibility.zipLabel();
-			eligibility.zipImput();
-
-			cy.visit('https://onboarding.sleepio.com/sleepio/holman/76#7/1');
+			cy.visit('https://onboarding.sleepio.com/sleepio/demo2020HI/70#6/1');
 
 			const lst2 = new flow1Lst2();
 
@@ -456,7 +437,6 @@ describe('Proba', () => {
 
 			lst8.helpfulSleepioExpert();
 			lst8.helpfulSleepioExpertAnswers();
-			lst8.IFUlinkNew();
 
 			lst8.communityUsername();
 			lst8.communityUsernameAnswer();

@@ -16,15 +16,13 @@ import livewellId from './pageObjects/livewellEID';
 import bjcId from './pageObjects/bjcId';
 
 var linkovi = [
-	'https://onboarding.qa.sleepio.com/sleepio/bjchealthcare',
-	'https://onboarding.qa.sleepio.com/sleepio/bjc',
-	'https://onboarding.qa.sleepio.com/sleepio/livewell/77#1/1',
-	'https://onboarding.qa.sleepio.com/sleepio/abbott/77',
-	'https://onboarding.qa.sleepio.com/sleepio/bh2020',
-	'https://onboarding.qa.sleepio.com/sleepio/amerihealthcaritas',
-	'https://onboarding.qa.sleepio.com/sleepio/demo2020/77#1/1',
-	'https://onboarding.qa.sleepio.com/sleepio/hp-inc',
-	'https://onboarding.qa.sleepio.com/sleepio/baesystems'
+	'https://onboarding.sleepio.com/sleepio/bjchealthcare',
+	'https://onboarding.sleepio.com/sleepio/bjc',
+	'https://onboarding.sleepio.com/sleepio/livewell/77#1/1',
+	'https://onboarding.sleepio.com/sleepio/abbott/77',
+	'https://onboarding.sleepio.com/sleepio/bh2020',
+	'https://onboarding.sleepio.com/sleepio/demo2020/77#1/1',
+	'https://onboarding.sleepio.com/sleepio/baesystems'
 ];
 var i = 0;
 describe('Proba', () => {
@@ -92,19 +90,19 @@ describe('Proba', () => {
 			home.buttonClick();
 
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/livewell/77#3/1') {
+				if (urlString == 'https://onboarding.sleepio.com/sleepio/livewell/77#3/1') {
 					const livewell = new livewellId();
 					livewell.livewellTitle();
 					livewell.livewellHelpText();
 					livewell.livewellAnswer();
 				}
-				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/bjc/77#3/1') {
+				if (urlString == 'https://onboarding.sleepio.com/sleepio/bjc/77#3/1') {
 					const bjc = new bjcId();
 					bjc.bjcTitle();
 					bjc.bjcIdHelpText();
 					bjc.bjcIdAnswer();
 				}
-				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/bjchealthcare/77#3/1') {
+				if (urlString == 'https://onboarding.sleepio.com/sleepio/bjchealthcare/77#3/1') {
 					const bjc = new bjcId();
 					bjc.bjcTitle();
 					bjc.bjcIdHelpText();

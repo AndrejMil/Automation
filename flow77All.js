@@ -202,15 +202,16 @@ describe('Flow 77', () => {
 			signUp.terms();
 
 			signUp.signUpButton();
-			cy.wait(7000);
+			cy.wait(17000);
 
 			const report = new flow1SleepReport();
+			cy.wait(17000);
 			report.headerSleepReport();
 			report.logOut();
 
 			cy.get('.dark-blue-bg > div > .sl-button').click({ force: true });
 
-			cy.wait(4000);
+			cy.wait(14000);
 			cy.document().toMatchImageSnapshot();
 			const lst2 = new flow1Lst2();
 

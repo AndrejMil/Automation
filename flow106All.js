@@ -269,15 +269,16 @@ describe('Flow 106', () => {
 			signUp.emailLabel();
 			signUp.emailImput();
 			signUp.passwordLabel();
-			signUp.passwordImput77();
+			signUp.passwordImput();
 			signUp.passwordHint();
-			signUp.doctorLabel77();
-			signUp.doctorLink77();
-			signUp.privacyCheck77();
-			signUp.doctorCheck77();
 			signUp.privacy();
+			signUp.doctorLabel();
+			signUp.doctorLink();
+			signUp.privacyCheck();
+			signUp.doctorCheck();
 			signUp.terms();
-
+			signUp.signUpGoogle();
+			signUp.signUpFacebook();
 			signUp.signUpButton();
 
 			cy.wait(17000);

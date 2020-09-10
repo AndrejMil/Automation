@@ -2,6 +2,12 @@ class nhspostcode {
 	nhspostcodeTitle() {
 		return cy
 			.get('.sl-page-title')
+			.should('contain', 'We’ve partnered with the NHS to provide you access. Please enter your postcode.');
+	}
+
+	nhspostcodeTitleII() {
+		return cy
+			.get('.sl-page-title')
 			.should('contain', 'We’ve partnered with the NHS to provide you access. Please first enter your postcode.');
 	}
 

@@ -23,7 +23,7 @@ import downloadDaylight from '../integration/pageObjects/downloadDaylight';
 import { url } from 'inspector';
 
 var linkovi = [
-	'https://onboarding.qa.trydaylight.com/daylight/daylight4test/100#1/1'
+	'https://onboarding.trydaylight.com/daylight/daylight4test/100#1/1'
 ];
 var i = 0;
 describe('Flow 100', () => {
@@ -220,8 +220,9 @@ describe('Flow 100', () => {
 			signUp.email();
 			signUp.password();
 			signUp.passwordText();
-			signUp.checkBox();
 			signUp.privacy();
+			signUp.privacyCheckBox();
+			signUp.doctorCheckBox();
 			signUp.terms();
 			signUp.suitable();
 			signUp.signUpButton();

@@ -20,10 +20,10 @@ import thehartfordEID from '../integration/pageObjects/thehartfordEID';
 import homeDepotDaylightEID from '../integration/pageObjects/homeDepotDaylightEID';
 
 var linkovi = [
-	'https://onboarding.qa.trydaylight.com/daylight/hmb/100',
-	'https://onboarding.qa.trydaylight.com/daylight/access/100',
-	'https://onboarding.qa.trydaylight.com/daylight/care-access',
-	'https://onboarding.qa.trydaylight.com/daylight/healthandcare-scot/100'
+	'https://onboarding.trydaylight.com/daylight/healthandcare-scot/100',
+	'https://onboarding.trydaylight.com/daylight/hmb/100',
+	'https://onboarding.trydaylight.com/daylight/access/100',
+	'https://onboarding.trydaylight.com/daylight/care-access'
 ];
 var i = 0;
 describe('Flow 100', () => {
@@ -37,6 +37,7 @@ describe('Flow 100', () => {
 
 			homeDaylight.visitFirstPage(linkovi[i]);
 
+			cy.wait(7000);
 			homeDaylight.started();
 			homeDaylight.picture();
 
@@ -46,9 +47,9 @@ describe('Flow 100', () => {
 			intro.daylightButton();
 
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.qa.trydaylight.com/daylight/hmb/100#1/3') {
+				if (urlString == 'https://onboarding.trydaylight.com/daylight/hmb/100#1/3') {
 					const nhsScot = new nhsScotland();
-					nhsScot.nhsScotlandTitle();
+					nhsScot.nhsScotlandTitleII();
 					nhsScot.nhsScotlandAnswer();
 					intro.daylightButton();
 
@@ -60,7 +61,7 @@ describe('Flow 100', () => {
 			});
 
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.qa.trydaylight.com/daylight/healthandcare-scot/100#1/3') {
+				if (urlString == 'https://onboarding.trydaylight.com/daylight/healthandcare-scot/100#1/3') {
 					const healthScot = new nhsScotlandPostcode();
 					healthScot.nhsScotPostcodeTitle();
 					healthScot.nhsScotPostcodeAnswer();
@@ -77,7 +78,7 @@ describe('Flow 100', () => {
 			});
 
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.qa.trydaylight.com/daylight/care-access/100#1/3') {
+				if (urlString == 'https://onboarding.trydaylight.com/daylight/care-access/100#1/3') {
 					const careAccess = new careaccesspostcode();
 					careAccess.careaccessTitle();
 					careAccess.careaccessAnswer();
@@ -144,10 +145,11 @@ describe('Flow 100', () => {
 			intro.daylightButton();
 
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.qa.trydaylight.com/daylight/access/100#2/9') {
-					cy.visit('https://onboarding.qa.trydaylight.com/daylight/access/100#3/1');
+				if (urlString == 'https://onboarding.trydaylight.com/daylight/access/100#2/9') {
+					cy.visit('https://onboarding.trydaylight.com/daylight/access/100#3/1');
 
 					const signUp = new daylightSignUp();
+					cy.wait(3000);
 					signUp.firstName();
 					signUp.firstNameLabel();
 					signUp.lastName();
@@ -163,7 +165,8 @@ describe('Flow 100', () => {
 					signUp.terms();
 					signUp.suitable();
 
-					cy.visit('https://onboarding.qa.trydaylight.com/daylight/capriday/100#3/1');
+					cy.visit('https://onboarding.trydaylight.com/daylight/capriday/100#3/1');
+					cy.wait(3000);
 					signUp.firstName();
 					signUp.firstNameLabel();
 					signUp.lastName();
@@ -179,7 +182,8 @@ describe('Flow 100', () => {
 					signUp.terms();
 					signUp.suitable();
 
-					cy.visit('https://onboarding.qa.trydaylight.com/daylight/target/100#3/1');
+					cy.visit('https://onboarding.trydaylight.com/daylight/target/100#3/1');
+					cy.wait(3000);
 
 					const tm = new tmNumber();
 					tm.tmNumberTitle();
@@ -200,7 +204,8 @@ describe('Flow 100', () => {
 					signUp.terms();
 					signUp.suitable();
 
-					cy.visit('https://onboarding.qa.trydaylight.com/daylight/carbon/100#3/1');
+					cy.visit('https://onboarding.trydaylight.com/daylight/carbon/100#3/1');
+					cy.wait(3000);
 					const carbon = new carbonAccessCode();
 					carbon.carbonACodeTitle();
 					carbon.carbonAccessCodeAnswer();
@@ -219,7 +224,8 @@ describe('Flow 100', () => {
 					signUp.terms();
 					signUp.suitable();
 
-					cy.visit('https://onboarding.qa.trydaylight.com/daylight/frontlineaccess/100#3/1');
+					cy.visit('https://onboarding.trydaylight.com/daylight/frontlineaccess/100#3/1');
+					cy.wait(3000);
 					signUp.firstName();
 					signUp.firstNameLabel();
 					signUp.lastName();
@@ -235,7 +241,8 @@ describe('Flow 100', () => {
 					signUp.terms();
 					signUp.suitable();
 
-					cy.visit('https://onboarding.qa.trydaylight.com/daylight/thehartford/100#3/1');
+					cy.visit('https://onboarding.trydaylight.com/daylight/thehartford/100#3/1');
+					cy.wait(3000);
 					const hartfordEID = new thehartfordEID();
 					hartfordEID.thehartfordTitle();
 					hartfordEID.thehartfordAnswer();
@@ -254,7 +261,8 @@ describe('Flow 100', () => {
 					signUp.terms();
 					signUp.suitable();
 
-					cy.visit('https://onboarding.qa.trydaylight.com/daylight/homedepot/100#3/1');
+					cy.visit('https://onboarding.trydaylight.com/daylight/homedepot/100#3/1');
+					cy.wait(3000);
 					const homeDepotEID = new homeDepotDaylightEID();
 					homeDepotEID.homeDepotDaylightEIDTitle();
 					homeDepotEID.homeDepotDaylightEIDHelpText();
@@ -274,7 +282,12 @@ describe('Flow 100', () => {
 					signUp.terms();
 					signUp.suitable();
 
-					cy.visit('https://onboarding.qa.trydaylight.com/daylight/demo2020/100#3/1');
+					cy.visit('https://onboarding.trydaylight.com/daylight/thdday/100#3/1');
+					cy.wait(3000);
+					const homeDEID = new homeDepotDaylightEID();
+					homeDEID.homeDepotDaylightEIDTitle();
+					homeDEID.homeDepotDaylightEIDHelpText();
+					homeDEID.homeDepotDaylightEIDAnswer();
 					signUp.firstName();
 					signUp.firstNameLabel();
 					signUp.lastName();
@@ -290,7 +303,25 @@ describe('Flow 100', () => {
 					signUp.terms();
 					signUp.suitable();
 
-					cy.visit('https://onboarding.qa.trydaylight.com/daylight/demo/100#3/1');
+					cy.visit('https://onboarding.trydaylight.com/daylight/demo2020/100#3/1');
+					cy.wait(3000);
+					signUp.firstName();
+					signUp.firstNameLabel();
+					signUp.lastName();
+					signUp.lastNameLabel();
+					signUp.email();
+					signUp.emailLabel();
+					signUp.password();
+					signUp.passwordLabel();
+					signUp.passwordText();
+					signUp.privacy();
+					signUp.privacyCheckBox();
+					signUp.doctorCheckBox();
+					signUp.terms();
+					signUp.suitable();
+
+					cy.visit('https://onboarding.trydaylight.com/daylight/demo/100#3/1');
+					cy.wait(3000);
 					signUp.firstName();
 					signUp.firstNameLabel();
 					signUp.lastName();
@@ -309,20 +340,20 @@ describe('Flow 100', () => {
 			});
 
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.qa.trydaylight.com/daylight/hmb/100#2/9') {
-					cy.visit('https://onboarding.qa.trydaylight.com/daylight/hmb/100#3/1');
+				if (urlString == 'https://onboarding.trydaylight.com/daylight/hmb/100#2/9') {
+					cy.visit('https://onboarding.trydaylight.com/daylight/hmb/100#3/1');
 				}
 			});
 
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.qa.trydaylight.com/daylight/healthandcare-scot/100#2/9') {
-					cy.visit('https://onboarding.qa.trydaylight.com/daylight/healthandcare-scot/100#3/1');
+				if (urlString == 'https://onboarding.trydaylight.com/daylight/healthandcare-scot/100#2/9') {
+					cy.visit('https://onboarding.trydaylight.com/daylight/healthandcare-scot/100#3/1');
 				}
 			});
 
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.qa.trydaylight.com/daylight/care-access/100#2/9') {
-					cy.visit('https://onboarding.qa.trydaylight.com/daylight/care-access/100#3/1');
+				if (urlString == 'https://onboarding.trydaylight.com/daylight/care-access/100#2/9') {
+					cy.visit('https://onboarding.trydaylight.com/daylight/care-access/100#3/1');
 				}
 			});
 

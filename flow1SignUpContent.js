@@ -17,12 +17,12 @@ import expertGuides from '../integration/pageObjects/expertGuides';
 import flow1SignUp from '../integration/pageObjects/flow1SignUp';
 
 var linkovi = [
-	'https://onboarding.qa.sleepio.com/sleepio/abbott_deprecated/1',
-	'https://onboarding.qa.sleepio.com/sleepio/stjames',
-	'https://onboarding.qa.sleepio.com/sleepio/acme/1#1/1',
-	'https://onboarding.qa.sleepio.com/sleepio/big-health',
-	'https://onboarding.qa.sleepio.com/sleepio/test_product',
-	'https://onboarding.qa.sleepio.com/sleepio/bh'
+	'https://onboarding.sleepio.com/sleepio/abbott_deprecated/1',
+	'https://onboarding.sleepio.com/sleepio/stjames',
+	'https://onboarding.sleepio.com/sleepio/acme/1#1/1',
+	'https://onboarding.sleepio.com/sleepio/big-health',
+	'https://onboarding.sleepio.com/sleepio/test_product',
+	'https://onboarding.sleepio.com/sleepio/bh'
 ];
 var i = 0;
 describe('Flow 1', () => {

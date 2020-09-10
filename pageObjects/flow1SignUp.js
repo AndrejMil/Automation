@@ -19,11 +19,18 @@ class flow1SignUp {
 	emailLabel() {
 		return cy.get('[data-input-name="email"]').should('contain', 'Email*');
 	}
+	emailLabelII() {
+		return cy.get('[data-input-name="email"]').should('contain', 'Email (Personal Email Recommended)*');
+	}
 	emailImput() {
-		return cy.get('[name= "email"]').click({ force: true }).type('andrej.milosavljevic+250850@sleepio.com');
+		return cy.get('[name= "email"]').click({ force: true }).type('andrej.milosavljevic+090910@sleepio.com');
 	}
 	passwordLabel() {
 		return cy.get('.sl-interactive--field-label').should('contain', 'Choose a password*');
+	}
+
+	passwordLabelII() {
+		return cy.get('.sl-interactive--field-label').should('contain', 'Password*');
 	}
 
 	passwordImput() {

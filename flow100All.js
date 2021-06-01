@@ -7,7 +7,8 @@ import daylightGif2 from '../integration/pageObjects/daylightGif2';
 import daylightGif3 from '../integration/pageObjects/daylightGif3';
 import daylightGif4 from '../integration/pageObjects/daylightGif4';
 import daylightGif5 from '../integration/pageObjects/daylightGif5';
-import howOften from '../integration/pageObjects/howOften';
+import daylightAnswers from '../integration/pageObjects/daylightAnswers';
+import howOftenTitle from './pageObjects/howOftenDaylight'
 import decisions from '../integration/pageObjects/decisions';
 import emotions from '../integration/pageObjects/emotions';
 import conclusions from '../integration/pageObjects/conclusions';
@@ -32,173 +33,151 @@ describe('Flow 100', () => {
 		// Get started page
 		for (; i < linkovi.length; i++) {
 			const homeDaylight = new homePageDaylight();
-
 			homeDaylight.visitFirstPage(linkovi[i]);
-			
 			homeDaylight.started();
 			homeDaylight.picture();
 
-			const intro = new daylightIntro();
+			const daylightIntroPage = new daylightIntro();
+			daylightIntroPage.introText();
+			daylightIntroPage.daylightButton();
 
-			
-			intro.introText();
-			intro.daylightButton();
+			const daylightFeelingsPage = new daylightFeelings();
+			daylightFeelingsPage.feelingsText();
+			daylightFeelingsPage.exhausted();
+			daylightFeelingsPage.worried();
+			daylightFeelingsPage.sad();
+			daylightFeelingsPage.nervous();
+			daylightFeelingsPage.angry();
+			daylightFeelingsPage.distracted();
+			daylightFeelingsPage.fedUp();
+			daylightFeelingsPage.restless();
+			daylightFeelingsPage.afraid();
+			daylightFeelingsPage.tense();
+			daylightFeelingsPage.anxious();
+			daylightFeelingsPage.irritated();
+			daylightFeelingsPage.onEdge();
+			daylightFeelingsPage.stressed();
+			daylightFeelingsPage.helpless();
+			daylightFeelingsPage.lonely();
+			daylightFeelingsPage.wornOut();
+			daylightFeelingsPage.notSure();
+			daylightIntroPage.daylightButton();
 
-			const feelings = new daylightFeelings();
-
-			
-			feelings.feelingsText();
-			feelings.exhausted();
-			feelings.worried();
-			feelings.sad();
-			feelings.nervous();
-			feelings.angry();
-			feelings.distracted();
-			feelings.fedUp();
-			feelings.restless();
-			feelings.afraid();
-			feelings.tense();
-			feelings.anxious();
-			feelings.irritated();
-			feelings.onEdge();
-			feelings.stressed();
-			feelings.helpless();
-			feelings.lonely();
-			feelings.wornOut();
-			feelings.notSure();
-
-			intro.daylightButton();
-
-			const slider = new daylightSlider();
-
-			
-			slider.sliderText();
-			intro.daylightButton();
+			const daylightSliderPage = new daylightSlider();
+			daylightSliderPage.sliderText();
+			daylightIntroPage.daylightButton();
 
 			const gif1 = new daylightGif1();
-
 			gif1.gif1Text();
-			intro.daylightButton();
+			daylightIntroPage.daylightButton();
 
 			const gif2 = new daylightGif2();
-
 			gif2.gif2Text();
-			intro.daylightButton();
+			daylightIntroPage.daylightButton();
 
 			const gif3 = new daylightGif3();
-
 			gif3.gif3Text();
-			intro.daylightButton();
+			daylightIntroPage.daylightButton();
 
 			const gif4 = new daylightGif4();
-
 			gif4.gif4Text();
-			intro.daylightButton();
+			daylightIntroPage.daylightButton();
 
 			const gif5 = new daylightGif5();
-
 			gif5.identifyButton();
 
-			const question1 = new howOften();
-			
-			question1.howOftenTitle();
-			question1.almostAlways();
-			question1.mostOf();
-			question1.aboutHalf();
-			question1.sometimes();
-			question1.sometimes();
-			question1.almostNever();
-			intro.daylightButton();
+			const answersForDaylight = new daylightAnswers();
+			const howOftenQuestionTitle = new howOftenTitle();
+			howOftenQuestionTitle.howOftenTitle();
+			answersForDaylight.almostAlways();
+			answersForDaylight.mostOf();
+			answersForDaylight.aboutHalf();
+			answersForDaylight.sometimes();
+			answersForDaylight.sometimes();
+			answersForDaylight.almostNever();
+			daylightIntroPage.daylightButton();
 
-			const question2 = new decisions();
+			const decisionsQuestionTitle = new decisions();
 		
-			question2.decisionsTitle();
-			question1.almostAlways();
-			question1.mostOf();
-			question1.aboutHalf();
-			question1.sometimes();
-			question1.sometimes();
-			question1.almostNever();
-			intro.daylightButton();
+			decisionsQuestionTitle.decisionsTitle();
+			answersForDaylight.almostAlways();
+			answersForDaylight.mostOf();
+			answersForDaylight.aboutHalf();
+			answersForDaylight.sometimes();
+			answersForDaylight.sometimes();
+			answersForDaylight.almostNever();
+			daylightIntroPage.daylightButton();
 
-			const question3 = new emotions();
+			const emotionsQuestionTitle = new emotions();
 			
-			question3.emotionsTitle();
-			question1.almostAlways();
-			question1.mostOf();
-			question1.aboutHalf();
-			question1.sometimes();
-			question1.sometimes();
-			question1.almostNever();
-			intro.daylightButton();
+			emotionsQuestionTitle.emotionsTitle();
+			answersForDaylight.almostAlways();
+			answersForDaylight.mostOf();
+			answersForDaylight.aboutHalf();
+			answersForDaylight.sometimes();
+			answersForDaylight.sometimes();
+			answersForDaylight.almostNever();
+			daylightIntroPage.daylightButton();
 
-			const question4 = new conclusions();
-		
-			question4.decisionsTitle();
-			question1.almostAlways();
-			question1.mostOf();
-			question1.aboutHalf();
-			question1.sometimes();
-			question1.sometimes();
-			question1.almostNever();
-			intro.daylightButton();
+			const conclusionsQuestionsTitle = new conclusions();
+			conclusionsQuestionsTitle.decisionsTitle();
+			answersForDaylight.almostAlways();
+			answersForDaylight.mostOf();
+			answersForDaylight.aboutHalf();
+			answersForDaylight.sometimes();
+			answersForDaylight.sometimes();
+			answersForDaylight.almostNever();
+			daylightIntroPage.daylightButton();
 
-			const question5 = new thought();
-			
-			question5.thoughtTitle();
-			question1.almostAlways();
-			question1.mostOf();
-			question1.aboutHalf();
-			question1.sometimes();
-			question1.sometimes();
-			question1.almostNever();
-			intro.daylightButton();
+			const thoughtQuestionTitle = new thought();
+			thoughtQuestionTitle.thoughtTitle();
+			answersForDaylight.almostAlways();
+			answersForDaylight.mostOf();
+			answersForDaylight.aboutHalf();
+			answersForDaylight.sometimes();
+			answersForDaylight.sometimes();
+			answersForDaylight.almostNever();
+			daylightIntroPage.daylightButton();
 
-			const question6 = new obstacles();
-		
-			question6.obstaclesTitle();
-			question1.almostAlways();
-			question1.mostOf();
-			question1.aboutHalf();
-			question1.sometimes();
-			question1.sometimes();
-			question1.almostNever();
-			intro.daylightButton();
+			const obstaclesQuestionTitle = new obstacles();
+			obstaclesQuestionTitle.obstaclesTitle();
+			answersForDaylight.almostAlways();
+			answersForDaylight.mostOf();
+			answersForDaylight.aboutHalf();
+			answersForDaylight.sometimes();
+			answersForDaylight.sometimes();
+			answersForDaylight.almostNever();
+			daylightIntroPage.daylightButton();
 
-			const question7 = new challenges();
-			
-			question7.challengesTitle();
-			question1.almostAlways();
-			question1.mostOf();
-			question1.aboutHalf();
-			question1.sometimes();
-			question1.sometimes();
-			question1.almostNever();
-			intro.daylightButton();
+			const challengesQuestionTitle = new challenges();
+			challengesQuestionTitle.challengesTitle();
+			answersForDaylight.almostAlways();
+			answersForDaylight.mostOf();
+			answersForDaylight.aboutHalf();
+			answersForDaylight.sometimes();
+			answersForDaylight.sometimes();
+			answersForDaylight.almostNever();
+			daylightIntroPage.daylightButton();
 
-			const question8 = new feelingsDaylight();
-			
-			question8.feelingsTitle();
-			question1.almostAlways();
-			question1.mostOf();
-			question1.aboutHalf();
-			question1.sometimes();
-			question1.sometimes();
-			question1.almostNever();
-			intro.daylightButton();
+			const feelingsQuestionTitle = new feelingsDaylight();
+			feelingsQuestionTitle.feelingsTitle();
+			answersForDaylight.almostAlways();
+			answersForDaylight.mostOf();
+			answersForDaylight.aboutHalf();
+			answersForDaylight.sometimes();
+			answersForDaylight.sometimes();
+			answersForDaylight.almostNever();
+			daylightIntroPage.daylightButton();
 
 			const results = new yourResults();
-		
 			results.yourResultsText();
-			intro.daylightButton();
+			daylightIntroPage.daylightButton();
 
 			const video = new daylightVideo();
-			
 			video.daylightVideoText();
 			video.daylightVideoButton();
 
 			const signUp = new daylightSignUp();
-		
 			signUp.firstName();
 			signUp.lastName();
 			signUp.email();
@@ -212,8 +191,6 @@ describe('Flow 100', () => {
 			signUp.signUpButton();
 			
 			const download = new downloadDaylight();
-		
-		
 			download.downloadText();
 			download.downloadLink()
 			

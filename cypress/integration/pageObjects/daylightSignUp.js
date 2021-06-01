@@ -16,7 +16,7 @@ class daylightSignUp {
 	}
 
 	email() {
-		return cy.get('[name="email"]').click({ force: true }).type('andrej.milosavljevic+0006057@sleepio.com');
+		return cy.get('[name="email"]').click({ force: true }).type('andrej.milosavljevic+0000006057@sleepio.com');
 	}
 
 	emailLabel() {

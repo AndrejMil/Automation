@@ -35,34 +35,34 @@ class SignUp {
 	}
 
 	emailInputFlow1() {
-		return cy.get('[name= "email"]').click({ force: true }).type('andrej.milosavljevic+006051@sleepio.com');
+		return cy.get('[name= "email"]').click({ force: true }).type('andrej.milosavljevic+00600051@sleepio.com');
 	}
 
 	emailInputFlow76() {
 		return cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
 			.click({ force: true })
-			.type('andrej.milosavljevic+0060157@sleepio.com');
+			.type('andrej.milosavljevic+000060157@sleepio.com');
 	}
 
 	emailImputflow70() {
 		return cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
 			.click({ force: true })
-			.type('andrej.milosavljevic+0060153@sleepio.com');
+			.type('andrej.milosavljevic+0000060153@sleepio.com');
 	}
 
 	emailImputflow77() { 
 		return cy.get('[name="email"]')
 			.click({ force: true })
-			.type('andrej.milosavljevic+0006057@sleepio.com');
+			.type('andrej.milosavljevic+0000006057@sleepio.com');
 	}
 
 	emailImputflow132() {
 		return cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
 			.click({ force: true })
-			.type('andrej.milosavljevic+006015@sleepio.com');
+			.type('andrej.milosavljevic+000006015@sleepio.com');
 	}
 
 
@@ -70,7 +70,7 @@ class SignUp {
 		return cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
 			.click({ force: true })
-			.type('andrej.milosavljevic+0006010@sleepio.com');
+			.type('andrej.milosavljevic+0000006010@sleepio.com');
 	}
 
 
@@ -78,7 +78,7 @@ class SignUp {
 		return cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
 			.click({ force: true })
-			.type('andrej.milosavljevic+0006011@sleepio.com');
+			.type('andrej.milosavljevic+0000006011@sleepio.com');
 	}
 
 	passwordLabel() {

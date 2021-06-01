@@ -20,7 +20,7 @@ class troubledInGeneralNew {
 	}
 
 	notAtAll() {
-		return cy.get('#options-id-4').click();
+		return cy.get('#options-id-0').click();
 	}
 }
 

@@ -254,6 +254,52 @@ class flow1Lst6 {
 				.should('contain', 'No');
 		});
 	}
+
+	areYouPregnantTitle() {
+		return cy
+			.get('[data-semantic-id="are_you_pregnant"]')
+			.should('contain', 'Are you pregnant?');
+	}
+
+	areYouPregnantNo() {
+		return cy.get('#445_0').click({ force: true }).then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'No');
+		});
+	}
+
+	areYouPregnantYes() {
+		return cy.get('#445_1').click({ force: true }).then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'Yes');
+		});
+	}
+
+	diagnosedTitle() {
+		return cy
+			.get('[data-semantic-id="medical_or_mental_health_condition"]')
+			.should('contain', 'Have you ever been diagnosed with a medical or mental health condition (e.g., bipolar disorder, epilepsy)?');
+	}
+
+	diagnosedYes() {
+		return cy.get('#444_0').click({ force: true }).then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'Yes');
+		});
+	}
+
+	diagnosedNo() {
+		return cy.get('#444_0').click({ force: true }).then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'No');
+		});
+	}
+
+
 	overweightYes() {
 		return cy.get('#192_1').click({ force: true }).then(() => {
 			cy

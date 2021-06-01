@@ -8,7 +8,7 @@ class flow1Lst3 {
 	abilityStayAwake() {
 		return cy
 			.get('[data-semantic-id="affected_ability_stay_awake"]')
-			.should('contain', '...affected, your concentration, productivity or ability to stay awake?');
+			.should('contain', '...affected your concentration, productivity or ability to stay awake?');
 	}
 	abilityStayAwakeNot() {
 		return cy.get('#30_0').click({ force: true }).then(() => {
@@ -48,7 +48,7 @@ class flow1Lst3 {
 	affectedRelationships() {
 		return cy
 			.get('[data-semantic-id="affected_relationships"]')
-			.should('contain', '...affected, your mood, energy or relationships?');
+			.should('contain', '...affected your mood, energy or relationships?');
 	}
 	affectedRelationshipsNot() {
 		return cy.get('#31_0').click({ force: true }).then(() => {

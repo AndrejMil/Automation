@@ -452,9 +452,30 @@ class flow1Lst7 {
 			.click({ force: true });
 	}
 
+	highRiskTitle() {
+		return cy.get('[data-semantic-id="high_risk_occupations"]').should('contain', 'Are you a truck or bus driver, air traffic controller, operator of heavy machinery, or assembly line worker?');
+	}
+
+	highRisktNo() {
+		return cy.get('#443_0').click({ force: true }).then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/fieldset/div/div[1]/label/span')
+				.should('contain', 'No');
+		});
+	}
+
+	highRiskYes() {
+		return cy.get('#443_1').click({ force: true }).then(() => {
+			cy
+				.xpath('/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/fieldset/div/div[2]/label/span')
+				.should('contain', 'Yes');
+		});
+	}
+
 	employmentStatus() {
 		return cy.get('[data-semantic-id="employment_status"]').should('contain', 'What is your employment status?');
 	}
+	///html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/div/div/select
 	employmentStatusAnswer() {
 		return cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/div/div/select')
@@ -481,6 +502,10 @@ class flow1Lst7 {
 	}
 
 	hoursMissedAnswer() {
+		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[11]/div/div[2]/div/input').type('0');
+	}
+
+	hoursMissedAnswerFlow70() {
 		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/input').type('0');
 	}
 
@@ -611,8 +636,43 @@ class flow1Lst7 {
 				.should('contain', 'Yes');
 		});
 	}
-
+	
 	employmentStatusAnswers() {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/div/div/select')
+			.select('Employed part-time')
+			.then(() => {
+				cy
+					.xpath('/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/div/div/select')
+					.select('Unemployed')
+					.then(() => {
+						cy
+							.xpath('/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/div/div/select')
+							.select('Retired')
+							.then(() => {
+								cy
+									.xpath('/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/div/div/select')
+									.select('Full-time student')
+									.then(() => {
+										cy
+											.xpath(
+												'/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/div/div/select'
+											)
+											.select('Full-time homemaker or carer')
+											.then(() => {
+												cy
+													.xpath(
+														'/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/div/div/select'
+													)
+													.select('Employed full-time');
+											});
+									});
+							});
+					});
+			});
+	}
+
+	employmentStatusAnswersFlow70() {
 		return cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div[8]/div/div[2]/div/div/select')
 			.select('Employed part-time')
@@ -648,6 +708,76 @@ class flow1Lst7 {
 	}
 
 	affectProductivityAnswers() {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select')
+			.select('100%-Unable to work')
+			.then(() => {
+				cy
+					.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select')
+					.select('90%')
+					.then(() => {
+						cy
+							.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select')
+							.select('80%')
+							.then(() => {
+								cy
+									.xpath('/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select')
+									.select('70%')
+									.then(() => {
+										cy
+											.xpath(
+												'/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select'
+											)
+											.select('60%')
+											.then(() => {
+												cy
+													.xpath(
+														'/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select'
+													)
+													.select('50%')
+													.then(() => {
+														cy
+															.xpath(
+																'/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select'
+															)
+															.select('40%')
+															.then(() => {
+																cy
+																	.xpath(
+																		'/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select'
+																	)
+																	.select('30%')
+																	.then(() => {
+																		cy
+																			.xpath(
+																				'/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select'
+																			)
+																			.select('20%')
+																			.then(() => {
+																				cy
+																					.xpath(
+																						'/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select'
+																					)
+																					.select('10%')
+																					.then(() => {
+																						cy
+																							.xpath(
+																								'/html/body/div[1]/div/div[3]/div/div/div[10]/div/div[2]/div/div/select'
+																							)
+																							.select('0% - No effect');
+																					});
+																			});
+																	});
+															});
+													});
+											});
+									});
+							});
+					});
+			});
+	}
+
+	affectProductivityAnswersFlow70() {
 		return cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div[9]/div/div[2]/div/div/select')
 			.select('100%-Unable to work')

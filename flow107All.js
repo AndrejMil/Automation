@@ -1,45 +1,43 @@
-import homePageNew from '../integration/pageObjects/homePageNew';
-import HomePage from '../integration/pageObjects/homePage';
-import improveYourSleep from '../integration/pageObjects/improveYourSleep';
-import howLong from '../integration/pageObjects/howLong';
-import troubledInGeneralNew from '../integration/pageObjects/troubledInGeneralNew';
-import manyNights from '../integration/pageObjects/manyNights';
-import gender from '../integration/pageObjects/gender';
-import stopsYou from '../integration/pageObjects/stopsYou';
-import howLikelyNew from '../integration/pageObjects/howLikelyNew';
-import dob from '../integration/pageObjects/dob';
-import breathing from '../integration/pageObjects/breathing ';
-import snoring from '../integration/pageObjects/snoring';
-import expertGuides from '../integration/pageObjects/expertGuides';
-import SignUp from '../integration/pageObjects/SignUp';
-import flow1SleepReport from '../integration/pageObjects/flow1SleepReport';
-import flow1Lst2 from '../integration/pageObjects/flow1Lst-2';
-import flow1Lst3 from '../integration/pageObjects/flow1Lst-3';
-import flow1Lst4 from '../integration/pageObjects/flow1Lst-4';
-import flow1Lst5 from '../integration/pageObjects/flow1Lst-5';
-import flow1Lst6 from '../integration/pageObjects/flow1Lst-6';
-import flow1Lst7 from '../integration/pageObjects/flow1Lst-7';
-import stillProblem from '../integration/pageObjects/stillProblem';
-import flow76Eligibility from '../integration/pageObjects/flow76Eligibility';
-import perscription from '../integration/pageObjects/flow76prescription ';
-import flow1Lst8 from '../integration/pageObjects/flow76Lst-8';
-import flow1LogIn from '../integration/pageObjects/flow1LogIn';
+import homePageNew from './pageObjects/homePageNew';
+import HomePage from './pageObjects/homePage';
+import improveYourSleep from './pageObjects/improveYourSleep';
+import howLong from './pageObjects/howLong';
+import troubledInGeneralNew from './pageObjects/troubledInGeneralNew';
+import manyNights from './pageObjects/manyNights';
+import gender from './pageObjects/gender';
+import howLikelyNew from './pageObjects/howLikelyNew';
+import dob from './pageObjects/dob';
+import stopsYou from './pageObjects/stopsYou';
+import breathing from './pageObjects/breathing ';
+import snoring from './pageObjects/snoring';
+import expertGuides from './pageObjects/expertGuides';
+import SignUp from './pageObjects/SignUp';
+import flow1SleepReport from './pageObjects/flow1SleepReport';
+import flow1Lst2 from './pageObjects/flow1Lst-2';
+import flow1Lst3 from './pageObjects/flow1Lst-3';
+import flow1Lst4 from './pageObjects/flow1Lst-4';
+import flow1Lst5 from './pageObjects/flow1Lst-5';
+import flow1Lst6 from './pageObjects/flow1Lst-6';
+import flow1Lst7 from './pageObjects/flow1Lst-7';
+import stillProblem from './pageObjects/stillProblem';
+import perscription from './pageObjects/flow76prescription ';
+import flow1Lst8 from './pageObjects/flow76Lst-8';
 
-var linkovi = [
-	'https://onboarding.qa.sleepio.com/sleepio/libertymutual/78#1/1'
+var links = [
+	'https://onboarding.qa.sleepio.com/sleepio/bmc'
 ];
 var i = 0;
-describe('Flow 78', () => {
-	console.log(linkovi[i]);
+describe('flow 107all', () => {
+	console.log(links[i]);
 	it('Start the test', () => {
 		
-		for (; i < linkovi.length; i++) {
+		// Get started page
+		for (; i < links.length; i++) {
 			const home = new HomePage();
 			const homePage = new homePageNew();
-			homePage.visitFirstPage(linkovi[i]);
-			cy.get('.sl-order-2 > .sl-button').click({ force: true });
+			homePage.visitFirstPage(links[i]);
+			homePage.buttonNew();
 
-		
 			const troubledInGeneralNewQuestion = new troubledInGeneralNew();
 			troubledInGeneralNewQuestion.troubledGeneralTitle();
 			troubledInGeneralNewQuestion.little();
@@ -61,7 +59,7 @@ describe('Flow 78', () => {
 			manyNightsQuestion.night7();
 			home.buttonClick();
 
-			
+		
 			const stillProblemQuestion = new stillProblem();
 			stillProblemQuestion.stillProblemTitle();
 			stillProblemQuestion.yes();
@@ -76,7 +74,7 @@ describe('Flow 78', () => {
 			stopsYouQuestion.noise();
 			stopsYouQuestion.light();
 			home.buttonClick();
-			
+		
 			const howLongQuestion = new howLong();
 			howLongQuestion.howLongTitle();
 			howLongQuestion.weeks();
@@ -90,7 +88,6 @@ describe('Flow 78', () => {
 			howLongQuestion.sixYears();
 			home.buttonClick();
 
-		
 			const howLikelyNewQuestion = new howLikelyNew();
 			howLikelyNewQuestion.howLikelyTitle();
 			howLikelyNewQuestion.noChance();
@@ -99,7 +96,7 @@ describe('Flow 78', () => {
 			howLikelyNewQuestion.highChance();
 			home.buttonClick();
 
-			
+		
 			const snoringQuestion = new snoring();
 			snoringQuestion.snoringTitle();
 			snoringQuestion.no();
@@ -112,7 +109,6 @@ describe('Flow 78', () => {
 			breathingQuestion.no();
 			breathingQuestion.yes();
 			home.buttonClick();
-
 		
 			const improveYourSleepQuestion = new improveYourSleep();
 			improveYourSleepQuestion.improveSleepTitle();
@@ -122,7 +118,6 @@ describe('Flow 78', () => {
 			improveYourSleepQuestion.wakeUpRefreshed();
 			improveYourSleepQuestion.noneOfTheAbove();
 			home.buttonClick();
-
 		
 			const expertGuidesQuestion = new expertGuides();
 			expertGuidesQuestion.jetlag();
@@ -131,14 +126,14 @@ describe('Flow 78', () => {
 			expertGuidesQuestion.none();
 			expertGuidesQuestion.pregnancy();
 			home.buttonClick();
-			
+
+		
 			const genderQuestion = new gender();
 			genderQuestion.genderTitle();
 			genderQuestion.male()
 			genderQuestion.female()
 			genderQuestion.another()
 			home.buttonClick(); 
-
 		
 			const dobQuestion = new dob();
 			dobQuestion.dobTitle();
@@ -152,6 +147,7 @@ describe('Flow 78', () => {
 			dobQuestion.privacy();
 			home.buttonClick();
 		
+			
 			const signUp = new SignUp();
 			signUp.signUpHeader();
 			signUp.firstNameLabel();
@@ -159,38 +155,23 @@ describe('Flow 78', () => {
 			signUp.lastNameLabel();
 			signUp.lastNameImput();
 			signUp.emailLabel();
-			signUp.emailImputflow78()
+			signUp.emailImputflow107()
 			signUp.passwordLabel();
 			signUp.passwordInput();
 			signUp.passwordHint();
 			signUp.doctorLabel();
+			signUp.suitable();
 			signUp.checkBoxes();
 			signUp.privacy();
 			signUp.terms();
-
 			signUp.signUpButton();
-			cy.wait(5000);
- 
+			cy.wait( 7000 );
+			
 			const report = new flow1SleepReport();
 			report.headerSleepReport();
 			report.logOut();
-			cy.wait(3000);
 			cy.get('.dark-blue-bg > div > .sl-button').click({ force: true });
 
-			const eligibility = new flow76Eligibility();
-			eligibility.coverage();
-			eligibility.firstNameLabel();
-			eligibility.firstName();
-			eligibility.midleNameLabel();
-			eligibility.midleName();
-			eligibility.lastNameLabel();
-			eligibility.lastName();
-			eligibility.dobLabel();
-			eligibility.zipLabel();
-			eligibility.zipImput();
-			cy.visit('https://onboarding.qa.sleepio.com/sleepio/libertymutual/78#6/1');
-
-			
 			const lst2 = new flow1Lst2();
 			lst2.tryGoSleepNew();
 			lst2.getIntoBadNew();
@@ -210,7 +191,7 @@ describe('Flow 78', () => {
 			lst2.qualitySleepLabel();
 			lst2.qualityNew();
 			home.buttonClick();
-
+			
 			const lst4 = new flow1Lst4();
 			lst4.comfortablePositionNever();
 			lst4.comfortablePositionRarely();
@@ -241,7 +222,7 @@ describe('Flow 78', () => {
 			lst4.worriesOften();
 			lst4.worriesVeryOften();
 			home.buttonClick();
-			
+
 			const lst3 = new flow1Lst3();
 			lst3.abilityStayAwake();
 			lst3.abilityStayAwakeNot();
@@ -256,7 +237,7 @@ describe('Flow 78', () => {
 			lst3.affectedRelationshipsMuchNew();
 			lst3.affectedRelationshipsVeryMuchNew();
 			home.buttonClick();
-			
+
 			const lst5 = new flow1Lst5();
 			lst5.happenedTodayNew();
 			lst5.happenedTodayAnsweNeverNew();
@@ -283,7 +264,7 @@ describe('Flow 78', () => {
 			lst5.sleepTonightSometimesNew();
 			lst5.sleepTonightVeryOftenNew();
 			home.buttonClick();
-
+			
 			const lstpills = new perscription();
 			lstpills.perscriptionTitle();
 			lstpills.prescriptionPills();
@@ -356,10 +337,9 @@ describe('Flow 78', () => {
 			lst7.disruptedPartner();
 			lst7.disruptedPartnerAnswers();
 			home.buttonClick();
-
+			
 			const lst8 = new flow1Lst8();
 			lst8.communityUsername();
-			lst8.IFUlinkNew();
 			lst8.communityUsernameAnswer();
 			home.buttonClick();
 		}

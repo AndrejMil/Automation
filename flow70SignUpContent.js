@@ -7,28 +7,28 @@ import manyNights from '../integration/pageObjects/manyNights';
 import gender from '../integration/pageObjects/gender';
 import howLikelyNew from '../integration/pageObjects/howLikelyNew';
 import dob from '../integration/pageObjects/dob';
+import stopsYou from '../integration/pageObjects/stopsYou';
 import breathing from '../integration/pageObjects/breathing ';
 import snoring from '../integration/pageObjects/snoring';
 import expertGuides from '../integration/pageObjects/expertGuides';
 import stillProblem from '../integration/pageObjects/stillProblem';
 import sleepioExperts from '../integration/pageObjects/sleepioExperts';
 import workLocation from '../integration/pageObjects/workLocation';
-import flow1SignUp from '../integration/pageObjects/flow1SignUp';
 import rocheSignUp from '../integration/pageObjects/rocheSignUp';
 import generalMillsEID from '../integration/pageObjects/generalMillsEID';
 import thehartfordEID from '../integration/pageObjects/thehartfordEID';
+import SignUp from '../integration/pageObjects/SignUp';
 
 var linkovi = [
-	'https://onboarding.sleepio.com/sleepio/thehartford/70',
-	'https://onboarding.sleepio.com/sleepio/capri/70',
-	'https://onboarding.sleepio.com/sleepio/roche/70#1/1'
+	'https://onboarding.qa.sleepio.com/sleepio/thehartford/70',
+	'https://onboarding.qa.sleepio.com/sleepio/capri/70',
+	'https://onboarding.qa.sleepio.com/sleepio/roche/70#1/1'
 ];
 
 var i = 0;
-describe('Proba', () => {
+describe('flow70SignUp', () => {
 	console.log(linkovi[i]);
 	it('Start the test', () => {
-		Cypress.currentTest.retries(5);
 		// Get started page
 		for (; i < linkovi.length; i++) {
 			const home = new HomePage();
@@ -36,245 +36,225 @@ describe('Proba', () => {
 
 			homePage.visitFirstPage(linkovi[i]);
 
-			cy.wait(5000);
 			homePage.buttonNew();
 
-			const fourthdOfOst = new troubledInGeneralNew();
-			fourthdOfOst.notAtAll();
+			const troubledInGeneralNewQuestion = new troubledInGeneralNew();
+			troubledInGeneralNewQuestion.notAtAll();
 			home.buttonClick();
 
-			const fiveOfOst = new manyNights();
-			fiveOfOst.night7();
+		
+		
+			const manyNightsQuestion = new manyNights();
+			manyNightsQuestion.night7();
 			home.buttonClick();
 
-			const still = new stillProblem();
-			still.no();
+			const stillProblemQuestion = new stillProblem();
+			stillProblemQuestion.no();
 			home.buttonClick();
 
-			const secondOfOst = new howLong();
-			secondOfOst.moreYears();
+			const stopsYouQuestion = new stopsYou();
+			stopsYouQuestion.light();
+			home.buttonClick();
+		
+			
+			const howLongQuestion = new howLong();
+			howLongQuestion.sixYears();
 			home.buttonClick();
 
-			const seventhOfOst = new howLikelyNew();
-			seventhOfOst.highChance();
+			const howLikelyNewQuestion = new howLikelyNew();
+			howLikelyNewQuestion.highChance();
+			home.buttonClick();
+			
+			const snoringQuestion = new snoring();
+			snoringQuestion.dontsnore();
 			home.buttonClick();
 
-			const neki2 = new snoring();
-			neki2.dontsnore();
+			const breathingQuestion = new breathing();
+			breathingQuestion.yes();
 			home.buttonClick();
 
-			const neki = new breathing();
-			neki.no();
-
+		
+			const improveYourSleepQuestion = new improveYourSleep();
+			improveYourSleepQuestion.noneOfTheAbove();
 			home.buttonClick();
 
-			const firstofOst = new improveYourSleep();
-			firstofOst.noneOfTheAbove();
+			const expertGuidesQuestion = new expertGuides();
+			expertGuidesQuestion.pregnancy();
 			home.buttonClick();
 
-			const guides = new expertGuides();
-			guides.none();
+	
+			const genderQuestion = new gender();
+			genderQuestion.another()
+			home.buttonClick();
 			home.buttonClick();
 
-			const eightOfOst = new gender();
-			eightOfOst.male().click();
-
+			const dobQuestion = new dob();
+			dobQuestion.dobTitle();
+			dobQuestion.monthJan();
+			dobQuestion.day1();
+			dobQuestion.year1991();
 			home.buttonClick();
 
-			const ninthOfOst = new dob();
-			ninthOfOst.monthJan();
-			ninthOfOst.day1();
-			ninthOfOst.year1991();
+		
+			const sleepioExpertsQuestion = new sleepioExperts();
+			sleepioExpertsQuestion.expertsInput();
 			home.buttonClick();
 
-			const experts = new sleepioExperts();
-
-			experts.expertsInput();
-			home.buttonClick();
-
-			const signUp = new flow1SignUp();
+			const signUp = new SignUp();
 
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/roche/70#3/1') {
-					const signUp = new flow1SignUp();
-					const roche = new rocheSignUp();
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/roche/70#3/1') {
+					const signUp = new SignUp();
+					const rocheSignUpQuestion = new rocheSignUp();
 					signUp.signUpHeader();
 					signUp.firstNameLabel();
 					signUp.firstNameImput();
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImput();
+					signUp.emailImputflow77();
 					signUp.passwordLabel();
-					signUp.passwordImput();
+					signUp.passwordInput();
 					signUp.passwordHint();
 					signUp.phoneNumberLabel();
-					signUp.phoneNumberImput();
-					signUp.privacy();
+					signUp.phoneNumberInput();
+					signUp.checkBoxes();
+					signUp.privacy()
 					signUp.terms();
 					signUp.doctorLabel();
-					signUp.doctorLabel();
-					signUp.doctorLink();
+					signUp.suitable();
+					rocheSignUpQuestion.unixID();
+					rocheSignUpQuestion.unixIDAnswer();
 
-					roche.unixID();
-					roche.unixIDAnswer();
-
-					cy.visit('https://onboarding.sleepio.com/sleepio/genentech/70#3/1');
-					cy.wait(2000);
-					roche.unixID();
-					roche.unixIDAnswer();
+					cy.visit('https://onboarding.qa.sleepio.com/sleepio/genentech/70#3/1');
+					rocheSignUpQuestion.unixID();
+					rocheSignUpQuestion.unixIDAnswer();
 				}
 			});
 
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/thehartford/70#3/1') {
-					const hartford = new thehartfordEID();
-					hartford.thehartfordTitle();
-					hartford.thehartfordAnswer();
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/thehartford/70#3/1') {
+					const thehartfordEIDQuestion = new thehartfordEID();
+					thehartfordEIDQuestion.thehartfordTitle();
+					thehartfordEIDQuestion.thehartfordAnswer();
 				}
 			});
 
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/capri/70#3/1') {
-					const signUp = new flow1SignUp();
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/capri/70#3/1') {
+					const signUp = new SignUp();
 					signUp.signUpHeader();
 					signUp.firstNameLabel();
 					signUp.firstNameImput();
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImput();
+					signUp.emailImputflow77();
 					signUp.passwordLabel();
-					signUp.passwordImput();
+					signUp.passwordInput();
 					signUp.passwordHint();
 					signUp.phoneNumberLabel();
-					signUp.phoneNumberImput();
+					signUp.phoneNumberInput();
 					signUp.privacy();
+					signUp.checkBoxes()
 					signUp.terms();
 					signUp.doctorLabel();
-					signUp.doctorLabel();
-					signUp.doctorLink();
+					signUp.suitable();
 
-					cy.visit('https://onboarding.sleepio.com/sleepio/access/70#3/1');
-					cy.wait(3000);
+					cy.visit('https://onboarding.qa.sleepio.com/sleepio/demo2020HI/70#3/1');
 					signUp.signUpHeader();
 					signUp.firstNameLabel();
 					signUp.firstNameImput();
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImput();
+					signUp.emailImputflow77();
 					signUp.passwordLabel();
-					signUp.passwordImput();
+					signUp.passwordInput();
+					signUp.passwordHint();
+					signUp.privacy();
+					signUp.checkBoxes()
+					signUp.terms();
+					signUp.doctorLabel();
+					signUp.suitable();
+
+					cy.visit('https://onboarding.qa.sleepio.com/sleepio/caprisleep/70#1/1');
+					signUp.signUpHeader();
+					signUp.firstNameLabel();
+					signUp.firstNameImput();
+					signUp.lastNameLabel();
+					signUp.lastNameImput();
+					signUp.emailLabel();
+					signUp.emailImputflow77();
+					signUp.passwordLabel();
+					signUp.passwordInput();
 					signUp.passwordHint();
 					signUp.phoneNumberLabel();
-					signUp.phoneNumberImput();
+					signUp.phoneNumberInput();
 					signUp.privacy();
+					signUp.checkBoxes()
 					signUp.terms();
 					signUp.doctorLabel();
-					signUp.doctorLabel();
-					signUp.doctorLink();
+					signUp.suitable();
 
-					cy.visit('https://onboarding.sleepio.com/sleepio/demo2020HI/70#3/1');
-					cy.wait(3000);
+					cy.visit('https://onboarding.qa.sleepio.com/sleepio/michaelkors');
 					signUp.signUpHeader();
 					signUp.firstNameLabel();
 					signUp.firstNameImput();
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImput();
+					signUp.emailImputflow77();
 					signUp.passwordLabel();
-					signUp.passwordImput();
-					signUp.passwordHint();
-					signUp.privacy();
-					signUp.terms();
-					signUp.doctorLabel();
-					signUp.doctorLabel();
-					signUp.doctorLink();
-
-					cy.visit('https://onboarding.sleepio.com/sleepio/caprisleep/70#1/1');
-					cy.wait(3000);
-					signUp.signUpHeader();
-					signUp.firstNameLabel();
-					signUp.firstNameImput();
-					signUp.lastNameLabel();
-					signUp.lastNameImput();
-					signUp.emailLabel();
-					signUp.emailImput();
-					signUp.passwordLabel();
-					signUp.passwordImput();
+					signUp.passwordInput();
 					signUp.passwordHint();
 					signUp.phoneNumberLabel();
-					signUp.phoneNumberImput();
+					signUp.phoneNumberInput();
+					signUp.checkBoxes()
 					signUp.privacy();
 					signUp.terms();
 					signUp.doctorLabel();
-					signUp.doctorLabel();
-					signUp.doctorLink();
+					signUp.suitable();
 
-					cy.visit('https://onboarding.sleepio.com/sleepio/michaelkors');
-					cy.wait(3000);
+					cy.visit('https://onboarding.qa.sleepio.com/sleepio/hp-inc/70#3/1');
 					signUp.signUpHeader();
 					signUp.firstNameLabel();
 					signUp.firstNameImput();
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImput();
+					signUp.emailImputflow77();
 					signUp.passwordLabel();
-					signUp.passwordImput();
+					signUp.passwordInput();
 					signUp.passwordHint();
 					signUp.phoneNumberLabel();
-					signUp.phoneNumberImput();
+					signUp.phoneNumberInput();
+					signUp.checkBoxes()
 					signUp.privacy();
 					signUp.terms();
 					signUp.doctorLabel();
-					signUp.doctorLabel();
-					signUp.doctorLink();
+					signUp.suitable();
 
-					cy.visit('https://onboarding.sleepio.com/sleepio/hp-inc/70#3/1');
-					cy.wait(3000);
+					cy.visit('https://onboarding.qa.sleepio.com/sleepio/hpinc/70#3/1');
 					signUp.signUpHeader();
 					signUp.firstNameLabel();
 					signUp.firstNameImput();
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImput();
+					signUp.emailImputflow77();
 					signUp.passwordLabel();
-					signUp.passwordImput();
+					signUp.passwordInput();
 					signUp.passwordHint();
 					signUp.phoneNumberLabel();
-					signUp.phoneNumberImput();
+					signUp.phoneNumberInput();
+					signUp.checkBoxes();
 					signUp.privacy();
 					signUp.terms();
 					signUp.doctorLabel();
-					signUp.doctorLabel();
-					signUp.doctorLink();
+					signUp.suitable();
 
-					cy.visit('https://onboarding.sleepio.com/sleepio/hpinc/70#3/1');
-					cy.wait(3000);
-					signUp.signUpHeader();
-					signUp.firstNameLabel();
-					signUp.firstNameImput();
-					signUp.lastNameLabel();
-					signUp.lastNameImput();
-					signUp.emailLabel();
-					signUp.emailImput();
-					signUp.passwordLabel();
-					signUp.passwordImput();
-					signUp.passwordHint();
-					signUp.phoneNumberLabel();
-					signUp.phoneNumberImput();
-					signUp.privacy();
-					signUp.terms();
-					signUp.doctorLabel();
-					signUp.doctorLabel();
-					signUp.doctorLink();
-
-					cy.visit('https://onboarding.sleepio.com/sleepio/generalmillsrest/70#3/1');
-					cy.wait(3000);
+					cy.visit('https://onboarding.qa.sleepio.com/sleepio/generalmillsrest/70#3/1');
 					const generalMills = new generalMillsEID();
 					generalMills.generalMillsEIDTitle();
 					generalMills.generalMillsEIDAnswer();
@@ -284,20 +264,19 @@ describe('Proba', () => {
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImput();
+					signUp.emailImputflow77();
 					signUp.passwordLabelII();
-					signUp.passwordImput();
+					signUp.passwordInput();
 					signUp.passwordHint();
 					signUp.phoneNumberLabel();
-					signUp.phoneNumberImput();
+					signUp.phoneNumberInput();
+					signUp.checkBoxes();
 					signUp.privacy();
 					signUp.terms();
 					signUp.doctorLabel();
-					signUp.doctorLabel();
-					signUp.doctorLink();
+					signUp.suitable();
 
-					cy.visit('https://onboarding.sleepio.com/sleepio/generalmills/70#3/1');
-					cy.wait(3000);
+					cy.visit('https://onboarding.qa.sleepio.com/sleepio/generalmills/70#3/1');
 					generalMills.generalMillsEIDTitle();
 					generalMills.generalMillsEIDAnswer();
 					signUp.signUpHeader();
@@ -306,77 +285,74 @@ describe('Proba', () => {
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImput();
+					signUp.emailImputflow77();
 					signUp.passwordLabelII();
-					signUp.passwordImput();
+					signUp.passwordInput();
 					signUp.passwordHint();
 					signUp.phoneNumberLabel();
-					signUp.phoneNumberImput();
+					signUp.phoneNumberInput();
+					signUp.checkBoxes();
 					signUp.privacy();
 					signUp.terms();
 					signUp.doctorLabel();
-					signUp.doctorLabel();
-					signUp.doctorLink();
+					signUp.suitable();
 
-					cy.visit('https://onboarding.sleepio.com/sleepio/hpinc/70#3/1');
-					cy.wait(3000);
+					cy.visit('https://onboarding.qa.sleepio.com/sleepio/hpinc/70#3/1');
 					signUp.signUpHeader();
 					signUp.firstNameLabel();
 					signUp.firstNameImput();
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImput();
+					signUp.emailImputflow77();
 					signUp.passwordLabel();
-					signUp.passwordImput();
+					signUp.passwordInput();
 					signUp.passwordHint();
 					signUp.phoneNumberLabel();
-					signUp.phoneNumberImput();
+					signUp.phoneNumberInput();
+					signUp.checkBoxes()
 					signUp.privacy();
 					signUp.terms();
 					signUp.doctorLabel();
-					signUp.doctorLabel();
-					signUp.doctorLink();
+					signUp.suitable();
 
-					cy.visit('https://onboarding.sleepio.com/sleepio/salesforce/70#3/1');
-					cy.wait(3000);
+					cy.visit('https://onboarding.qa.sleepio.com/sleepio/salesforce/70#3/1');
 					signUp.signUpHeader();
 					signUp.firstNameLabel();
 					signUp.firstNameImput();
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImput();
+					signUp.emailImputflow77();
 					signUp.passwordLabel();
-					signUp.passwordImput();
+					signUp.passwordInput();
 					signUp.passwordHint();
 					signUp.phoneNumberLabel();
-					signUp.phoneNumberImput();
+					signUp.phoneNumberInput();
+					signUp.checkBoxes()
 					signUp.privacy();
 					signUp.terms();
 					signUp.doctorLabel();
-					signUp.doctorLabel();
-					signUp.doctorLink();
+					signUp.suitable();
 
-					cy.visit('https://onboarding.sleepio.com/sleepio/amerihealthcaritas/70#3/1');
-					cy.wait(3000);
+					cy.visit('https://onboarding.qa.sleepio.com/sleepio/amerihealthcaritas/70#3/1');
 					signUp.signUpHeader();
 					signUp.firstNameLabel();
 					signUp.firstNameImput();
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImput();
+					signUp.emailImputflow77();
 					signUp.passwordLabel();
-					signUp.passwordImput();
+					signUp.passwordInput();
 					signUp.passwordHint();
 					signUp.phoneNumberLabel();
-					signUp.phoneNumberImput();
+					signUp.phoneNumberInput();
+					signUp.checkBoxes()
 					signUp.privacy();
 					signUp.terms();
 					signUp.doctorLabel();
-					signUp.doctorLabel();
-					signUp.doctorLink();
+					signUp.suitable();
 				}
 			});
 
@@ -406,16 +382,16 @@ describe('Proba', () => {
 			signUp.lastNameLabel();
 			signUp.lastNameImput();
 			signUp.emailLabel();
-			signUp.emailImput();
+			signUp.emailImputflow77();
 			signUp.passwordLabel();
-			signUp.passwordImput();
+			signUp.passwordInput();
 			signUp.passwordHint();
-			signUp.phoneNumberImput();
+			signUp.phoneNumberInput();
+			signUp.checkBoxes()
 			signUp.privacy();
 			signUp.terms();
 			signUp.doctorLabel();
-			signUp.doctorLabel();
-			signUp.doctorLink();
+			signUp.suitable();
 			cy.clearCookies();
 			cy.clearLocalStorage();
 		}

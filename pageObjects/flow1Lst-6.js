@@ -221,7 +221,7 @@ class flow1Lst6 {
 			.get('[data-semantic-id="unable_to_control"]')
 			.should(
 				'contain',
-				'...how often have you felt that you were unable to control the important things in life?'
+				'...how often have you felt that you were unable to control the important things in your life?'
 			);
 	}
 	unableToControlAnswer() {

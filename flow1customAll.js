@@ -25,164 +25,109 @@ import { url } from 'inspector';
 
 var linkovi = [];
 var i = 0;
-describe('Proba', () => {
+describe('flow1custom', () => {
 	console.log(linkovi[i]);
 	it('Start the test', () => {
-		// Get started page
+		
 		for (; i < linkovi.length; i++) {
 			const homePage = new HomePage();
 
 			homePage.visitFirstPage(linkovi[i]);
-			cy.wait(5000);
-
 			homePage.buttonClick();
 
-			// First page of OST
 
-			const fourthdOfOst = new troubledInGeneral();
+			const troubledInGeneralQuestion = new troubledInGeneral();
 
-			fourthdOfOst.veryMuch();
+			troubledInGeneralQuestion.veryMuch();
 			homePage.buttonClick();
 
+
+			const improveYourSleepQuestion = new improveYourSleep();
+
+			improveYourSleepQuestion.improveSleepTitle();
+			improveYourSleepQuestion.wakeUpRefreshed()
 			homePage.buttonClick();
 
-			const firstofOst = new improveYourSleep();
 
-			firstofOst.improveSleepTitle();
-			firstofOst.sleepMoreEasily();
+			const howLongQuestion = new howLong();
 
-			firstofOst.withoutWakingUp();
-			firstofOst.wakingTooEarly();
-			firstofOst.wakeUpRefreshed().click();
+			howLongQuestion.howLongTitle();
+			howLongQuestion.dontHaveProblem();
 			homePage.buttonClick();
 
-			// Second page of OST
 
-			const secondOfOst = new howLong();
+			const stopsYouQuestion = new stopsYou();
 
-			secondOfOst.howLongTitle();
-			secondOfOst.weeks();
-			secondOfOst.months();
-			secondOfOst.years();
-			secondOfOst.moreYears();
-			secondOfOst.dontHaveProblem();
+			stopsYouQuestion.light();
 			homePage.buttonClick();
 
-			// Third page of OST
 
-			const thirdOfOst = new stopsYou();
+			const manyNightsQuestion = new manyNights();
 
-			thirdOfOst.stopsYouTitle();
-			thirdOfOst.worriesFuture();
-			thirdOfOst.worriesNotSleeping();
-			thirdOfOst.discomfort();
-			thirdOfOst.noise();
-			thirdOfOst.light();
+			manyNightsQuestion.manyNightsTitle();
+			manyNightsQuestion.night7();
 			homePage.buttonClick();
 
-			// Fourth page of OST
+			const importantThingsQuestion = new importantThings();
 
-			const fiveOfOst = new manyNights();
-
-			fiveOfOst.manyNightsTitle();
-			fiveOfOst.night0();
-			fiveOfOst.night1();
-			fiveOfOst.night2();
-			fiveOfOst.night3();
-			fiveOfOst.night4();
-			fiveOfOst.night5();
-			fiveOfOst.night6();
-			fiveOfOst.night7();
+			importantThingsQuestion.veryOften();
 			homePage.buttonClick();
 
-			const sixOfOst = new importantThings();
+			const howLikelyQuestion = new howLikely();
 
-			sixOfOst.importantThingsTitle();
-			sixOfOst.never();
-			sixOfOst.almostNever();
-			sixOfOst.sometimes();
-			sixOfOst.fairlyOften();
-			sixOfOst.veryOften();
+			howLikelyQuestion.highChance();
 			homePage.buttonClick();
 
-			const seventhOfOst = new howLikely();
+			const snoringQuestion = new snoring();
 
-			seventhOfOst.howLikelyTitle();
-			seventhOfOst.noChance();
-			seventhOfOst.slightChance();
-			seventhOfOst.moderatChance();
-			seventhOfOst.highChance();
+			snoringQuestion.dontsnore();
 			homePage.buttonClick();
 
-			const neki2 = new snoring();
+			const breathingQuestion = new breathing();
 
-			neki2.snoringTitle();
-			neki2.no();
-			neki2.yes();
-			neki2.dontsnore();
+			breathingQuestion.yes();
 			homePage.buttonClick();
 
-			const neki = new breathing();
+			const genderQuestion = new gender();
 
-			neki.breathingTitle();
-			neki.no();
-			neki.yes();
+			genderQuestion.another();
 			homePage.buttonClick();
 
-			const eightOfOst = new gender();
+			const dobQuestion = new dob();
 
-			eightOfOst.genderTitle();
-			eightOfOst.male().click();
-			eightOfOst.female().click();
-			eightOfOst.another().click();
+			dobQuestion.dobTitle();
+			dobQuestion.monthJan();
+			dobQuestion.day1();
+			dobQuestion.year1991();
 			homePage.buttonClick();
 
-			const ninthOfOst = new dob();
+			const employmentQuestion = new employment();
 
-			ninthOfOst.dobTitle();
-			ninthOfOst.monthJan();
-			ninthOfOst.monthFeb();
-			ninthOfOst.day1();
-			ninthOfOst.day2();
-			ninthOfOst.year1991();
-			ninthOfOst.year1997();
+			employmentQuestion.fullTime();
 			homePage.buttonClick();
 
-			const tenthOfOst = new employment();
+			const poorSleepQuestion = new poorSleep();
 
-			tenthOfOst.employmentTitle();
-			tenthOfOst.partTime();
-			tenthOfOst.unemployed();
-			tenthOfOst.retired();
-			tenthOfOst.student();
-			tenthOfOst.homemaker();
-			tenthOfOst.fullTime();
+			poorSleepQuestion.poorSleepTitle();
+			poorSleepQuestion.sleep70();
 			homePage.buttonClick();
 
-			const eleventhOfOst = new poorSleep();
+			const manyHoursQuestion = new manyHours();
 
-			eleventhOfOst.poorSleepTitle();
-			eleventhOfOst.sleep100();
-			eleventhOfOst.sleep90();
-			eleventhOfOst.sleep80();
-			eleventhOfOst.sleep70();
+			manyHoursQuestion.manyHoursTitle();
+			manyHoursQuestion.numberHours().type('5');
 			homePage.buttonClick();
 
-			const twelfthOfOst = new manyHours();
-
-			twelfthOfOst.manyHoursTitle();
-			twelfthOfOst.numberHours().type('5');
-			homePage.buttonClick();
 			cy.url().then((urlString) => {
 				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/accenture/1#2/15') {
-					const career = new careerLevel();
+					const careerLevelQuestion = new careerLevel();
 
-					career.careerTitle();
-					career.leadership();
-					career.levels5();
-					career.levels8();
-					career.levels11();
-					career.dontwork();
+					careerLevelQuestion.careerTitle();
+					careerLevelQuestion.leadership();
+					careerLevelQuestion.levels5();
+					careerLevelQuestion.levels8();
+					careerLevelQuestion.levels11();
+					careerLevelQuestion.dontwork();
 					homePage.buttonClick();
 
 					const dte = new DTE();
@@ -201,47 +146,49 @@ describe('Proba', () => {
 					dte.iDont();
 					homePage.buttonClick();
 				}
-				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/homedepot/1#2/15') {
-					const desc = new describes();
-					desc.describesTitle();
-					desc.homeDepot();
-					desc.spouse();
+				if ( urlString == 'https://onboarding.qa.sleepio.com/sleepio/homedepot/1#2/15' ) {
+					
+					const describesQuestion = new describes();
+					describesQuestion.describesTitle();
+					describesQuestion.homeDepot();
+					describesQuestion.spouse();
 					homePage.buttonClick();
 
-					const expert = new expertGuides();
-					expert.expertGuidesTitle();
-					expert.none();
+					const expertGuidesQuestion = new expertGuides();
+					expertGuidesQuestion.expertGuidesTitle();
+					expertGuidesQuestion.none();
 					homePage.buttonClick();
 
 					const homeSignUp = new homeDepotSignUp();
 					homeSignUp.associateID();
 				}
+
 				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/roche/1#2/15') {
-					const expert = new expertGuides();
-					expert.expertGuidesTitle();
-					expert.none();
+					const expertGuidesQuestion = new expertGuides();
+					expertGuidesQuestion.expertGuidesTitle();
+					expertGuidesQuestion.none();
 					homePage.buttonClick();
 
 					const roche = new rocheSignUp();
 					roche.unixID();
 				}
 				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/capri/1#2/15') {
-					const area = new areaOfBusiness();
-					area.areaOfBusinessTitle();
-					area.retail();
-					area.development();
-					area.corporate();
-					area.distribution();
-					area.other();
+					const areaOfBusinessQuestion = new areaOfBusiness();
+					areaOfBusinessQuestion.areaOfBusinessTitle();
+					areaOfBusinessQuestion.retail();
+					areaOfBusinessQuestion.development();
+					areaOfBusinessQuestion.corporate();
+					areaOfBusinessQuestion.distribution();
+					areaOfBusinessQuestion.other();
 					homePage.buttonClick();
 
-					const benefits = new benefitsPlans();
-					benefits.benefitsPlansTitle();
-					benefits.cignaEnh();
-					benefits.cignaCore();
-					benefits.cignaMedical();
-					benefits.no();
-					benefits.other();
+					const benefitsPlansQuestion = new benefitsPlans();
+					benefitsPlansQuestion.benefitsPlansTitle();
+					benefitsPlansQuestion.cignaEnh();
+					benefitsPlansQuestion.cignaCore();
+					benefitsPlansQuestion.cignaMedical();
+					benefitsPlansQuestion.no();
+					benefitsPlansQuestion.other();
 				}
 			});
 			cy.clearCookies();

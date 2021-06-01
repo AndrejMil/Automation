@@ -65,12 +65,16 @@ class flow1Lst8 {
 		return cy.get('.sl-input-text').click().type('11dffhggfvsdf');
 	}
 	reachOutSoon() {
-		return cy.get('.sl-continue-button-img-text').contains('Your Sleepio Expert will reach out soon!');
+		return cy.get('.sl-continue-button-img-text').contains('Your Sleepio Expert will reach out soon.');
+	}
+
+	instruction() {
+		return cy.xpath('//*[@id="sl-flow"]/div[3]/div/div/div[5]/div/div[1]/div/p/a').contains('Instructions for Use');
 	}
 
 	IFUlinkNew() {
 		return cy
-			.xpath('/html/body/div[1]/div/div[3]/div/div/div[5]/div/div[1]/div/p/a')
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[1]/div/p/a')
 			.contains('Instructions for Use')
 			.should('have.attr', 'href', 'https://go.bighealth.com/hubfs/Sleepio%20Instructions%20for%20Use.pdf');
 	}

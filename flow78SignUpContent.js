@@ -8,109 +8,99 @@ import gender from '../integration/pageObjects/gender';
 import howLikelyNew from '../integration/pageObjects/howLikelyNew';
 import dob from '../integration/pageObjects/dob';
 import breathing from '../integration/pageObjects/breathing ';
+import stopsYou from '../integration/pageObjects/stopsYou';
 import snoring from '../integration/pageObjects/snoring';
 import expertGuides from '../integration/pageObjects/expertGuides';
 import stillProblem from '../integration/pageObjects/stillProblem';
 import sleepioExperts from '../integration/pageObjects/sleepioExperts';
 import workLocation from '../integration/pageObjects/workLocation';
-import flow1SignUp from '../integration/pageObjects/flow1SignUp';
+import SignUp from '../integration/pageObjects/SignUp';
 
-var linkovi = [
-	'https://onboarding.sleepio.com/sleepio/bnymsleep/78#1/1',
-	'https://onboarding.sleepio.com/sleepio/bnysleep/78#1/1',
-	'https://onboarding.sleepio.com/sleepio/cusleep/78#1/1',
-	'https://onboarding.sleepio.com/sleepio/cuhealthplan/78#1/1',
-	'https://onboarding.sleepio.com/sleepio/usfoods_deprecated/78#1/1',
-	'https://onboarding.sleepio.com/sleepio/libertymutual/78',
-	'https://onboarding.sleepio.com/sleepio/libertysleepio/78',
-	'https://onboarding.sleepio.com/sleepio/libertysleep/78',
-	'https://onboarding.sleepio.com/sleepio/liberty2/78#1/1',
-	'https://onboarding.sleepio.com/sleepio/libertysleepy/78#1/1',
-	'https://onboarding.sleepio.com/sleepio/libertymutual1/78',
-	'https://onboarding.sleepio.com/sleepio/bnymellon/78#1/1'
+var links = [
+	'https://onboarding.qa.sleepio.com/sleepio/bnymsleep/78#1/1',
+	'https://onboarding.qa.sleepio.com/sleepio/bnysleep/78#1/1',
+	'https://onboarding.qa.sleepio.com/sleepio/cuhealthplan/78#1/1',
+	'https://onboarding.qa.sleepio.com/sleepio/libertymutual/78',
+	'https://onboarding.qa.sleepio.com/sleepio/libertysleepio/78',
+	'https://onboarding.qa.sleepio.com/sleepio/libertysleep/78',
+	'https://onboarding.qa.sleepio.com/sleepio/liberty2/78#1/1',
+	'https://onboarding.qa.sleepio.com/sleepio/libertysleepy/78#1/1',
+	'https://onboarding.qa.sleepio.com/sleepio/libertymutual1/78',
+	'https://onboarding.qa.sleepio.com/sleepio/bnymellon/78#1/1'
 ];
 
 var i = 0;
-describe('Proba', () => {
-	console.log(linkovi[i]);
+describe('flow78 signup content', () => {
+	console.log(links[i]);
 	it('Start the test', () => {
-		Cypress.currentTest.retries(5);
-		// Get started page
-		for (; i < linkovi.length; i++) {
+		
+		for (; i < links.length; i++) {
 			const home = new HomePage();
 			const homePage = new homePageNew();
-
-			homePage.visitFirstPage(linkovi[i]);
-
-			cy.wait(3000);
+			homePage.visitFirstPage(links[i]);
 			homePage.buttonNew();
 
-			const fourthdOfOst = new troubledInGeneralNew();
-			fourthdOfOst.notAtAll();
+			const troubledInGeneralNewQuestion = new troubledInGeneralNew();
+			troubledInGeneralNewQuestion.notAtAll();
 			home.buttonClick();
 
-			const fiveOfOst = new manyNights();
-			fiveOfOst.night7();
+			const manyNightsQuestion = new manyNights();
+			manyNightsQuestion.night5();
 			home.buttonClick();
 
-			const still = new stillProblem();
-			still.no();
+			const stillProblemQuestion = new stillProblem();
+			stillProblemQuestion.no();
 			home.buttonClick();
 
-			const secondOfOst = new howLong();
-			secondOfOst.moreYears();
+			const stopsYouQuestion = new stopsYou();
+			stopsYouQuestion.worriesFuture();
 			home.buttonClick();
 
-			const seventhOfOst = new howLikelyNew();
-			seventhOfOst.highChance();
+			const howLongQuestion = new howLong();
+			howLongQuestion.years();
+			home.buttonClick();
+		
+			const howLikelyNewQuestion = new howLikelyNew();
+			howLikelyNewQuestion.highChance();
 			home.buttonClick();
 
-			const neki2 = new snoring();
-			neki2.dontsnore();
+			const snoringQuestion = new snoring();
+			snoringQuestion.dontsnore();
+			home.buttonClick();
+			
+			const breathingQuestion = new breathing();
+			breathingQuestion.yes();
 			home.buttonClick();
 
-			const neki = new breathing();
-			neki.no();
-
+			const improveYourSleepQuestion = new improveYourSleep();
+			improveYourSleepQuestion.noneOfTheAbove();
 			home.buttonClick();
 
-			const firstofOst = new improveYourSleep();
-			firstofOst.noneOfTheAbove();
+			const expertGuidesQuestion = new expertGuides();
+			expertGuidesQuestion.none();
 			home.buttonClick();
 
-			const guides = new expertGuides();
-			guides.none();
+			const genderQuestion = new gender();
+			genderQuestion.male();
 			home.buttonClick();
 
-			const eightOfOst = new gender();
-			eightOfOst.male().click();
-
+			const dobQuestion = new dob();
+			dobQuestion.monthJan();
+			dobQuestion.day1();
+			dobQuestion.year1991();
 			home.buttonClick();
 
-			const ninthOfOst = new dob();
-			ninthOfOst.monthJan();
-			ninthOfOst.day1();
-			ninthOfOst.year1991();
-			home.buttonClick();
-
-			const signUp = new flow1SignUp();
-
-			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/usfoods_deprecated/78#3/1') {
-					signUp.phoneNumberLabel();
-					signUp.phoneNumberImput();
-				}
-			});
+			const signUp = new SignUp();
 
 			var passwordLabels = [
 				'Choose a password*',
 				'Password*'
 			];
 
-			var matching = 0;
+			let matching = 0;
 
 			cy.get('[for="23634"]').then((num) => {
-				var m = 0;
+				let m = 0;
 				for (; m < passwordLabels.length; m++) {
 					if (passwordLabels[m] == num.text()) {
 						matching += 1;
@@ -126,16 +116,16 @@ describe('Proba', () => {
 			signUp.lastNameLabel();
 			signUp.lastNameImput();
 			signUp.emailLabel();
-			signUp.emailImput();
-			signUp.passwordImput();
+			signUp.emailInputFlow1(); 
+			signUp.passwordInput();
 			signUp.passwordHint();
+			signUp.doctorLabel();
+			signUp.checkBoxes();
 			signUp.privacy();
 			signUp.terms();
-			signUp.doctorLabel();
-			signUp.doctorLabel();
-			signUp.doctorLink();
+			signUp.signUpButton();
 			cy.clearCookies();
 			cy.clearLocalStorage();
 		}
-	});
+	}); 
 });

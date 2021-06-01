@@ -5,6 +5,7 @@ import howLong from '../integration/pageObjects/howLong';
 import troubledInGeneralNew from '../integration/pageObjects/troubledInGeneralNew';
 import manyNights from '../integration/pageObjects/manyNights';
 import gender from '../integration/pageObjects/gender';
+import stopsYou from '../integration/pageObjects/stopsYou';
 import howLikelyNew from '../integration/pageObjects/howLikelyNew';
 import dob from '../integration/pageObjects/dob';
 import breathing from '../integration/pageObjects/breathing ';
@@ -68,92 +69,79 @@ var locations = [
 ];
 
 var linkovi = [
-	'https://onboarding.sleepio.com/sleepio/hubbell/76#1/1'
+	'https://onboarding.qa.sleepio.com/sleepio/hubbell/76#1/1'
 ];
 var i = 0;
-describe('Proba', () => {
+describe('flow76 custom', () => {
 	console.log(linkovi[i]);
 	it('Start the test', () => {
 		// Get started page
 		for (; i < linkovi.length; i++) {
 			const home = new HomePage();
 			const homePage = new homePageNew();
-
 			homePage.visitFirstPage(linkovi[i]);
-			cy.wait(5000);
 			homePage.buttonNew();
 
-			const fourthdOfOst = new troubledInGeneralNew();
-
-			fourthdOfOst.notAtAll();
+			const troubledInGeneralNewQuestion = new troubledInGeneralNew();
+			troubledInGeneralNewQuestion.notAtAll();
+			home.buttonClick();
+		
+			const manyNightsQuestion = new manyNights();
+			manyNightsQuestion.night7();
 			home.buttonClick();
 
-			const fiveOfOst = new manyNights();
-
-			fiveOfOst.night7();
+			const stillProblemQuestion = new stillProblem();
+			stillProblemQuestion.no();
 			home.buttonClick();
 
-			const still = new stillProblem();
-
-			still.no();
+			const stopsYouQuestion = new stopsYou();
+			stopsYouQuestion.light();
 			home.buttonClick();
 
-			const secondOfOst = new howLong();
 
-			secondOfOst.dontHaveProblem();
+			const howLongQuestion = new howLong();
+			howLongQuestion.sixYears();
 			home.buttonClick();
 
-			const seventhOfOst = new howLikelyNew();
-
-			seventhOfOst.highChance();
+			const howLikelyNewQuestion = new howLikelyNew();
+			howLikelyNewQuestion.highChance();
 			home.buttonClick();
 
-			const neki2 = new snoring();
-
-			neki2.snoringTitle();
-			neki2.no();
-
+			const snoringQuestion = new snoring();
+			snoringQuestion.dontsnore();
 			home.buttonClick();
 
-			const neki = new breathing();
-
-			neki.breathingTitle();
-
-			neki.yes();
+			
+			const breathingQuestion = new breathing();
+			breathingQuestion.yes();
 			home.buttonClick();
 
-			const firstofOst = new improveYourSleep();
-
-			firstofOst.noneOfTheAbove();
+			const improveYourSleepQuestion = new improveYourSleep();
+			improveYourSleepQuestion.noneOfTheAbove();
 			home.buttonClick();
 
-			const guides = new expertGuides();
-
-			guides.none();
+		
+			const expertGuidesQuestion = new expertGuides();
+			expertGuidesQuestion.none();
 			home.buttonClick();
 
-			const eightOfOst = new gender();
-
-			eightOfOst.male().click();
-
+			const genderQuestion = new gender();
+			genderQuestion.another()
 			home.buttonClick();
 
-			const ninthOfOst = new dob();
-
-			ninthOfOst.monthJan();
-
-			ninthOfOst.day1();
-
-			ninthOfOst.year1991();
-
+		
+			const dobQuestion = new dob();
+			dobQuestion.monthJan();
+			dobQuestion.day1();
+			dobQuestion.year1991();
 			home.buttonClick();
 
-			const hubbellCustom = new workLocation();
+			const workLocationQuestion = new workLocation();
 
-			hubbellCustom.workLocationTitle();
+			workLocationQuestion.workLocationTitle();
 
 			for (var p = 0; p < locations.length; p++) {
-				hubbellCustom.checkinhEveryOption76(locations[p].country, locations[p].value);
+				workLocationQuestion.checkinhEveryOption76(locations[p].country, locations[p].value);
 			}
 		}
 	});

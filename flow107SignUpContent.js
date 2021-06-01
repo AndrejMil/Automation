@@ -2,6 +2,7 @@ import homePageNew from '../integration/pageObjects/homePageNew';
 import HomePage from '../integration/pageObjects/homePage';
 import improveYourSleep from '../integration/pageObjects/improveYourSleep';
 import howLong from '../integration/pageObjects/howLong';
+import stopsYou from '../integration/pageObjects/stopsYou';
 import troubledInGeneralNew from '../integration/pageObjects/troubledInGeneralNew';
 import manyNights from '../integration/pageObjects/manyNights';
 import gender from '../integration/pageObjects/gender';
@@ -11,92 +12,91 @@ import breathing from '../integration/pageObjects/breathing ';
 import snoring from '../integration/pageObjects/snoring';
 import expertGuides from '../integration/pageObjects/expertGuides';
 import stillProblem from '../integration/pageObjects/stillProblem';
-import flow1SignUp from '../integration/pageObjects/flow1SignUp';
+import SignUp from '../integration/pageObjects/SignUp';
 
 var linkovi = [
-	'https://onboarding.sleepio.com/sleepio/bmcsleep/107',
-	'https://onboarding.sleepio.com/sleepio/bmc/107#1/1'
+	'https://onboarding.qa.sleepio.com/sleepio/bmcsleep/107',
+	'https://onboarding.qa.sleepio.com/sleepio/bmc/107#1/1'
 ];
 
 var i = 0;
-describe('Proba', () => {
+describe('flow 107 signup content', () => {
 	console.log(linkovi[i]);
-	it('Start the test', () => {
-		Cypress.currentTest.retries(5);
+	it('Start the test', () => { 
 		// Get started page
-		for (; i < linkovi.length; i++) {
+		for ( ; i < linkovi.length; i++ ) {
+			
 			const home = new HomePage();
 			const homePage = new homePageNew();
-
 			homePage.visitFirstPage(linkovi[i]);
-
-			cy.wait(5000);
 			homePage.buttonNew();
 
-			const fourthdOfOst = new troubledInGeneralNew();
-			fourthdOfOst.notAtAll();
+			const troubledInGeneralNewQuestion = new troubledInGeneralNew();
+			troubledInGeneralNewQuestion.notAtAll();
 			home.buttonClick();
 
-			const fiveOfOst = new manyNights();
-			fiveOfOst.night7();
+			const manyNightsQuestion = new manyNights();
+			manyNightsQuestion.night5();
 			home.buttonClick();
 
-			const still = new stillProblem();
-			still.no();
+			const stillProblemQuestion = new stillProblem();
+			stillProblemQuestion.no();
 			home.buttonClick();
 
-			const secondOfOst = new howLong();
-			secondOfOst.moreYears();
+			const stopsYouQuestion = new stopsYou();
+			stopsYouQuestion.worriesFuture();
 			home.buttonClick();
 
-			const seventhOfOst = new howLikelyNew();
-			seventhOfOst.highChance();
+			const howLongQuestion = new howLong();
+			howLongQuestion.years();
+			home.buttonClick();
+		
+			const howLikelyNewQuestion = new howLikelyNew();
+			howLikelyNewQuestion.highChance();
 			home.buttonClick();
 
-			const neki2 = new snoring();
-			neki2.dontsnore();
+			const snoringQuestion = new snoring();
+			snoringQuestion.dontsnore();
+			home.buttonClick();
+			
+			const breathingQuestion = new breathing();
+			breathingQuestion.yes();
 			home.buttonClick();
 
-			const neki = new breathing();
-			neki.no();
-
+			const improveYourSleepQuestion = new improveYourSleep();
+			improveYourSleepQuestion.noneOfTheAbove();
 			home.buttonClick();
 
-			const firstofOst = new improveYourSleep();
-			firstofOst.noneOfTheAbove();
+			const expertGuidesQuestion = new expertGuides();
+			expertGuidesQuestion.none();
 			home.buttonClick();
 
-			const guides = new expertGuides();
-			guides.none();
+			const genderQuestion = new gender();
+			genderQuestion.male();
 			home.buttonClick();
 
-			const eightOfOst = new gender();
-			eightOfOst.male().click();
-
+			const dobQuestion = new dob();
+			dobQuestion.monthJan();
+			dobQuestion.day1();
+			dobQuestion.year1991();
 			home.buttonClick();
 
-			const ninthOfOst = new dob();
-			ninthOfOst.monthJan();
-			ninthOfOst.day1();
-			ninthOfOst.year1991();
-			home.buttonClick();
-
-			const signUp = new flow1SignUp();
+			const signUp = new SignUp();
 			signUp.signUpHeader();
 			signUp.firstNameLabel();
 			signUp.firstNameImput();
 			signUp.lastNameLabel();
 			signUp.lastNameImput();
 			signUp.emailLabel();
-			signUp.emailImput();
+			signUp.emailImputflow107();
 			signUp.passwordLabel();
-			signUp.passwordImput();
+			signUp.passwordInput();
 			signUp.passwordHint();
+			signUp.checkBoxes();
 			signUp.privacy();
 			signUp.terms();
 			signUp.doctorLabel();
-			signUp.doctorLabel();
-			signUp.doctorLink();
+			signUp.suitable();
 			cy.clearCookies();
 			cy.clearLocalStorage();
 		}

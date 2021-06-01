@@ -6,6 +6,7 @@ import troubledInGeneralNew from '../integration/pageObjects/troubledInGeneralNe
 import manyNights from '../integration/pageObjects/manyNights';
 import gender from '../integration/pageObjects/gender';
 import howLikelyNew from '../integration/pageObjects/howLikelyNew';
+import stopsYou from '../integration/pageObjects/stopsYou';
 import dob from '../integration/pageObjects/dob';
 import breathing from '../integration/pageObjects/breathing ';
 import snoring from '../integration/pageObjects/snoring';
@@ -348,7 +349,7 @@ var salesforceStates = [
 	{ state: 'Finland', value: 'finland' },
 	{ state: 'France', value: 'france' },
 	{ state: 'Germany', value: 'germany' },
-	{ state: 'Hong Kong', value: 'hongKong' },
+	{ state: 'Hong Kong', value: 'hongkong' },
 	{ state: 'India', value: 'india' },
 	{ state: 'Ireland', value: 'ireland' },
 	{ state: 'Israel', value: 'israel' },
@@ -358,202 +359,173 @@ var salesforceStates = [
 	{ state: 'Mexico', value: 'mexico' },
 	{ state: 'Morocco', value: 'morocco' },
 	{ state: 'Norway', value: 'norway' },
-	{ state: 'The Netherlands', value: 'theNetherlands' },
-	{ state: 'New Zealand', value: 'newZealand' },
+	{ state: 'The Netherlands', value: 'thenetherlands' },
+	{ state: 'New Zealand', value: 'newzealand' },
 	{ state: 'Singapore', value: 'singapore' },
 	{ state: 'Spain', value: 'spain' },
 	{ state: 'Sweden', value: 'sweden' },
 	{ state: 'Switzerland', value: 'switzerland' },
-	{ state: 'United Kingdom', value: 'uk' },
-	{ state: 'United States', value: 'unitedStates' }
+	{ state: 'United Kingdom', value: 'unitedkingdom' },
+	{ state: 'United States', value: 'unitedstates' }
 ];
 
 var linkovi = [
-	'https://onboarding.sleepio.com/sleepio/salesforce/77',
-	'https://onboarding.sleepio.com/sleepio/nhs-staff',
-	'https://onboarding.sleepio.com/sleepio/healthandcare-scot',
-	'https://onboarding.sleepio.com/sleepio/eyexecutive',
-	'https://onboarding.sleepio.com/sleepio/google',
-	'https://onboarding.sleepio.com/sleepio/comcast'
+	'https://onboarding.qa.sleepio.com/sleepio/fujifilm/77#1/1',
+	'https://onboarding.qa.sleepio.com/sleepio/comcast',
+	'https://onboarding.qa.sleepio.com/sleepio/salesforce/77',
+	'https://onboarding.qa.sleepio.com/sleepio/nhs-staff',
+	'https://onboarding.qa.sleepio.com/sleepio/healthandcare-scot'
 ];
 var i = 0;
-describe('Proba', () => {
+describe('flow77custom', () => {
 	console.log(linkovi[i]);
 	it('Start the test', () => {
 		// Get started page
 		for (; i < linkovi.length; i++) {
 			const home = new HomePage();
 			const homePage = new homePageNew();
-
 			homePage.visitFirstPage(linkovi[i]);
-			cy.wait(10000);
 			cy.get('.sl-order-2 > .sl-button').click({ force: true });
 
-			const fourthdOfOst = new troubledInGeneralNew();
-
-			fourthdOfOst.notAtAll();
+			const troubledInGeneralNewQuestion = new troubledInGeneralNew();
+			troubledInGeneralNewQuestion.notAtAll();
 			home.buttonClick();
 
-			const fiveOfOst = new manyNights();
-
-			fiveOfOst.night7();
+		
+			const manyNightsQuestion = new manyNights();
+			manyNightsQuestion.night7();
 			home.buttonClick();
 
-			const still = new stillProblem();
 
-			still.no();
+			const stillProblemQuestion = new stillProblem();
+			stillProblemQuestion.no();
 			home.buttonClick();
 
-			const secondOfOst = new howLong();
+			const stopsYouQuestion = new stopsYou();
+			stopsYouQuestion.light();
+			home.buttonClick();
 
-			secondOfOst.dontHaveProblem();
+
+			const howLongQuestion = new howLong();
+			howLongQuestion.howLongTitle();
+			howLongQuestion.weeks();
 			home.buttonClick();
 
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/google/77#2/5') {
-					const improvment = new improvmentProgram();
-
-					improvment.improvmentProgramTitle();
-					improvment.notReady();
-					improvment.undecided();
-					improvment.ready();
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/google/77#2/6') {
+					const improvmentProgramQuestion = new improvmentProgram();
+					improvmentProgramQuestion.improvmentProgramTitle();
+					improvmentProgramQuestion.notReady();
+					improvmentProgramQuestion.undecided();
+					improvmentProgramQuestion.ready();
 					home.buttonClick();
 
-					const reflects = new bestReflects();
-					reflects.bestReflectsTitle();
-					reflects.noPoint();
-					reflects.thinking();
-					reflects.readyToWork();
-
+					const bestReflectsQuestion = new bestReflects();
+					bestReflectsQuestion.bestReflectsTitle();
+					bestReflectsQuestion.noPoint();
+					bestReflectsQuestion.thinking();
+					bestReflectsQuestion.readyToWork();
 					home.buttonClick();
 
-					const seventhOfOst = new howLikelyNew();
-
-					seventhOfOst.highChance();
+					const howLikelyNewQuestion = new howLikelyNew();
+					howLikelyNewQuestion.highChance();
 					home.buttonClick();
 
-					const neki2 = new snoring();
-
-					neki2.snoringTitle();
-					neki2.no();
-
+					const snoringQuestion = new snoring();
+					snoringQuestion.snoringTitle();
+					snoringQuestion.no();
 					home.buttonClick();
 
-					const neki = new breathing();
-
-					neki.breathingTitle();
-
-					neki.yes();
+					const breathingQuestion = new breathing();
+					breathingQuestion.breathingTitle();
+					breathingQuestion.yes();
 					home.buttonClick();
 
-					const firstofOst = new improveYourSleep();
-
-					firstofOst.noneOfTheAbove();
+					const improveYourSleepQuestion = new improveYourSleep();
+					improveYourSleepQuestion.noneOfTheAbove();
 					home.buttonClick();
 
-					const guides = new expertGuides();
-
-					guides.none();
+					const expertGuidesQuestion = new expertGuides();
+					expertGuidesQuestion.none();
 					home.buttonClick();
 
-					const eightOfOst = new gender();
-
-					eightOfOst.male().click();
-
+					const genderQuestion = new gender();
+					genderQuestion.male();
 					home.buttonClick();
 
-					const ninthOfOst = new dob();
-
-					ninthOfOst.monthJan();
-
-					ninthOfOst.day1();
-
-					ninthOfOst.year1991();
-
+					const dobQuestion = new dob();
+					dobQuestion.monthJan();
+					dobQuestion.day1();
+					dobQuestion.year1991();
 					home.buttonClick();
 
-					const follow = new following();
+					const followingQuestion = new following();
 
-					follow.followingTitle();
-					follow.googler();
-					follow.alphabet();
-					follow.googleAlphabet();
+					followingQuestion.followingTitle();
+					followingQuestion.googler();
+					followingQuestion.alphabet();
+					followingQuestion.googleAlphabet();
 					home.buttonClick();
 
-					const country = new countryLocated();
+					const countryLocatedQuestion = new countryLocated();
 
-					country.countryLocatedTitle();
-					country.unitedStates();
-					country.unitedKingdom();
-					country.italy();
+					countryLocatedQuestion.countryLocatedTitle();
+					countryLocatedQuestion.unitedStates();
+					countryLocatedQuestion.unitedKingdom();
+					countryLocatedQuestion.italy();
 
 					for (var p = 0; p < countryes.length; p++) {
 						country.checkinhEveryOption(countryes[p].country, countryes[p].value);
 					}
-
 					home.buttonClick();
-
 					const stateGoogle = new stateWork();
-
 					stateGoogle.stateWorkTitle();
-
 					for (var p = 0; p < states.length; p++) {
 						stateGoogle.checkinhEveryOptionGoogle(states[p].state, states[p].value);
 					}
-
 					home.buttonClick();
 				}
 			});
 
 			cy.url().then((urlString) => {
-				if (urlString != 'https://onboarding.sleepio.com/sleepio/google/77#3/1') {
-					const neki5 = new howLikelyNew();
-
-					neki5.howLikelyTitle();
-					neki5.noChance();
-					neki5.highChance();
+				if (urlString != 'https://onboarding.qa.sleepio.com/sleepio/google/77#3/1') {
+					
+					const howLikelyNewQuestion = new howLikelyNew();
+					howLikelyNewQuestion.highChance();
 					home.buttonClick();
 
-					const neki3 = new snoring();
-
-					neki3.snoringTitle();
-					neki3.yes();
-					neki3.dontsnore();
+		
+					const snoringQuestion = new snoring();
+					snoringQuestion.dontsnore();
 					home.buttonClick();
 
-					const neki4 = new breathing();
-
-					neki4.breathingTitle();
-					neki4.yes();
+					const breathingQuestion = new breathing();
+					breathingQuestion.yes();
 					home.buttonClick();
 
-					const neki6 = new improveYourSleep();
-
-					neki6.noneOfTheAbove();
+		
+					const improveYourSleepQuestion = new improveYourSleep();
+					improveYourSleepQuestion.noneOfTheAbove();
 					home.buttonClick();
 
-					const neki7 = new expertGuides();
-					neki7.none();
+					const expertGuidesQuestion = new expertGuides();
+					expertGuidesQuestion.none();
+					home.buttonClick();
+			
+					const genderQuestion = new gender();
+					genderQuestion.genderTitle();
+					genderQuestion.male()
 					home.buttonClick();
 
-					const neki0 = new gender();
-					neki0.male().click();
-					home.buttonClick();
-
-					const neki9 = new dob();
-
-					neki9.dobTitle();
-					neki9.monthJan();
-					neki9.monthFeb();
-					neki9.day1();
-					neki9.day2();
-					neki9.year1991();
-					neki9.year1997();
+					const dobQuestion = new dob();
+					dobQuestion.monthJan();
+					dobQuestion.day1();
+					dobQuestion.year1991();
 					home.buttonClick();
 				}
 			});
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/comcast/77#2/12') {
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/comcast/77#2/13') {
 					const workComcast = new workForComcast();
 					workComcast.workForComcastTitle();
 					workComcast.usa();
@@ -561,7 +533,7 @@ describe('Proba', () => {
 					workComcast.dontWorkComcast();
 				}
 
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/salesforce/77#2/12') {
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/salesforce/70#2/13') {
 					const workSalesforce = new workForSalesforce();
 					workSalesforce.workForSalesforceTitle();
 
@@ -573,53 +545,40 @@ describe('Proba', () => {
 					}
 				}
 
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/nhs-staff/77#2/12') {
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/nhs-staff/77#2/13') {
 					const nhs = new nhsAccess();
 					nhs.nhsAccessTitle();
 					nhs.nhsAccessAnswer();
 				}
 
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/eyexecutive/77#3/1') {
-					const eyeExecut = new eyexecutive();
-					eyeExecut.eyexecutiveTitle();
-					eyeExecut.eyexecutiveHeltText();
-					eyeExecut.eyexecutiveAnswer({ force: true });
-
-					cy.visit('https://onboarding.sleepio.com/sleepio/ey/77#3/1');
-
-					const ey = new eyUpn();
-					ey.eyUpnTitle();
-					ey.eyUpnHelpText();
-					ey.eyUpnAnswer();
-
-					cy.visit('https://onboarding.sleepio.com/sleepio/fujifilm/77#3/1');
-
+				if ( urlString == 'https://onboarding.qa.sleepio.com/sleepio/fujifilm/77#3/1' ) {
+					
 					const fujifilm = new fujifilmId();
 					fujifilm.fujifilmIdTitle();
 					fujifilm.fujifilmIdHelpText();
 					fujifilm.fujifilmIdAnswer();
 
-					cy.visit('https://onboarding.sleepio.com/sleepio/bjc/77#3/1');
+					cy.visit('https://onboarding.qa.sleepio.com/sleepio/bjc/77#3/1');
 
 					const bjc = new bjcId();
 					bjc.bjcTitle();
 					bjc.bjcIdHelpText();
 					bjc.bjcIdAnswer();
 
-					cy.visit('https://onboarding.sleepio.com/sleepio/3m/77#3/1');
+					cy.visit('https://onboarding.qa.sleepio.com/sleepio/3m/77#3/1');
 					const threeM = new threeMId();
 					threeM.threeMTitle();
 					threeM.threeMHelpText();
 					threeM.threeMAnswer();
 
-					cy.visit('https://onboarding.sleepio.com/sleepio/target/77#3/1');
+					cy.visit('https://onboarding.qa.sleepio.com/sleepio/target/77#3/1');
 
 					const tmNum = new tmNumber();
 					tmNum.tmNumberTitle();
 					tmNum.tmNumberHelpText();
 					tmNum.tmNumberAnswer();
 				}
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/healthandcare-scot/77#2/12') {
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/healthandcare-scot/77#2/13') {
 					const nhsScotPostcode = new nhsScotlandPostcode();
 					nhsScotPostcode.nhsScotPostcodeTitle();
 					nhsScotPostcode.nhsScotPostcodeAnswer();

@@ -2,6 +2,7 @@ import homePageNew from '../integration/pageObjects/homePageNew';
 import HomePage from '../integration/pageObjects/homePage';
 import improveYourSleep from '../integration/pageObjects/improveYourSleep';
 import howLong from '../integration/pageObjects/howLong';
+import stopsYou from '../integration/pageObjects/stopsYou';
 import troubledInGeneralNew from '../integration/pageObjects/troubledInGeneralNew';
 import manyNights from '../integration/pageObjects/manyNights';
 import gender from '../integration/pageObjects/gender';
@@ -11,98 +12,94 @@ import breathing from '../integration/pageObjects/breathing ';
 import snoring from '../integration/pageObjects/snoring';
 import expertGuides from '../integration/pageObjects/expertGuides';
 import stillProblem from '../integration/pageObjects/stillProblem';
-import flow1SignUp from './pageObjects/flow1SignUp';
+import SignUp from '../integration/pageObjects/SignUp';
 import livewellId from './pageObjects/livewellEID';
 import bjcId from './pageObjects/bjcId';
 
-var linkovi = [
-	'https://onboarding.sleepio.com/sleepio/bjchealthcare',
-	'https://onboarding.sleepio.com/sleepio/bjc',
-	'https://onboarding.sleepio.com/sleepio/livewell/77#1/1',
-	'https://onboarding.sleepio.com/sleepio/abbott/77',
-	'https://onboarding.sleepio.com/sleepio/bh2020',
-	'https://onboarding.sleepio.com/sleepio/demo2020/77#1/1',
-	'https://onboarding.sleepio.com/sleepio/baesystems'
+var links = [
+	'https://onboarding.qa.sleepio.com/sleepio/bjchealthcare',
+	'https://onboarding.qa.sleepio.com/sleepio/bjc', 
+	'https://onboarding.qa.sleepio.com/sleepio/livewell/77#1/1',
+	'https://onboarding.qa.sleepio.com/sleepio/abbott/77',
+	'https://onboarding.qa.sleepio.com/sleepio/bh2020',
+	'https://onboarding.qa.sleepio.com/sleepio/demo2020/77#1/1',
+	'https://onboarding.qa.sleepio.com/sleepio/baesystems'
 ];
 var i = 0;
-describe('Proba', () => {
-	console.log(linkovi[i]);
+describe('flow 77 signup content2', () => {
+	console.log(links[i]);
 	it('Start the test', () => {
-		// Get started page
-		for (; i < linkovi.length; i++) {
+		
+		for (; i < links.length; i++) {
 			const home = new HomePage();
 			const homePage = new homePageNew();
-
-			homePage.visitFirstPage(linkovi[i]);
-
-			cy.wait(3000);
+			homePage.visitFirstPage(links[i]);
 			homePage.buttonNew();
 
-			const fourthdOfOst = new troubledInGeneralNew();
-
-			fourthdOfOst.notAtAll();
+			const troubledInGeneralNewQuestion = new troubledInGeneralNew();
+			troubledInGeneralNewQuestion.notAtAll();
 			home.buttonClick();
 
-			const fiveOfOst = new manyNights();
-
-			fiveOfOst.night7();
+			const manyNightsQuestion = new manyNights();
+			manyNightsQuestion.night5();
 			home.buttonClick();
 
-			const still = new stillProblem();
-
-			still.no();
+			const stillProblemQuestion = new stillProblem();
+			stillProblemQuestion.no();
+			home.buttonClick();
+	
+			const stopsYouQuestion = new stopsYou();
+			stopsYouQuestion.worriesFuture();
 			home.buttonClick();
 
-			const secondOfOst = new howLong();
-
-			secondOfOst.dontHaveProblem();
+			const howLongQuestion = new howLong();
+			howLongQuestion.years();
+			home.buttonClick();
+		
+			const howLikelyNewQuestion = new howLikelyNew();
+			howLikelyNewQuestion.highChance();
+			home.buttonClick();
+	
+			const snoringQuestion = new snoring();
+			snoringQuestion.dontsnore();
+			home.buttonClick();
+			
+			const breathingQuestion = new breathing();
+			breathingQuestion.yes();
 			home.buttonClick();
 
-			const neki5 = new howLikelyNew();
-			neki5.highChance();
+			const improveYourSleepQuestion = new improveYourSleep();
+			improveYourSleepQuestion.noneOfTheAbove();
+			home.buttonClick();
+	
+			const expertGuidesQuestion = new expertGuides();
+			expertGuidesQuestion.none();
 			home.buttonClick();
 
-			const neki3 = new snoring();
-			neki3.dontsnore();
+			const genderQuestion = new gender();
+			genderQuestion.male();
 			home.buttonClick();
 
-			const neki4 = new breathing();
-			neki4.yes();
-			home.buttonClick();
-
-			const neki6 = new improveYourSleep();
-
-			neki6.noneOfTheAbove();
-			home.buttonClick();
-
-			const neki7 = new expertGuides();
-			neki7.none();
-			home.buttonClick();
-
-			const neki0 = new gender();
-			neki0.male().click();
-			home.buttonClick();
-
-			const neki9 = new dob();
-			neki9.monthJan();
-			neki9.day1();
-			neki9.year1991();
+			const dobQuestion = new dob();
+			dobQuestion.monthJan();
+			dobQuestion.day1();
+			dobQuestion.year1991();
 			home.buttonClick();
 
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/livewell/77#3/1') {
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/livewell/77#3/1') {
 					const livewell = new livewellId();
 					livewell.livewellTitle();
 					livewell.livewellHelpText();
 					livewell.livewellAnswer();
 				}
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/bjc/77#3/1') {
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/bjc/77#3/1') {
 					const bjc = new bjcId();
 					bjc.bjcTitle();
 					bjc.bjcIdHelpText();
 					bjc.bjcIdAnswer();
 				}
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/bjchealthcare/77#3/1') {
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/bjchealthcare/77#3/1') {
 					const bjc = new bjcId();
 					bjc.bjcTitle();
 					bjc.bjcIdHelpText();
@@ -110,7 +107,7 @@ describe('Proba', () => {
 				}
 			});
 
-			const signUp = new flow1SignUp();
+			const signUp = new SignUp();
 
 			var passwordLabels = [
 				'Choose a password*',
@@ -119,7 +116,7 @@ describe('Proba', () => {
 
 			var matching = 0;
 
-			cy.get('[for="23610"]').then((num) => {
+			cy.get('[for="36133"]').then((num) => {
 				var m = 0;
 				for (; m < passwordLabels.length; m++) {
 					if (passwordLabels[m] == num.text()) {
@@ -136,15 +133,14 @@ describe('Proba', () => {
 			signUp.lastNameLabel();
 			signUp.lastNameImput();
 			signUp.emailLabel();
-			signUp.emailImput();
-			signUp.passwordImput();
+			signUp.emailImputflow77();
+			signUp.passwordInput();
 			signUp.passwordHint();
+			signUp.checkBoxes();
 			signUp.privacy();
 			signUp.terms();
 			signUp.doctorLabel();
-			signUp.doctorLabel();
-			signUp.doctorLink();
-			cy.reload();
+			signUp.suitable();
 			cy.clearCookies();
 			cy.clearLocalStorage();
 		}

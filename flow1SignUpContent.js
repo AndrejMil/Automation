@@ -14,140 +14,113 @@ import dob from '../integration/pageObjects/dob';
 import breathing from '../integration/pageObjects/breathing ';
 import snoring from '../integration/pageObjects/snoring';
 import expertGuides from '../integration/pageObjects/expertGuides';
-import flow1SignUp from '../integration/pageObjects/flow1SignUp';
+import SignUp from '../integration/pageObjects/SignUp';
 
 var linkovi = [
-	'https://onboarding.sleepio.com/sleepio/abbott_deprecated/1',
-	'https://onboarding.sleepio.com/sleepio/stjames',
-	'https://onboarding.sleepio.com/sleepio/acme/1#1/1',
-	'https://onboarding.sleepio.com/sleepio/big-health',
-	'https://onboarding.sleepio.com/sleepio/test_product',
-	'https://onboarding.sleepio.com/sleepio/bh'
+	'https://onboarding.qa.sleepio.com/sleepio/abbott_deprecated/1',
+	'https://onboarding.qa.sleepio.com/sleepio/stjames',
+	'https://onboarding.qa.sleepio.com/sleepio/big-health'
 ];
 var i = 0;
-describe('Flow 1', () => {
+describe('Flow 1 sign up', () => {
 	console.log(linkovi[i]);
 	it('Start the test', () => {
-		Cypress.currentTest.retries(5);
 		// Get started page
 		for (; i < linkovi.length; i++) {
 			const homePage = new HomePage();
 
 			homePage.visitFirstPage(linkovi[i]);
-
-			cy.wait(3000);
 			homePage.buttonClick();
 
-			// First page of OST
-
-			const firstofOst = new improveYourSleep();
-
-			firstofOst.sleepMoreEasily();
+			const improveYourSleepQuestion = new improveYourSleep();
+			improveYourSleepQuestion.noneOfTheAbove();
 			homePage.buttonClick();
 
-			// Second page of OST
 
-			const secondOfOst = new howLong();
-
-			secondOfOst.weeks();
+			const howLongQuestion = new howLong();
+			howLongQuestion.howLongTitle();
+			howLongQuestion.dontHaveProblem();
 			homePage.buttonClick();
 
-			// Third page of OST
 
-			const thirdOfOst = new stopsYou();
-
-			thirdOfOst.light();
+			const stopsYouQuestion = new stopsYou();
+			stopsYouQuestion.light();
 			homePage.buttonClick();
 
-			// Fourth page of OST
-
-			const fourthdOfOst = new troubledInGeneral();
-
-			fourthdOfOst.notAtAll();
-
+			const troubledInGeneralQuestion = new troubledInGeneral();
+			troubledInGeneralQuestion.veryMuch();
 			homePage.buttonClick();
 
-			const fiveOfOst = new manyNights();
 
-			fiveOfOst.night7();
+			const manyNightsQuestion = new manyNights();
+			manyNightsQuestion.manyNightsTitle();
+			manyNightsQuestion.night7();
 			homePage.buttonClick();
 
-			const sixOfOst = new importantThings();
-
-			sixOfOst.veryOften();
+			const importantThingsQuestion = new importantThings();
+			importantThingsQuestion.veryOften();
 			homePage.buttonClick();
 
-			const seventhOfOst = new howLikely();
-
-			seventhOfOst.highChance();
+			const howLikelyQuestion = new howLikely();
+			howLikelyQuestion.highChance();
 			homePage.buttonClick();
 
-			const neki2 = new snoring();
-
-			neki2.dontsnore();
+			const snoringQuestion = new snoring();
+			snoringQuestion.dontsnore();
 			homePage.buttonClick();
 
-			const neki = new breathing();
-
-			neki.yes();
+			const breathingQuestion = new breathing();
+			breathingQuestion.yes();
 			homePage.buttonClick();
 
-			const eightOfOst = new gender();
-
-			eightOfOst.another().click();
+			const genderQuestion = new gender();
+			genderQuestion.another();
 			homePage.buttonClick();
 
-			const ninthOfOst = new dob();
-
-			ninthOfOst.monthJan();
-
-			ninthOfOst.day1();
-
-			ninthOfOst.year1991();
-			ninthOfOst.year1997();
-
+			const dobQuestion = new dob();
+			dobQuestion.dobTitle();
+			dobQuestion.monthJan();
+			dobQuestion.day1();
+			dobQuestion.year1991();
 			homePage.buttonClick();
 
-			const tenthOfOst = new employment();
 
-			tenthOfOst.fullTime();
+			const employmentQuestion = new employment();
+			employmentQuestion.fullTime();
 			homePage.buttonClick();
 
-			const eleventhOfOst = new poorSleep();
 
-			eleventhOfOst.sleep0();
+			const poorSleepQuestion = new poorSleep();
+			poorSleepQuestion.poorSleepTitle();
+			poorSleepQuestion.sleep70();
 			homePage.buttonClick();
 
-			const twelfthOfOst = new manyHours();
-
-			twelfthOfOst.manyHoursTitle();
-			twelfthOfOst.numberHours().type('5');
+			const manyHoursQuestion = new manyHours();
+			manyHoursQuestion.manyHoursTitle();
+			manyHoursQuestion.numberHours().type('5');
 			homePage.buttonClick();
 
 			const guides = new expertGuides();
-
 			guides.jetlag();
 			homePage.buttonClick();
 
-			const signUp = new flow1SignUp();
-
+			const signUp = new SignUp();
 			signUp.signUpHeader();
 			signUp.firstNameLabel();
 			signUp.firstNameImput();
 			signUp.lastNameLabel();
 			signUp.lastNameImput();
 			signUp.emailLabel();
-			signUp.emailImput();
+			signUp.emailInputFlow1();
 			signUp.passwordLabel();
-			signUp.passwordImput();
+			signUp.passwordInput();
 			signUp.passwordHint();
-			signUp.privacy();
+			signUp.checkBoxes();
 			signUp.terms();
 			signUp.signUpGoogle();
 			signUp.signUpFacebook();
 			signUp.doctorLabel();
-			signUp.doctorLabel();
-			signUp.doctorLink();
+			signUp.suitable();
 			cy.clearCookies();
 			cy.clearLocalStorage();
 		}

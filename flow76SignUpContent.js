@@ -6,6 +6,7 @@ import troubledInGeneralNew from '../integration/pageObjects/troubledInGeneralNe
 import manyNights from '../integration/pageObjects/manyNights';
 import gender from '../integration/pageObjects/gender';
 import howLikelyNew from '../integration/pageObjects/howLikelyNew';
+import stopsYou from '../integration/pageObjects/stopsYou';
 import dob from '../integration/pageObjects/dob';
 import breathing from '../integration/pageObjects/breathing ';
 import snoring from '../integration/pageObjects/snoring';
@@ -13,88 +14,91 @@ import expertGuides from '../integration/pageObjects/expertGuides';
 import stillProblem from '../integration/pageObjects/stillProblem';
 import sleepioExperts from '../integration/pageObjects/sleepioExperts';
 import workLocation from '../integration/pageObjects/workLocation';
-import flow1SignUp from '../integration/pageObjects/flow1SignUp';
+import SignUp from '../integration/pageObjects/SignUp';
 
 var linkovi = [
-	'https://onboarding.sleepio.com/sleepio/newscorpsleep/76',
-	'https://onboarding.sleepio.com/sleepio/newscorp',
-	'https://onboarding.sleepio.com/sleepio/holmansleep',
-	'https://onboarding.sleepio.com/sleepio/amerigasrest/76',
-	'https://onboarding.sleepio.com/sleepio/amerigas',
-	'https://onboarding.sleepio.com/sleepio/holman',
-	'https://onboarding.sleepio.com/sleepio/hubbell',
-	'https://onboarding.sleepio.com/sleepio/hubbellrest/76#1/1',
-	'https://onboarding.sleepio.com/sleepio/hubbellsleep',
-	'https://onboarding.sleepio.com/sleepio/usfoods1/',
-	'https://onboarding.sleepio.com/sleepio/usfoods2',
-	'https://onboarding.sleepio.com/sleepio/usfoodsrest/76'
+	'https://onboarding.qa.sleepio.com/sleepio/newscorpsleep/76',
+	'https://onboarding.qa.sleepio.com/sleepio/newscorp',
+	'https://onboarding.qa.sleepio.com/sleepio/holmansleep',
+	'https://onboarding.qa.sleepio.com/sleepio/amerigasrest/76',
+	'https://onboarding.qa.sleepio.com/sleepio/amerigas',
+	'https://onboarding.qa.sleepio.com/sleepio/holman',
+	'https://onboarding.qa.sleepio.com/sleepio/hubbell',
+	'https://onboarding.qa.sleepio.com/sleepio/hubbellrest/76#1/1',
+	'https://onboarding.qa.sleepio.com/sleepio/hubbellsleep',
+	'https://onboarding.qa.sleepio.com/sleepio/usfoods1/',
+	'https://onboarding.qa.sleepio.com/sleepio/usfoods2',
+	'https://onboarding.qa.sleepio.com/sleepio/usfoodsrest/76'
 ];
 
 var i = 0;
-describe('Proba', () => {
+describe('flow 76 sign up', () => {
 	console.log(linkovi[i]);
 	it('Start the test', () => {
-		Cypress.currentTest.retries(5);
+		
 		// Get started page
 		for (; i < linkovi.length; i++) {
 			const home = new HomePage();
 			const homePage = new homePageNew();
-
 			homePage.visitFirstPage(linkovi[i]);
-
-			cy.wait(10000);
 			homePage.buttonNew();
 
-			const fourthdOfOst = new troubledInGeneralNew();
-			fourthdOfOst.notAtAll();
+			const troubledInGeneralNewQuestion = new troubledInGeneralNew();
+			troubledInGeneralNewQuestion.notAtAll();
+			home.buttonClick();
+		
+			const manyNightsQuestion = new manyNights();
+			manyNightsQuestion.night7();
 			home.buttonClick();
 
-			const fiveOfOst = new manyNights();
-			fiveOfOst.night7();
+			const stillProblemQuestion = new stillProblem();
+			stillProblemQuestion.no();
 			home.buttonClick();
 
-			const still = new stillProblem();
-			still.no();
+			const stopsYouQuestion = new stopsYou();
+			stopsYouQuestion.light();
 			home.buttonClick();
 
-			const secondOfOst = new howLong();
-			secondOfOst.moreYears();
+
+			const howLongQuestion = new howLong();
+			howLongQuestion.sixYears();
 			home.buttonClick();
 
-			const seventhOfOst = new howLikelyNew();
-			seventhOfOst.highChance();
+			const howLikelyNewQuestion = new howLikelyNew();
+			howLikelyNewQuestion.highChance();
 			home.buttonClick();
 
-			const neki2 = new snoring();
-			neki2.dontsnore();
+			const snoringQuestion = new snoring();
+			snoringQuestion.dontsnore();
 			home.buttonClick();
 
-			const neki = new breathing();
-			neki.no();
-
+			
+			const breathingQuestion = new breathing();
+			breathingQuestion.yes();
 			home.buttonClick();
 
-			const firstofOst = new improveYourSleep();
-			firstofOst.noneOfTheAbove();
+			const improveYourSleepQuestion = new improveYourSleep();
+			improveYourSleepQuestion.noneOfTheAbove();
 			home.buttonClick();
 
-			const guides = new expertGuides();
-			guides.none();
+		
+			const expertGuidesQuestion = new expertGuides();
+			expertGuidesQuestion.none();
 			home.buttonClick();
 
-			const eightOfOst = new gender();
-			eightOfOst.male().click();
-
+			const genderQuestion = new gender();
+			genderQuestion.another()
 			home.buttonClick();
 
-			const ninthOfOst = new dob();
-			ninthOfOst.monthJan();
-			ninthOfOst.day1();
-			ninthOfOst.year1991();
+		
+			const dobQuestion = new dob();
+			dobQuestion.monthJan();
+			dobQuestion.day1();
+			dobQuestion.year1991();
 			home.buttonClick();
 
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/hubbell/76#2/12') {
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/hubbell/76#2/13') {
 					const hubbellCustom = new workLocation();
 
 					hubbellCustom.dontWork();
@@ -102,7 +106,7 @@ describe('Proba', () => {
 				}
 			});
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/hubbellrest/76#2/12') {
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/hubbellrest/76#2/13') {
 					const hubbellCustom = new workLocation();
 
 					hubbellCustom.dontWork();
@@ -110,7 +114,7 @@ describe('Proba', () => {
 				}
 			});
 			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/hubbellsleep/76#2/12') {
+				if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/hubbellsleep/76#2/13') {
 					const hubbellCustom = new workLocation();
 
 					hubbellCustom.dontWork();
@@ -123,7 +127,7 @@ describe('Proba', () => {
 			experts.expertsInput();
 			home.buttonClick();
 
-			const signUp = new flow1SignUp();
+			const signUp = new SignUp();
 
 			var phone = [
 				'Phone Number',
@@ -150,16 +154,16 @@ describe('Proba', () => {
 			signUp.lastNameLabel();
 			signUp.lastNameImput();
 			signUp.emailLabel();
-			signUp.emailImput();
+			signUp.emailImputflow77();
 			signUp.passwordLabel();
-			signUp.passwordImput();
+			signUp.passwordInput();
 			signUp.passwordHint();
-			signUp.phoneNumberImput();
+			signUp.phoneNumberInput();
+			signUp.checkBoxes();
 			signUp.privacy();
 			signUp.terms();
 			signUp.doctorLabel();
-			signUp.doctorLabel();
-			signUp.doctorLink();
+			signUp.suitable();
 			cy.clearCookies();
 			cy.clearLocalStorage();
 		}

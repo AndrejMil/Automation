@@ -30,7 +30,37 @@ class flow76SignUp {
 		return cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
 			.click({ force: true })
-			.type('andrej.milosavljevic+09099@sleepio.com');
+			.type('andrej.milosavljevic+111322020@sleepio.com');
+	}
+
+	emailImputflow70() {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
+			.click({ force: true })
+			.type('andrej.milosavljevic+1124552020@sleepio.com');
+	}
+
+	emailImputflow77() {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
+			.click({ force: true })
+			.type('andrej.milosavljevic+1124572020@sleepio.com');
+	}
+
+
+	emailImputflow78() {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
+			.click({ force: true })
+			.type('andrej.milosavljevic+1124702020@sleepio.com');
+	}
+
+
+	emailImputflow106() {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
+			.click({ force: true })
+			.type('andrej.milosavljevic+1124712020@sleepio.com');
 	}
 	passwordLabel() {
 		return cy.get('.sl-interactive--field-label').should('contain', 'Choose a password*');
@@ -51,8 +81,7 @@ class flow76SignUp {
 	}
 
 	passwordImput() {
-		return cy
-			.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/form/div[5]/div/input')
+		return cy.get('[type="password"]')
 			.click({ force: true })
 			.type('Qwerty123');
 	}

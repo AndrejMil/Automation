@@ -12,11 +12,12 @@ import snoring from '../integration/pageObjects/snoring';
 import expertGuides from '../integration/pageObjects/expertGuides';
 import stillProblem from '../integration/pageObjects/stillProblem';
 import nhspostcode from '../integration/pageObjects/NHSpostcode';
+import stopsYou from '../integration/pageObjects/stopsYou';
 import roleCategory from '../integration/pageObjects/roleCategory';
 import roleBand from '../integration/pageObjects/roleBand';
 import careerLevel from './pageObjects/careerLevel';
 import DTE from './pageObjects/DTE';
-import flow1SignUp from './pageObjects/flow1SignUp';
+import SignUp from '../integration/pageObjects/SignUp';
 import homeDepotEID from './pageObjects/homeDepotEID';
 import careaccesspostcode from './pageObjects/care-accessPostCode';
 import queensStudentID from './pageObjects/queensStudentID';
@@ -25,311 +26,247 @@ import nhsAboutSleepio from './pageObjects/nhsHearAboutSleepio';
 import nhsEID from './pageObjects/nhsEID';
 import ukredeemEID from './pageObjects/ukredeemEID';
 
-var linkovi = [
-	'https://onboarding.sleepio.com/sleepio/queens/77',
-	'https://onboarding.sleepio.com/sleepio/nhs',
-	'https://onboarding.sleepio.com/sleepio/nhsstaff/',
-	'https://onboarding.sleepio.com/sleepio/nhs-staff',
-	'https://onboarding.sleepio.com/sleepio/homedepot/77',
-	'https://onboarding.sleepio.com/sleepio/frontlineaccess/77#1/1',
-	'https://onboarding.sleepio.com/sleepio/carbon/77',
-	'https://onboarding.sleepio.com/sleepio/accenture',
-	'https://onboarding.sleepio.com/sleepio/care-access'
+var links = [
+    'https://onboarding.qa.sleepio.com/sleepio/thdsleep',
+	'https://onboarding.qa.sleepio.com/sleepio/nhsstaff/',
+	'https://onboarding.qa.sleepio.com/sleepio/nhs-staff',
+	'https://onboarding.qa.sleepio.com/sleepio/homedepot/77',
+	'https://onboarding.qa.sleepio.com/sleepio/frontlineaccess/77#1/1',
+	'https://onboarding.qa.sleepio.com/sleepio/carbon/77',
+	'https://onboarding.qa.sleepio.com/sleepio/accenture'
 ];
 var i = 0;
-describe('Proba', () => {
-	console.log(linkovi[i]);
-	it('Start the test', () => {
-		// Get started page
-		for (; i < linkovi.length; i++) {
-			const home = new HomePage();
-			const homePage = new homePageNew();
+describe('flow 77 signup content1', () => {
+    console.log(links[i]);
+    it('Start the test', () => {
+        
+      for (; i < links.length; i++) {
+        const home = new HomePage();
+        const homePage = new homePageNew();
+        homePage.visitFirstPage(links[i]);
+        homePage.buttonNew();
 
-			homePage.visitFirstPage(linkovi[i]);
+        const troubledInGeneralNewQuestion = new troubledInGeneralNew();
+        troubledInGeneralNewQuestion.notAtAll();
+        home.buttonClick();
 
-			cy.wait(5000);
-			homePage.buttonNew();
+        const manyNightsQuestion = new manyNights();
+        manyNightsQuestion.night5();
+        home.buttonClick();
 
-			const fourthdOfOst = new troubledInGeneralNew();
+        const stillProblemQuestion = new stillProblem();
+        stillProblemQuestion.no();
+        home.buttonClick();
 
-			fourthdOfOst.notAtAll();
-			home.buttonClick();
+        const stopsYouQuestion = new stopsYou();
+        stopsYouQuestion.worriesFuture();
+        home.buttonClick();
 
-			const fiveOfOst = new manyNights();
+        const howLongQuestion = new howLong();
+        howLongQuestion.years();
+        home.buttonClick();
+		
+        const howLikelyNewQuestion = new howLikelyNew();
+        howLikelyNewQuestion.highChance();
+        home.buttonClick();
 
-			fiveOfOst.night7();
-			home.buttonClick();
+        const snoringQuestion = new snoring();
+        snoringQuestion.dontsnore();
+        home.buttonClick();
+			
+        const breathingQuestion = new breathing();
+        breathingQuestion.yes();
+        home.buttonClick();
 
-			const still = new stillProblem();
+        const improveYourSleepQuestion = new improveYourSleep();
+        improveYourSleepQuestion.noneOfTheAbove();
+        home.buttonClick();
 
-			still.no();
-			home.buttonClick();
+		
+        const expertGuidesQuestion = new expertGuides();
+        expertGuidesQuestion.none();
+        home.buttonClick();
 
-			const secondOfOst = new howLong();
+        const genderQuestion = new gender();
+        genderQuestion.male();
+        home.buttonClick();
+          
 
-			secondOfOst.dontHaveProblem();
-			home.buttonClick();
+        cy.url().then((urlString) => {
+            if (urlString != 'https://onboarding.qa.sleepio.com/sleepio/accenture/77#3/1') {
+                const dobQuestion = new dob();
+                dobQuestion.monthJan();
+                dobQuestion.day1();
+                dobQuestion.year1991();
+                home.buttonClick();
+            }
+        });
 
-			const neki5 = new howLikelyNew();
-			neki5.highChance();
-			home.buttonClick();
+          cy.url().then( ( urlString ) => {
+            if ( urlString == 'https://onboarding.qa.sleepio.com/sleepio/thdsleep/77#3/1' ) {
+        
+                const thd = new thdEID();
+                thd.thdEIDTitle();
+                thd.thdEIDAnswer();
+                signUp.signUpHeader();
+                signUp.firstNameLabel();
+                signUp.firstNameImput();
+                signUp.lastNameLabel();
+                signUp.lastNameImput();
+                signUp.emailLabel();
+                signUp.emailImputflow77();
+                signUp.passwordInput();
+                signUp.passwordHint();
+                signUp.privacy();
+                signUp.checkBoxes();
+                signUp.terms();
+                signUp.doctorLabel();
+                signUp.suitable();
 
-			const neki3 = new snoring();
-			neki3.dontsnore();
-			home.buttonClick();
+                cy.visit( 'https://onboarding.qa.sleepio.com/sleepio/ukredeem/77#3/1' );
+                const ukredeem = new ukredeemEID();
+                ukredeem.ukredeemEIDTitle();
+                ukredeem.ukredeemEIDAnswer();
+            }
+          } );
+        cy.url().then((urlString) => {
+            if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/accenture/1#2/15') {
+                const career = new careerLevel();
+                career.careerTitle();
+                career.leadership();
+                career.levels5();
+                career.levels8();
+                career.levels11();
+                career.dontwork();
+                home.buttonClick();
 
-			const neki4 = new breathing();
-			neki4.yes();
-			home.buttonClick();
+                const dte = new DTE();
+                dte.DTETitle();
+                dte.acg();
+                dte.copFunctions();
+                dte.aceOperations();
+                dte.aceTehnology();
+                dte.aceStrategy();
+                dte.aceDigital();
+                dte.finService();
+                dte.products();
+                dte.resource();
+                dte.heaktPublicSer();
+                dte.communMedi();
+                dte.iDont();
+                home.buttonClick();
+            }
 
-			const neki6 = new improveYourSleep();
+            
+            if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/homedepot/77#3/1') {
+                const homeSignUp = new homeDepotEID();
+                homeSignUp.homeDepotEIDTitle();
+                homeSignUp.homeDepotEIDAnswer();
+            }
 
-			neki6.noneOfTheAbove();
-			home.buttonClick();
+            if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/care-access/77#2/13') {
+                const social = new careaccesspostcode();
+                social.careaccessTitle();
+                social.careaccessAnswer();
+                home.buttonClick();
+            }
 
-			const neki7 = new expertGuides();
-			neki7.none();
-			home.buttonClick();
+            if ( urlString == 'https://onboarding.qa.sleepio.com/sleepio/nhs-staff/77#2/13' ) {
+                const nhsPCNew = new nhspostcode();
+                nhsPCNew.nhspostcodeTitle();
+                nhsPCNew.nhspostcodeAnswer();
+                home.buttonClick();
 
-			const neki0 = new gender();
-			neki0.male().click();
-			home.buttonClick();
+                const roleNew = new roleCategory();
+                roleNew.roleTitle();
+                roleNew.clinical();
+                roleNew.nonClinical();
+                home.buttonClick();
 
-			const neki9 = new dob();
-			neki9.monthJan();
-			neki9.day1();
-			neki9.year1991();
-			home.buttonClick();
+                const bandNew = new roleBand();
+                bandNew.roleBandTitle();
+                bandNew.band2();
+                bandNew.band3();
+                bandNew.band4();
+                bandNew.band5();
+                bandNew.band6();
+                bandNew.band7();
+                bandNew.band8a();
+                bandNew.band8b();
+                bandNew.band8c();
+                bandNew.band8d();
+                bandNew.band9();
+                bandNew.vsm();
+                bandNew.contracted();
+                home.buttonClick();
+            }
+            if (urlString == 'https://onboarding.qa.sleepio.com/sleepio/nhsstaff/77#2/13') {
+                const nhsPCNew = new nhspostcode();
+                nhsPCNew.nhspostcodeTitle();
+                nhsPCNew.nhspostcodeAnswer();
+                home.buttonClick();
 
-			cy.url().then((urlString) => {
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/accenture/1#2/15') {
-					const career = new careerLevel();
+                const roleNew = new roleCategory();
+                roleNew.roleTitle();
+                roleNew.clinical();
+                roleNew.nonClinical();
+                home.buttonClick();
 
-					career.careerTitle();
-					career.leadership();
-					career.levels5();
-					career.levels8();
-					career.levels11();
-					career.dontwork();
-					home.buttonClick();
+                const bandNew = new roleBand();
+                bandNew.roleBandTitle();
+                bandNew.band2();
+                bandNew.band3();
+                bandNew.band4();
+                bandNew.band5();
+                bandNew.band6();
+                bandNew.band7();
+                bandNew.band8a();
+                bandNew.band8b();
+                bandNew.band8c();
+                bandNew.band8d();
+                bandNew.band9();
+                bandNew.vsm();
+                bandNew.contracted();
+                home.buttonClick();
+            }
+        });
 
-					const dte = new DTE();
-					dte.DTETitle();
-					dte.acg();
-					dte.copFunctions();
-					dte.aceOperations();
-					dte.aceTehnology();
-					dte.aceStrategy();
-					dte.aceDigital();
-					dte.finService();
-					dte.products();
-					dte.resource();
-					dte.heaktPublicSer();
-					dte.communMedi();
-					dte.iDont();
-					home.buttonClick();
-				}
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/nhs/77#2/12') {
-					const nhsAbout = new nhsAboutSleepio();
-					nhsAbout.nhsAboutSleepioTitle();
-					nhsAbout.nhsAboutSleepioAnswer();
-					home.buttonClick();
+        const signUp = new SignUp();
 
-					const signUp = new flow1SignUp();
-					signUp.signUpHeader();
-					signUp.firstNameLabel();
-					signUp.firstNameImput();
-					signUp.lastNameLabel();
-					signUp.lastNameImput();
-					signUp.emailLabel();
-					signUp.emailImput();
-					signUp.passwordImput();
-					signUp.passwordHint();
-					signUp.privacy();
-					signUp.terms();
-					signUp.doctorLabel();
-					signUp.doctorLabel();
-					signUp.doctorLink();
-					const nhs = new nhsEID();
-					nhs.nhsEIDTitle();
-					nhs.nhsEIDAnswer();
+        var passwordLabels = [
+            'Choose a password*',
+            'Password*'
+        ];
 
-					cy.visit('https://onboarding.sleepio.com/sleepio/nhs-sleepio');
-					nhs.nhsEIDTitle();
-					nhs.nhsEIDAnswer();
-					signUp.signUpHeader();
-					signUp.firstNameLabel();
-					signUp.firstNameImput();
-					signUp.lastNameLabel();
-					signUp.lastNameImput();
-					signUp.emailLabel();
-					signUp.emailImput();
-					signUp.passwordImput();
-					signUp.passwordHint();
-					signUp.privacy();
-					signUp.terms();
-					signUp.doctorLabel();
-					signUp.doctorLabel();
-					signUp.doctorLink();
+        var matching = 0;
 
-					cy.visit('https://onboarding.sleepio.com/sleepio/accenture/77#3/1');
-				}
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/queens/77#2/12') {
-					const queens = new queensStudentID();
-					queens.queensStudentIDTitle();
-					queens.queensStudentIDpostQuestionTitle();
-					queens.queensStudentIDInput();
-					home.buttonClick();
+        cy.get('[for="36133"]').then((num) => {
+            var m = 0;
+            for (; m < passwordLabels.length; m++) {
+                if (passwordLabels[m] == num.text()) {
+                    matching += 1;
+                }
+            }
 
-					const signUp = new flow1SignUp();
-					signUp.signUpHeader();
-					signUp.firstNameLabel();
-					signUp.firstNameImput();
-					signUp.lastNameLabel();
-					signUp.lastNameImput();
-					signUp.emailLabelII();
-					signUp.emailImput();
-					signUp.passwordImput();
-					signUp.passwordHint();
-					signUp.privacy();
-					signUp.terms();
-					signUp.doctorLabel();
-					signUp.doctorLabel();
-					signUp.doctorLink();
-
-					cy.visit('https://onboarding.sleepio.com/sleepio/thdsleep/77#3/1');
-					const thd = new thdEID();
-					thd.thdEIDTitle();
-					thd.thdEIDAnswer();
-					signUp.signUpHeader();
-					signUp.firstNameLabel();
-					signUp.firstNameImput();
-					signUp.lastNameLabel();
-					signUp.lastNameImput();
-					signUp.emailLabel();
-					signUp.emailImput();
-					signUp.passwordImput();
-					signUp.passwordHint();
-					signUp.privacy();
-					signUp.terms();
-					signUp.doctorLabel();
-					signUp.doctorLabel();
-					signUp.doctorLink();
-
-					cy.visit('https://onboarding.sleepio.com/sleepio/ukredeem/77#3/1');
-					const ukredeem = new ukredeemEID();
-					ukredeem.ukredeemEIDTitle();
-					ukredeem.ukredeemEIDAnswer();
-				}
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/homedepot/77#3/1') {
-					const homeSignUp = new homeDepotEID();
-					homeSignUp.homeDepotEIDTitle();
-					homeSignUp.homeDepotEIDAnswer();
-				}
-
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/care-access/77#2/12') {
-					const social = new careaccesspostcode();
-					social.careaccessTitle();
-					social.careaccessAnswer();
-					home.buttonClick();
-				}
-
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/nhs-staff/77#2/12') {
-					const nhsPCNew = new nhspostcode();
-					nhsPCNew.nhspostcodeTitle();
-					nhsPCNew.nhspostcodeAnswer();
-					home.buttonClick();
-
-					const roleNew = new roleCategory();
-					roleNew.roleTitle();
-					roleNew.clinical();
-					roleNew.nonClinical();
-					home.buttonClick();
-
-					const bandNew = new roleBand();
-					bandNew.roleBandTitle();
-					bandNew.band2();
-					bandNew.band3();
-					bandNew.band4();
-					bandNew.band5();
-					bandNew.band6();
-					bandNew.band7();
-					bandNew.band8a();
-					bandNew.band8b();
-					bandNew.band8c();
-					bandNew.band8d();
-					bandNew.band9();
-					bandNew.vsm();
-					bandNew.contracted();
-					home.buttonClick();
-				}
-				if (urlString == 'https://onboarding.sleepio.com/sleepio/nhsstaff/77#2/12') {
-					const nhsPCNew = new nhspostcode();
-					nhsPCNew.nhspostcodeTitle();
-					nhsPCNew.nhspostcodeAnswer();
-					home.buttonClick();
-
-					const roleNew = new roleCategory();
-					roleNew.roleTitle();
-					roleNew.clinical();
-					roleNew.nonClinical();
-					home.buttonClick();
-
-					const bandNew = new roleBand();
-					bandNew.roleBandTitle();
-					bandNew.band2();
-					bandNew.band3();
-					bandNew.band4();
-					bandNew.band5();
-					bandNew.band6();
-					bandNew.band7();
-					bandNew.band8a();
-					bandNew.band8b();
-					bandNew.band8c();
-					bandNew.band8d();
-					bandNew.band9();
-					bandNew.vsm();
-					bandNew.contracted();
-					home.buttonClick();
-				}
-			});
-
-			const signUp = new flow1SignUp();
-
-			var passwordLabels = [
-				'Choose a password*',
-				'Password*'
-			];
-
-			var matching = 0;
-
-			cy.get('[for="23610"]').then((num) => {
-				var m = 0;
-				for (; m < passwordLabels.length; m++) {
-					if (passwordLabels[m] == num.text()) {
-						matching += 1;
-					}
-				}
-
-				expect(matching).to.equal(1);
-				matching -= 1;
-			});
-			signUp.signUpHeader();
-			signUp.firstNameLabel();
-			signUp.firstNameImput();
-			signUp.lastNameLabel();
-			signUp.lastNameImput();
-			signUp.emailLabel();
-			signUp.emailImput();
-			signUp.passwordImput();
-			signUp.passwordHint();
-			signUp.privacy();
-			signUp.terms();
-			signUp.doctorLabel();
-			signUp.doctorLabel();
-			signUp.doctorLink();
-			cy.clearCookies();
-			cy.clearLocalStorage();
-		}
-	});
+            expect(matching).to.equal(1);
+            matching -= 1;
+        });
+        signUp.signUpHeader();
+        signUp.firstNameLabel();
+        signUp.firstNameImput();
+        signUp.lastNameLabel();
+        signUp.lastNameImput(); 
+        signUp.emailLabel();
+        signUp.emailImputflow77();
+        signUp.passwordInput();
+        signUp.passwordHint();
+        signUp.privacy();
+        signUp.terms();
+        signUp.checkBoxes();
+        signUp.doctorLabel();
+        signUp.suitable();
+        cy.clearCookies();
+        cy.clearLocalStorage();
+    }
+});
 });

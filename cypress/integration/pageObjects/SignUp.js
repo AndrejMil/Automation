@@ -74,20 +74,20 @@ class SignUp {
 	}
 
 
-	emailImputflow107() {
+	emailInputflow107() {
 		return cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
 			.click({ force: true })
 			.type('andrej.milosavljevic+0000006011@sleepio.com');
 	}
 
-	emailImputflow122() { 
+	emailInputflow122() { 
 		return cy.get('[name="email"]')
 			.click({ force: true })
-			.type('andrej.milosavljevic+006087@sleepio.com');
+			.type('andrej.milosavljevic+006088@sleepio.com');
 	}
 
-	passwordLabel() {
+	passwordLabel() { 
 		return cy.get('.sl-interactive--field-label').should('contain', 'Choose a password*');
 	}
 

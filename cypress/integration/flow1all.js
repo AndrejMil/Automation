@@ -24,7 +24,6 @@ import flow1Lst5 from '../integration/pageObjects/flow1Lst-5';
 import flow1Lst6 from '../integration/pageObjects/flow1Lst-6';
 import flow1Lst7 from '../integration/pageObjects/flow1Lst-7';
 import flow1Lst8 from '../integration/pageObjects/flow1Lst-8';
-import flow1LogIn from '../integration/pageObjects/flow1LogIn';
 
 import { url } from 'inspector';
 

@@ -81,6 +81,12 @@ class SignUp {
 			.type('andrej.milosavljevic+0000006011@sleepio.com');
 	}
 
+	emailImputflow122() { 
+		return cy.get('[name="email"]')
+			.click({ force: true })
+			.type('andrej.milosavljevic+006087@sleepio.com');
+	}
+
 	passwordLabel() {
 		return cy.get('.sl-interactive--field-label').should('contain', 'Choose a password*');
 	}

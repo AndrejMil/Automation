@@ -16,9 +16,16 @@ class flow1Lst2 {
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/div/div/select')
 			.select('8:00 PM', { force: true });
 	}
-	tryGoSleepLabel() {
-		return cy.get('[data-semantic-id="try_go_sleep"]').should('contain', 'What time do you try to go to sleep?');
+	getIntoBedLabelPG(){
+		return cy.get('[data-semantic-id="sleep_efficiency_time_into_bed"]').should('contain','What time do you normally get into bed?').and('be.visible');
 	}
+	tryGoSleepLabel() {
+		return cy.get('[data-semantic-id="try_go_sleep"]').should('contain', 'What time do you try to go to sleep?').and('be.visible');
+	}
+	tryGoSleepLabelPG() {
+		return cy.get('[data-semantic-id="sleep_efficiency_time_try_to_sleep"]').should('contain', 'What time do you try to go to sleep?').and('be.visible');
+	}
+	
 	tryGoSleep() {
 		return cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select')
@@ -33,7 +40,7 @@ class flow1Lst2 {
 	fallAsleepLabel() {
 		return cy
 			.get('[data-semantic-id="fall_asleep"]')
-			.should('contain', 'How long does it take you to fall asleep?');
+			.should('contain', 'How long does it take you to fall asleep?').and('be.visible');
 	}
 	duringNightWake() {
 		return cy
@@ -48,7 +55,7 @@ class flow1Lst2 {
 	duringNightWakeLabel() {
 		return cy
 			.get('[data-semantic-id="during_night_wake"]')
-			.should('contain', 'How many times during the night do you wake up on average?');
+			.should('contain', 'How many times during the night do you wake up on average?').and('be.visible');
 	}
 	awakeDuringNight() {
 		return cy
@@ -65,8 +72,7 @@ class flow1Lst2 {
 			.get('[data-semantic-id="awake_during_night"]')
 			.should(
 				'contain',
-				'How long are you awake for in total during the night due to these wakenings, on average?'
-			);
+				'How long are you awake for in total during the night due to these wakenings, on average?').and('be.visible');
 	}
 	wakeLastTime() {
 		return cy
@@ -82,7 +88,7 @@ class flow1Lst2 {
 	DuringNightLabel() {
 		return cy
 			.get('[data-semantic-id="normally_wake_last_time"]')
-			.should('contain', 'What time do you normally wake up for the last time?');
+			.should('contain', 'What time do you normally wake up for the last time?').and('be.visible');
 	}
 	intendedWakeUp() {
 		return cy
@@ -97,7 +103,7 @@ class flow1Lst2 {
 	intendedWakeUpLabel() {
 		return cy
 			.get('[data-semantic-id="earlier_intended_wake_up"]')
-			.should('contain', 'Is this earlier than you intended to wake up? If so, by how long?');
+			.should('contain', 'Is this earlier than you intended to wake up? If so, by how long?').and('be.visible');
 	}
 	getOutBed() {
 		return cy
@@ -112,7 +118,7 @@ class flow1Lst2 {
 	getOutBedLabel() {
 		return cy
 			.get('[data-semantic-id="time_normally_out_bed"]')
-			.should('contain', 'What time do you normally get out of bed?');
+			.should('contain', 'What time do you normally get out of bed?').and('be.visible');
 	}
 
 	qualitySleep() {
@@ -128,7 +134,7 @@ class flow1Lst2 {
 	qualitySleepLabel() {
 		return cy
 			.get('[data-semantic-id="rate_quality_sleep"]')
-			.should('contain', 'How would you rate the quality of your sleep?');
+			.should('contain', 'How would you rate the quality of your sleep?').and('be.visible');
 	}
 	quality() {
 		return cy
@@ -169,6 +175,85 @@ class flow1Lst2 {
 														'/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select'
 													)
 													.select('10:00 PM', { force: true })
+													.then(() => {
+														cy
+															.xpath(
+																'/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/p'
+															)
+															.should(
+																'contain',
+																'This seems too early based on when you normally get into bed.'
+															)
+															.then(() => {
+																cy
+																	.xpath(
+																		'/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select'
+																	)
+																	.select('11:00 PM', { force: true })
+																	.then(() => {
+																		cy
+																			.xpath(
+																				'/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/p'
+																			)
+																			.should(
+																				'contain',
+																				'This seems too early based on when you normally get into bed.'
+																			)
+																			.then(() => {
+																				cy
+																					.xpath(
+																						'/html/body/div[1]/div/div[3]/div/div/div[4]/div/div[2]/div/div/select'
+																					)
+																					.select('8:00 PM', { force: true })
+																					.then(() => {
+																						cy
+																							.xpath(
+																								'/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/select'
+																							)
+																							.select('8:00 PM', {
+																								force : true
+																							});
+																					});
+																			});
+																	});
+															});
+													});
+											});
+									});
+							});
+					});
+			});
+	}
+	validator1new() {
+		return cy
+			.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/div/div/select')
+			.select('10:00 PM', { force: true })
+			.then(() => {
+				cy
+					.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/select')
+					.select('9:45 PM', { force: true })
+					.then(() => {
+						cy
+							.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/p')
+							.should('contain', 'This seems too early based on when you normally get into bed.')
+							and('be.visible')
+							.then(() => {
+								cy
+									.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/select')
+									.select('4:00 PM', { force: true })
+									.then(() => {
+										cy
+											.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/p')
+											.should(
+												'contain',
+												'This seems too early based on when you normally get into bed.'
+											)
+											.then(() => {
+												cy
+													.xpath(
+														'/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/div/select'
+													)
+													.select('8:00 PM', { force: true })
 													.then(() => {
 														cy
 															.xpath(

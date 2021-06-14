@@ -122,6 +122,7 @@ describe('Flow 122', () => {
 
 		
 			const expertGuidesQuestion = new expertGuides();
+			expertGuidesQuestion.expertGuidesTitle();
 			expertGuidesQuestion.jetlag();
 			expertGuidesQuestion.shiftWork();
 			expertGuidesQuestion.parent();
@@ -180,8 +181,28 @@ describe('Flow 122', () => {
 			cy.get('.dark-blue-bg > div > .sl-button').click({ force: true });
 
 			const lst2 = new flow1Lst2();
-			lst2.tryGoSleepNew();
+			lst2.getIntoBedLabelPG();
+			lst2.tryGoSleepLabelPG();
+			lst2.fallAsleepLabel();
+			lst2.duringNightWakeLabel();
+			lst2.awakeDuringNightLabel();
+			lst2.DuringNightLabel();
+			lst2.intendedWakeUpLabel();
+			lst2.getOutBedLabel();
+			lst2.qualitySleepLabel(); 			
 			lst2.getIntoBadNew();
+			lst2.tryGoSleepNew();
+			lst2.duringNightWakeNew();
+			lst2.awakeDuringNightNew();
+			lst2.wakeLastTimeNew();
+			lst2.intendedWakeUpNew();
+			lst2.getOutBedNew();
+			lst2.qualitySleepNew();
+			lst2.qualityNew();
+			lst2.validator1new();
+			
+
+			
 	
 		}
 	});

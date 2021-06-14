@@ -16,7 +16,7 @@ import flow1SleepReport from '../integration/pageObjects/flow1SleepReport';
 import flow1Lst2 from '../integration/pageObjects/flow1Lst-2'; 
 import flow1Lst3 from '../integration/pageObjects/flow1Lst-3';
 import flow1Lst4 from '../integration/pageObjects/flow1Lst-4';
-import flow1Lst5 from '../integration/pageObjects/flow1Lst-5';
+import flow1Lst5 from '../integration/pageObjects/flow1Lst-5'; 
 import flow1Lst6 from '../integration/pageObjects/flow1Lst-6';
 import flow1Lst7 from '../integration/pageObjects/flow1Lst-7';
 import stillProblem from '../integration/pageObjects/stillProblem'; 

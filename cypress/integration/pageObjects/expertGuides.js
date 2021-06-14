@@ -2,7 +2,7 @@ class expertGuides {
 	expertGuidesTitle() {
 		return cy
 			.get('.sl-page-title')
-			.should('contain', 'Which of the following expert guides might be of interest to you?');
+			.should('contain', 'Which of the following expert guides might be of interest to you?').and('be.visible');
 	}
 	jetlag() {
 		return cy.get('[for="options-id-0"]').click();

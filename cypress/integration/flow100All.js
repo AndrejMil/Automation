@@ -23,17 +23,17 @@ import downloadDaylight from '../integration/pageObjects/downloadDaylight';
 
 import { url } from 'inspector';
 
-var linkovi = [
+var links = [
 	'https://onboarding.qa.trydaylight.com/daylight/holidayaccess2020'
 ];
 var i = 0;
 describe('Flow 100', () => {
-	console.log(linkovi[i]);
+	console.log(links[i]);
 	it('Start the test', () => {
 		// Get started page
-		for (; i < linkovi.length; i++) {
+		for (; i < links.length; i++) {
 			const homeDaylight = new homePageDaylight();
-			homeDaylight.visitFirstPage(linkovi[i]);
+			homeDaylight.visitFirstPage(links[i]);
 			homeDaylight.started();
 			homeDaylight.picture();
 

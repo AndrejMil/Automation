@@ -42,7 +42,7 @@ class SignUp {
 		return cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
 			.click({ force: true })
-			.type('andrej.milosavljevic+000060157@sleepio.com');
+			.type('andrej.milosavljevic+0000060153@sleepio.com');
 	}
 
 	emailImputflow70() {
@@ -82,9 +82,15 @@ class SignUp {
 	}
 
 	emailInputflow122() { 
+		var current = new Date();
+		var Month = current.getMonth()+1;
+		var datestamp;
+		if (Month < 10) {datestamp = current.getDate().toString() + '0'+ Month.toString() + current.getFullYear().toString()} 
+		   else {datestamp = current.getDate().toString() + Month.toString() + current.getFullYear().toString()};
+		var timestamp = current.getHours().toString() + current.getMinutes().toString()+current.getSeconds().toString();
 		return cy.get('[name="email"]')
 			.click({ force: true })
-			.type('andrej.milosavljevic+140621101@sleepio.com');
+			.type('natalija.serovic+testdelete' + datestamp + '_' + 'flow122' + '_' + timestamp + '@sleepio.com');
 	}
 
 	passwordLabel() { 

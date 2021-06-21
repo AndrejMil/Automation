@@ -153,6 +153,7 @@ describe('Flow 122', () => {
 
 			
 			const signUp = new SignUp();
+			
 
 			signUp.signUpHeader();
 			signUp.firstNameLabel();
@@ -171,7 +172,7 @@ describe('Flow 122', () => {
 			signUp.terms();
 
 			signUp.signUpButton();
-			cy.wait(7000);
+			cy.wait(10000);
 
 			const report = new flow1SleepReport();
 			cy.wait(3000);
@@ -183,23 +184,26 @@ describe('Flow 122', () => {
 			const lst2 = new flow1Lst2();
 			lst2.getIntoBedLabelPG();
 			lst2.tryGoSleepLabelPG();
-			lst2.fallAsleepLabel();
-			lst2.duringNightWakeLabel();
-			lst2.awakeDuringNightLabel();
-			lst2.DuringNightLabel();
-			lst2.intendedWakeUpLabel();
-			lst2.getOutBedLabel();
-			lst2.qualitySleepLabel(); 			
+			lst2.fallAsleepLabelPG();
+			lst2.duringNightWakeLabelPG();
+			
+			lst2.duringNightLabelPG();
+			lst2.intendedWakeUpLabelPG();
+			lst2.getOutBedLabelPG();
+			lst2.qualitySleepLabelPG(); 			
 			lst2.getIntoBadNew();
 			lst2.tryGoSleepNew();
+			lst2.awakeDuringNightPG();
 			lst2.duringNightWakeNew();
-			lst2.awakeDuringNightNew();
 			lst2.wakeLastTimeNew();
 			lst2.intendedWakeUpNew();
 			lst2.getOutBedNew();
 			lst2.qualitySleepNew();
 			lst2.qualityNew();
-			lst2.validator1new();
+			lst2.awakeDuringNightLabelPG();
+			lst2.validator1flow122();
+			//add validator 2 and 3
+			home.buttonClick(); 
 			
 
 			

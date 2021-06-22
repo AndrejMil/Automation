@@ -29,7 +29,9 @@ class flow1Lst8 {
 			.should('contain', 'Please choose a community username');
 	}
 	communityUsernameAnswer() {
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/input').type('11hdfdgfhubythdfsdf');
+		let current = new Date();
+		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[3]/div/div[2]/div/input')
+		.type('Test'+current.getDate()+current.getMonth()+current.getFullYear()+'_'+current.getHours()+current.getMinutes()+current.getSeconds());
 	}
 	IFUlink() {
 		return cy

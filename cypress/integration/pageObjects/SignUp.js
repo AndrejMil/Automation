@@ -42,7 +42,7 @@ class SignUp {
 		return cy
 			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
 			.click({ force: true })
-			.type('andrej.milosavljevic+000060157@sleepio.com');
+			.type('andrej.milosavljevic+0000060153@sleepio.com');
 	}
 
 	emailImputflow70() {
@@ -81,10 +81,39 @@ class SignUp {
 			.type('andrej.milosavljevic+0000006011@sleepio.com');
 	}
 
-	emailInputflow122() { 
-		return cy.get('[name="email"]')
+	emailInput() { 
+		let current = new Date();
+		let day;
+		let month;
+		let mm = current.getMonth()+1;
+		if (current.getDate()<10) { day = '0' + current.getDate().toString()}
+		   else {day = current.getDate().toString() };
+		if (mm < 10) { month = '0'+ mm.toString()}
+		   else {month = mm.toString()};
+		let datestamp = day + month + current.getFullYear().toString();    
+		
+		let hours;
+		let minutes;
+		let seconds;
+		if (current.getHours() < 10) { hours = '0' + current.getHours().toString()}
+		   else {hours = current.getHours().toString()};
+		if (current.getMinutes() < 10) { minutes ='0' + current.getMinutes().toString()}
+		   else {minutes = current.getMinutes().toString()}; 
+		if (current.getSeconds() < 10) { seconds ='0' + current.getSeconds().toString()}
+		else {seconds = current.getSeconds().toString()};     
+		let timestamp = hours + minutes + seconds;
+		
+		cy.location('pathname').then(path => {
+            const flowstamp = path.split('/')[3].toString();
+            cy.wrap(flowstamp).as('flowstamp');
+			
+          })
+        
+		return cy.get('@flowstamp').then(flowstamp => {
+			cy.get('[name="email"]')
 			.click({ force: true })
-			.type('andrej.milosavljevic+140621101@sleepio.com');
+			.type('natalija.serovic+testdelete' + datestamp + '_' + 'flow' + `${flowstamp}` + '_' + timestamp + '@sleepio.com');
+		})
 	}
 
 	emailInputflow113() { 

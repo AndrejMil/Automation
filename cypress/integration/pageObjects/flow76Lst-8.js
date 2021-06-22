@@ -62,7 +62,9 @@ class flow1Lst8 {
 	}
 
 	communityUsernameAnswer() {
-		return cy.get('.sl-input-text').click().type('11dffhggfvsdf');
+		let current = new Date();
+		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/div/input')
+		.type('Test'+current.getDate()+current.getMonth()+current.getFullYear()+'_'+current.getHours()+current.getMinutes()+current.getSeconds());
 	}
 	reachOutSoon() {
 		return cy.get('.sl-continue-button-img-text').contains('Your Sleepio Expert will reach out soon.');

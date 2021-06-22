@@ -159,7 +159,7 @@ describe('Flow 77', () => {
 			signUp.lastNameLabel();
 			signUp.lastNameImput();
 			signUp.emailLabel();
-			signUp.emailImputflow77()
+			signUp.emailInput()
 			signUp.passwordLabel();
 			signUp.passwordInput();
 			signUp.passwordHint();

@@ -81,16 +81,39 @@ class SignUp {
 			.type('andrej.milosavljevic+0000006011@sleepio.com');
 	}
 
-	emailInputflow122() { 
-		var current = new Date();
-		var Month = current.getMonth()+1;
-		var datestamp;
-		if (Month < 10) {datestamp = current.getDate().toString() + '0'+ Month.toString() + current.getFullYear().toString()} 
-		   else {datestamp = current.getDate().toString() + Month.toString() + current.getFullYear().toString()};
-		var timestamp = current.getHours().toString() + current.getMinutes().toString()+current.getSeconds().toString();
-		return cy.get('[name="email"]')
+	emailInput() { 
+		let current = new Date();
+		let day;
+		let month;
+		let mm = current.getMonth()+1;
+		if (current.getDate()<10) { day = '0' + current.getDate().toString()}
+		   else {day = current.getDate().toString() };
+		if (mm < 10) { month = '0'+ mm.toString()}
+		   else {month = mm.toString()};
+		let datestamp = day + month + current.getFullYear().toString();    
+		
+		let hours;
+		let minutes;
+		let seconds;
+		if (current.getHours() < 10) { hours = '0' + current.getHours().toString()}
+		   else {hours = current.getHours().toString()};
+		if (current.getMinutes() < 10) { minutes ='0' + current.getMinutes().toString()}
+		   else {minutes = current.getMinutes().toString()}; 
+		if (current.getSeconds() < 10) { seconds ='0' + current.getSeconds().toString()}
+		else {seconds = current.getSeconds().toString()};     
+		let timestamp = hours + minutes + seconds;
+		
+		cy.location('pathname').then(path => {
+            const flowstamp = path.split('/')[3].toString();
+            cy.wrap(flowstamp).as('flowstamp');
+			
+          })
+        
+		return cy.get('@flowstamp').then(flowstamp => {
+			cy.get('[name="email"]')
 			.click({ force: true })
-			.type('natalija.serovic+testdelete' + datestamp + '_' + 'flow122' + '_' + timestamp + '@sleepio.com');
+			.type('natalija.serovic+testdelete' + datestamp + '_' + 'flow' + `${flowstamp}` + '_' + timestamp + '@sleepio.com');
+		})
 	}
 
 	passwordLabel() { 

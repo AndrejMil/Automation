@@ -18,8 +18,7 @@ import SignUp from '../integration/pageObjects/SignUp';
 
 var linkovi = [
 	'https://onboarding.qa.sleepio.com/sleepio/abbott_deprecated/1',
-	'https://onboarding.qa.sleepio.com/sleepio/stjames',
-	'https://onboarding.qa.sleepio.com/sleepio/big-health'
+	'https://onboarding.qa.sleepio.com/sleepio/stjames'
 ];
 var i = 0;
 describe('Flow 1 sign up', () => {
@@ -111,7 +110,7 @@ describe('Flow 1 sign up', () => {
 			signUp.lastNameLabel();
 			signUp.lastNameImput();
 			signUp.emailLabel();
-			signUp.emailInputFlow1();
+			signUp.emailInput();
 			signUp.passwordLabel();
 			signUp.passwordInput();
 			signUp.passwordHint();

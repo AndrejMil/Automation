@@ -34,53 +34,6 @@ class SignUp {
 		return cy.get('[data-input-name="email"]').should('contain', 'Email (Personal Email Recommended)*');
 	}
 
-	emailInputFlow1() {
-		return cy.get('[name= "email"]').click({ force: true }).type('andrej.milosavljevic+00600051@sleepio.com');
-	}
-
-	emailInputFlow76() {
-		return cy
-			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
-			.click({ force: true })
-			.type('andrej.milosavljevic+0000060153@sleepio.com');
-	}
-
-	emailImputflow70() {
-		return cy
-			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
-			.click({ force: true })
-			.type('andrej.milosavljevic+0000060153@sleepio.com');
-	}
-
-	emailImputflow77() { 
-		return cy.get('[name="email"]')
-			.click({ force: true })
-			.type('andrej.milosavljevic+0000006057@sleepio.com');
-	}
-
-	emailImputflow132() {
-		return cy
-			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
-			.click({ force: true })
-			.type('andrej.milosavljevic+000006015@sleepio.com');
-	}
-
-
-	emailImputflow78() {
-		return cy
-			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
-			.click({ force: true })
-			.type('andrej.milosavljevic+0000006010@sleepio.com');
-	}
-
-
-	emailInputflow107() {
-		return cy
-			.xpath('/html/body/div[1]/div/div[3]/div/div/div/div/form/div[3]/div/input')
-			.click({ force: true })
-			.type('andrej.milosavljevic+0000006011@sleepio.com');
-	}
-
 	emailInput() { 
 		let current = new Date();
 		let day;
@@ -115,13 +68,7 @@ class SignUp {
 			.type('natalija.serovic+testdelete' + datestamp + '_' + 'flow' + `${flowstamp}` + '_' + timestamp + '@sleepio.com');
 		})
 	}
-
-	emailInputflow113() { 
-		return cy.get('[name="email"]')
-			.click({ force: true })
-			.type('andrej.milosavljevic+00614115@sleepio.com');
-	}
-
+	
 	passwordLabel() { 
 		return cy.get('.sl-interactive--field-label').should('contain', 'Choose a password*');
 	}

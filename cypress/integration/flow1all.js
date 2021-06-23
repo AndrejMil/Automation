@@ -42,6 +42,9 @@ describe('Flow 1', () => {
 			homePage.visitFirstPage(linkovi[i]);
 			homePage.buttonClick();
 
+			//organization_id
+			cy.window().its('organization_id').should('equal', '95')
+
 			const improveYourSleepQuestion = new improveYourSleep();
 			improveYourSleepQuestion.improveSleepTitle();
 			improveYourSleepQuestion.sleepMoreEasily();

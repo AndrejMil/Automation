@@ -37,6 +37,8 @@ describe('Flow 122', () => {
 			homePage.visitFirstPage(links[i]);
 			cy.get('.sl-order-2 > .sl-button').click({ force: true });
 
+			//organization_id
+			cy.window().its('organization_id').should('equal', '136')
 			
 			const troubledInGeneralNewQuestion = new troubledInGeneralNew();
 			troubledInGeneralNewQuestion.troubledGeneralTitle();
@@ -153,9 +155,6 @@ describe('Flow 122', () => {
 
 			
 			const signUp = new SignUp();
-			
-			
-
 			signUp.signUpHeader();
 			signUp.firstNameLabel();
 			signUp.firstNameImput();

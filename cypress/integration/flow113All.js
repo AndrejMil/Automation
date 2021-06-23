@@ -353,6 +353,8 @@ describe('Flow 113', () => {
 			homePage.visitFirstPage(linkovi[i]);
 			cy.get('.sl-order-2 > .sl-button').click({ force: true });
 
+			//organization_id
+			cy.window().its('organization_id').should('equal', '64')
 			
 			const troubledInGeneralNewQuestion = new troubledInGeneralNew();
 			troubledInGeneralNewQuestion.troubledGeneralTitle();

@@ -39,6 +39,8 @@ describe('Flow 78', () => {
 			homePage.visitFirstPage(linkovi[i]);
 			cy.get('.sl-order-2 > .sl-button').click({ force: true });
 
+			//organization_id
+			cy.window().its('organization_id').should('equal', '72')
 		
 			const troubledInGeneralNewQuestion = new troubledInGeneralNew();
 			troubledInGeneralNewQuestion.troubledGeneralTitle();

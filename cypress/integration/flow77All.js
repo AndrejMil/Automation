@@ -23,20 +23,23 @@ import stillProblem from '../integration/pageObjects/stillProblem';
 import perscription from '../integration/pageObjects/flow76prescription ';
 import flow1Lst8 from '../integration/pageObjects/flow76Lst-8';
 
-var linkovi = [
+let links = [
 	'https://onboarding.qa.sleepio.com/sleepio/bh2020/77#1/1'
 ];
+let organisationId = '2';
 var i = 0;
 describe('Flow 77', () => {
-	console.log(linkovi[i]);
+	console.log(links[i]);
 	it('Start the test', () => {
 	
-		for (; i < linkovi.length; i++) {
+		for (; i < links.length; i++) {
 			const home = new HomePage();
 			const homePage = new homePageNew();
-			homePage.visitFirstPage(linkovi[i]);
+			homePage.visitFirstPage(links[i]);
 			cy.get('.sl-order-2 > .sl-button').click({ force: true });
 
+			//organization_id
+			cy.window().its('organization_id').should('equal', '2')
 			
 			const troubledInGeneralNewQuestion = new troubledInGeneralNew();
 			troubledInGeneralNewQuestion.troubledGeneralTitle();

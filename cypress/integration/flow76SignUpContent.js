@@ -1,20 +1,20 @@
-import homePageNew from '../integration/pageObjects/homePageNew';
-import HomePage from '../integration/pageObjects/homePage';
-import improveYourSleep from '../integration/pageObjects/improveYourSleep';
-import howLong from '../integration/pageObjects/howLong';
-import troubledInGeneralNew from '../integration/pageObjects/troubledInGeneralNew';
-import manyNights from '../integration/pageObjects/manyNights';
-import gender from '../integration/pageObjects/gender';
-import howLikelyNew from '../integration/pageObjects/howLikelyNew';
-import stopsYou from '../integration/pageObjects/stopsYou';
-import dob from '../integration/pageObjects/dob';
-import breathing from '../integration/pageObjects/breathing ';
-import snoring from '../integration/pageObjects/snoring';
-import expertGuides from '../integration/pageObjects/expertGuides';
-import stillProblem from '../integration/pageObjects/stillProblem';
-import sleepioExperts from '../integration/pageObjects/sleepioExperts';
-import workLocation from '../integration/pageObjects/workLocation';
-import SignUp from '../integration/pageObjects/SignUp';
+import homePageNew from '../pageObjects/homePageNew';
+import HomePage from '../pageObjects/homePage';
+import improveYourSleep from '../pageObjects/improveYourSleep';
+import howLong from '../pageObjects/howLong';
+import troubledInGeneralNew from '../pageObjects/troubledInGeneralNew';
+import manyNights from '../pageObjects/manyNights';
+import gender from '../pageObjects/gender';
+import howLikelyNew from '../pageObjects/howLikelyNew';
+import stopsYou from '../pageObjects/stopsYou';
+import dob from '../pageObjects/dob';
+import breathing from '../pageObjects/breathing ';
+import snoring from '../pageObjects/snoring';
+import expertGuides from '../pageObjects/expertGuides';
+import stillProblem from '../pageObjects/stillProblem';
+import sleepioExperts from '../pageObjects/sleepioExperts';
+import workLocation from '../pageObjects/workLocation';
+import SignUp from '../pageObjects/SignUp';
 
 var linkovi = [
 	'https://onboarding.qa.sleepio.com/sleepio/newscorpsleep/76',

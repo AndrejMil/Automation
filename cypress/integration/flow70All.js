@@ -39,7 +39,9 @@ describe('flow 70all', () => {
 		
 			cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[4]/div/div/input').click();
 
-		
+			//organization_id
+			cy.window().its('organization_id').should('equal', '27')
+
 			const troubledInGeneralNewQuestion = new troubledInGeneralNew();
 			troubledInGeneralNewQuestion.troubledGeneralTitle();
 			troubledInGeneralNewQuestion.little();
@@ -173,7 +175,7 @@ describe('flow 70all', () => {
 			signUp.lastNameLabel();
 			signUp.lastNameImput();
 			signUp.emailLabel();
-			signUp.emailImputflow70()
+			signUp.emailInput()
 			signUp.passwordLabel();
 			signUp.passwordInput();
 			signUp.passwordHint();

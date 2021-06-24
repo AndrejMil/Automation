@@ -63,7 +63,7 @@ class flow1Lst8 {
 
 	communityUsernameAnswer() {
 		let current = new Date();
-		return cy.xpath('/html/body/div[1]/div/div[3]/div/div/div[2]/div/div[2]/div/input')
+		return cy.get('[placeholder="Your Community Username"]')
 		.type('Test'+current.getDate()+current.getMonth()+current.getFullYear()+'_'+current.getHours()+current.getMinutes()+current.getSeconds());
 	}
 	reachOutSoon() {

@@ -39,6 +39,9 @@ describe('flow76all', () => {
 
 			homePage.visitFirstPage(linkovi[i]);
 			homePage.buttonNew();
+
+			//organization_id
+			cy.window().its('organization_id').should('equal', '93')
 		
 			const troubledInGeneralNewQuestion = new troubledInGeneralNew();
 			troubledInGeneralNewQuestion.troubledGeneralTitle();

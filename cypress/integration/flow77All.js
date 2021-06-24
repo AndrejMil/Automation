@@ -23,21 +23,30 @@ import stillProblem from '../integration/pageObjects/stillProblem';
 import perscription from '../integration/pageObjects/flow76prescription ';
 import flow1Lst8 from '../integration/pageObjects/flow76Lst-8';
 
-var linkovi = [
+let links = [
 	'https://onboarding.qa.sleepio.com/sleepio/bh2020/77#1/1'
 ];
+let organisationId = '2';
 var i = 0;
 describe('Flow 77', () => {
-	console.log(linkovi[i]);
+	console.log(links[i]);
 	it('Start the test', () => {
 	
-		for (; i < linkovi.length; i++) {
+		for (; i < links.length; i++) {
 			const home = new HomePage();
 			const homePage = new homePageNew();
-			homePage.visitFirstPage(linkovi[i]);
+			homePage.visitFirstPage(links[i]);
 			cy.get('.sl-order-2 > .sl-button').click({ force: true });
 
+			//organization_id
+			cy.window().its('organization_id').should('equal', '2')
 			
+			//flow progres
+			cy.window().its( 'localStorage.sl-flow-progress' ).should( 'equal', '{\"flowId\":77,\"currentStep\":1,\"currentPage\":0}' )
+			
+			//sl-answers
+			cy.window().its( 'localStorage.sl-answers' ).should( 'equal', '{\"0\":{\"0\":[]},\"1\":{\"0\":[]}}' )
+
 			const troubledInGeneralNewQuestion = new troubledInGeneralNew();
 			troubledInGeneralNewQuestion.troubledGeneralTitle();
 			troubledInGeneralNewQuestion.little();
@@ -47,7 +56,8 @@ describe('Flow 77', () => {
 			troubledInGeneralNewQuestion.notAtAll();
 			home.buttonClick();
 
-		
+			cy.window().its( 'localStorage.sl-flow-progress' ).should( 'equal', '{\"flowId\":77,\"currentStep\":1,\"currentPage\":1}' )
+			cy.window().its( 'localStorage.sl-answers' ).should( 'equal', `{"0":{"0":[]},"1":{"0":[{"question_id":199,"semantic_id":"troubled_in_general","is_core_question":false,"product_id":1,"values":{"id":"0","score":"0","text":"Not at all"},"saved":false}]}}` )
 			const manyNightsQuestion = new manyNights();
 			manyNightsQuestion.manyNightsTitle();
 			manyNightsQuestion.night0();
@@ -60,13 +70,15 @@ describe('Flow 77', () => {
 			manyNightsQuestion.night7();
 			home.buttonClick();
 
-		
+			cy.window().its( 'localStorage.sl-flow-progress' ).should( 'equal', '{\"flowId\":77,\"currentStep\":1,\"currentPage\":2}' )
+			cy.window().its( 'localStorage.sl-answers' ).should( 'equal', `{"0":{"0":[]},"1":{"0":[{"question_id":199,"semantic_id":"troubled_in_general","is_core_question":false,"product_id":1,"values":{"id":"0","score":"0","text":"Not at all"},"saved":false}],"1":[{"question_id":5,"semantic_id":"problem_nights","is_core_question":true,"product_id":1,"values":{"id":"7","score":"4","text":"7 nights"},"saved":false}]}}` )
 			const stillProblemQuestion = new stillProblem();
 			stillProblemQuestion.stillProblemTitle();
 			stillProblemQuestion.yes();
 			stillProblemQuestion.no();
 			home.buttonClick();
 
+			cy.window().its('localStorage.sl-flow-progress').should('equal', '{\"flowId\":77,\"currentStep\":1,\"currentPage\":3}')
 			const stopsYouQuestion = new stopsYou();
 			stopsYouQuestion.stopsYouTitle();
 			stopsYouQuestion.worriesFuture();
@@ -76,6 +88,7 @@ describe('Flow 77', () => {
 			stopsYouQuestion.light();
 			home.buttonClick();
 
+			cy.window().its('localStorage.sl-flow-progress').should('equal', '{\"flowId\":77,\"currentStep\":1,\"currentPage\":4}')
 			const howLongQuestion = new howLong();
 			howLongQuestion.howLongTitle();
 			howLongQuestion.weeks();
@@ -89,7 +102,7 @@ describe('Flow 77', () => {
 			howLongQuestion.sixYears();
 			home.buttonClick();
 
-		
+			cy.window().its('localStorage.sl-flow-progress').should('equal', '{\"flowId\":77,\"currentStep\":1,\"currentPage\":5}')
 			const howLikelyNewQuestion = new howLikelyNew();
 			howLikelyNewQuestion.howLikelyTitle();
 			howLikelyNewQuestion.noChance();
@@ -98,6 +111,7 @@ describe('Flow 77', () => {
 			howLikelyNewQuestion.highChance();
 			home.buttonClick();
 		
+			cy.window().its('localStorage.sl-flow-progress').should('equal', '{\"flowId\":77,\"currentStep\":1,\"currentPage\":6}')
 			const snoringQuestion = new snoring();
 			snoringQuestion.snoringTitle();
 			snoringQuestion.no();
@@ -105,12 +119,14 @@ describe('Flow 77', () => {
 			snoringQuestion.dontsnore();
 			home.buttonClick();
 			
+			cy.window().its('localStorage.sl-flow-progress').should('equal', '{\"flowId\":77,\"currentStep\":1,\"currentPage\":7}')
 			const breathingQuestion = new breathing();
 			breathingQuestion.breathingTitle();
 			breathingQuestion.no();
 			breathingQuestion.yes();
 			home.buttonClick();
 		
+			cy.window().its('localStorage.sl-flow-progress').should('equal', '{\"flowId\":77,\"currentStep\":1,\"currentPage\":8}')
 			const improveYourSleepQuestion = new improveYourSleep();
 			improveYourSleepQuestion.improveSleepTitle();
 			improveYourSleepQuestion.sleepMoreEasily();
@@ -120,7 +136,7 @@ describe('Flow 77', () => {
 			improveYourSleepQuestion.noneOfTheAbove();
 			home.buttonClick();
 
-		
+			cy.window().its('localStorage.sl-flow-progress').should('equal', '{\"flowId\":77,\"currentStep\":1,\"currentPage\":9}')
 			const expertGuidesQuestion = new expertGuides();
 			expertGuidesQuestion.jetlag();
 			expertGuidesQuestion.shiftWork();
@@ -129,7 +145,7 @@ describe('Flow 77', () => {
 			expertGuidesQuestion.pregnancy();
 			home.buttonClick();
 
-			
+			cy.window().its('localStorage.sl-flow-progress').should('equal', '{\"flowId\":77,\"currentStep\":1,\"currentPage\":10}')
 			const genderQuestion = new gender();
 			genderQuestion.genderTitle();
 			genderQuestion.male()
@@ -137,7 +153,7 @@ describe('Flow 77', () => {
 			genderQuestion.another()
 			home.buttonClick(); 
 
-		
+			cy.window().its('localStorage.sl-flow-progress').should('equal', '{\"flowId\":77,\"currentStep\":1,\"currentPage\":11}')
 			const dobQuestion = new dob();
 			dobQuestion.dobTitle();
 			dobQuestion.monthJan();
@@ -150,9 +166,8 @@ describe('Flow 77', () => {
 			dobQuestion.privacy();
 			home.buttonClick();
 
-			
+			cy.window().its('localStorage.sl-flow-progress').should('equal', '{"flowId":77,"currentStep":2,"currentPage":0}')
 			const signUp = new SignUp();
-
 			signUp.signUpHeader();
 			signUp.firstNameLabel();
 			signUp.firstNameImput();
@@ -168,10 +183,10 @@ describe('Flow 77', () => {
 			signUp.checkBoxes();
 			signUp.privacy();
 			signUp.terms();
-
 			signUp.signUpButton();
 			cy.wait(7000);
 
+			cy.window().its('localStorage.sl-flow-progress').should('equal', '{"flowId":77,"currentStep":3,"currentPage":0}')
 			const report = new flow1SleepReport();
 			cy.wait(3000);
 			report.headerSleepReport();
@@ -179,6 +194,7 @@ describe('Flow 77', () => {
 
 			cy.get('.dark-blue-bg > div > .sl-button').click({ force: true });
 
+			cy.window().its('localStorage.sl-flow-progress').should('equal', '{"flowId":77,"currentStep":4,"currentPage":0}')
 			const lst2 = new flow1Lst2();
 			lst2.tryGoSleepNew();
 			lst2.getIntoBadNew();
@@ -199,6 +215,7 @@ describe('Flow 77', () => {
 			lst2.qualityNew();
 			home.buttonClick();
 			
+			cy.window().its('localStorage.sl-flow-progress').should('equal', '{"flowId":77,"currentStep":5,"currentPage":0}')
 			const lst4 = new flow1Lst4();
 			lst4.comfortablePositionNever();
 			lst4.comfortablePositionRarely();
@@ -230,6 +247,7 @@ describe('Flow 77', () => {
 			lst4.worriesVeryOften();
 			home.buttonClick();
 
+			cy.window().its('localStorage.sl-flow-progress').should('equal', '{"flowId":77,"currentStep":6,"currentPage":0}')
 			const lst3 = new flow1Lst3();
 			lst3.abilityStayAwake();
 			lst3.abilityStayAwakeNot();
@@ -245,6 +263,7 @@ describe('Flow 77', () => {
 			lst3.affectedRelationshipsVeryMuchNew();
 			home.buttonClick();
 
+			cy.window().its('localStorage.sl-flow-progress').should('equal', '{"flowId":77,"currentStep":7,"currentPage":0}')
 			const lst5 = new flow1Lst5();
 			lst5.happenedTodayNew();
 			lst5.happenedTodayAnsweNeverNew();
@@ -272,6 +291,7 @@ describe('Flow 77', () => {
 			lst5.sleepTonightVeryOftenNew();
 			home.buttonClick();
 			
+			cy.window().its('localStorage.sl-flow-progress').should('equal', '{"flowId":77,"currentStep":8,"currentPage":0}')
 			const lstpills = new perscription();
 			lstpills.perscriptionTitle();
 			lstpills.prescriptionPills();
@@ -284,6 +304,7 @@ describe('Flow 77', () => {
 			lstpills.nonPrescriptionPillsMostNights();
 			home.buttonClick();
 
+			cy.window().its('localStorage.sl-flow-progress').should('equal', '{"flowId":77,"currentStep":9,"currentPage":0}')
 			const lst6 = new flow1Lst6();
 			lst6.littleInterest();
 			lst6.littleInterestNot();
@@ -320,6 +341,7 @@ describe('Flow 77', () => {
 			lst6.diagnosedNo();
 			home.buttonClick();
 		
+			cy.window().its('localStorage.sl-flow-progress').should('equal', '{"flowId":77,"currentStep":10,"currentPage":0}')
 			const lst7 = new flow1Lst7();
 			lst7.exercise();
 			lst7.regularlyExerciseAnswers();
@@ -345,6 +367,7 @@ describe('Flow 77', () => {
 			lst7.disruptedPartnerAnswers();
 			home.buttonClick();
 			
+			cy.window().its('localStorage.sl-flow-progress').should('equal', '{"flowId":77,"currentStep":11,"currentPage":0}')
 			const lst8 = new flow1Lst8();
 			lst8.communityUsername();
 			lst8.communityUsernameAnswer();

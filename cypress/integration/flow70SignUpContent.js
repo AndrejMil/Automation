@@ -21,7 +21,6 @@ import SignUp from '../integration/pageObjects/SignUp';
 
 var linkovi = [
 	'https://onboarding.qa.sleepio.com/sleepio/thehartford/70',
-	'https://onboarding.qa.sleepio.com/sleepio/capri/70',
 	'https://onboarding.qa.sleepio.com/sleepio/roche/70#1/1'
 ];
 
@@ -112,7 +111,7 @@ describe('flow70SignUp', () => {
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImputflow77();
+					signUp.emailInput();
 					signUp.passwordLabel();
 					signUp.passwordInput();
 					signUp.passwordHint();
@@ -149,7 +148,7 @@ describe('flow70SignUp', () => {
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImputflow77();
+					signUp.emailInput();
 					signUp.passwordLabel();
 					signUp.passwordInput();
 					signUp.passwordHint();
@@ -168,7 +167,7 @@ describe('flow70SignUp', () => {
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImputflow77();
+					signUp.emailInput();
 					signUp.passwordLabel();
 					signUp.passwordInput();
 					signUp.passwordHint();
@@ -185,7 +184,7 @@ describe('flow70SignUp', () => {
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImputflow77();
+					signUp.emailInput();
 					signUp.passwordLabel();
 					signUp.passwordInput();
 					signUp.passwordHint();
@@ -204,7 +203,7 @@ describe('flow70SignUp', () => {
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImputflow77();
+					signUp.emailInput();
 					signUp.passwordLabel();
 					signUp.passwordInput();
 					signUp.passwordHint();
@@ -223,7 +222,7 @@ describe('flow70SignUp', () => {
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImputflow77();
+					signUp.emailInput();
 					signUp.passwordLabel();
 					signUp.passwordInput();
 					signUp.passwordHint();
@@ -242,7 +241,7 @@ describe('flow70SignUp', () => {
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImputflow77();
+					signUp.emailInput();
 					signUp.passwordLabel();
 					signUp.passwordInput();
 					signUp.passwordHint();
@@ -264,7 +263,7 @@ describe('flow70SignUp', () => {
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImputflow77();
+					signUp.emailInput();
 					signUp.passwordLabelII();
 					signUp.passwordInput();
 					signUp.passwordHint();
@@ -285,7 +284,7 @@ describe('flow70SignUp', () => {
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImputflow77();
+					signUp.emailInput();
 					signUp.passwordLabelII();
 					signUp.passwordInput();
 					signUp.passwordHint();
@@ -304,7 +303,7 @@ describe('flow70SignUp', () => {
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImputflow77();
+					signUp.emailInput();
 					signUp.passwordLabel();
 					signUp.passwordInput();
 					signUp.passwordHint();
@@ -323,7 +322,7 @@ describe('flow70SignUp', () => {
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImputflow77();
+					signUp.emailInput();
 					signUp.passwordLabel();
 					signUp.passwordInput();
 					signUp.passwordHint();
@@ -342,7 +341,7 @@ describe('flow70SignUp', () => {
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImputflow77();
+					signUp.emailInput();
 					signUp.passwordLabel();
 					signUp.passwordInput();
 					signUp.passwordHint();
@@ -382,7 +381,7 @@ describe('flow70SignUp', () => {
 			signUp.lastNameLabel();
 			signUp.lastNameImput();
 			signUp.emailLabel();
-			signUp.emailImputflow77();
+			signUp.emailInput();
 			signUp.passwordLabel();
 			signUp.passwordInput();
 			signUp.passwordHint();

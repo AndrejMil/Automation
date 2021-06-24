@@ -28,7 +28,7 @@ import flow1Lst8 from '../integration/pageObjects/flow1Lst-8';
 import { url } from 'inspector';
 
 var linkovi = [
-	'https://onboarding.qa.sleepio.com/sleepio/big-health'
+	'https://onboarding.qa.sleepio.com/sleepio/abbott_deprecated/1#2/16'
 ];
 var i = 0;
 describe('Flow 1', () => {
@@ -41,6 +41,9 @@ describe('Flow 1', () => {
 
 			homePage.visitFirstPage(linkovi[i]);
 			homePage.buttonClick();
+
+			//organization_id
+			cy.window().its('organization_id').should('equal', '95')
 
 			const improveYourSleepQuestion = new improveYourSleep();
 			improveYourSleepQuestion.improveSleepTitle();

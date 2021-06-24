@@ -116,7 +116,7 @@ describe('flow78 signup content', () => {
 			signUp.lastNameLabel();
 			signUp.lastNameImput();
 			signUp.emailLabel();
-			signUp.emailInputFlow1(); 
+			signUp.emailInput(); 
 			signUp.passwordInput();
 			signUp.passwordHint();
 			signUp.doctorLabel();

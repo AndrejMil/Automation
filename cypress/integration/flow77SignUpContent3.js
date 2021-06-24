@@ -113,7 +113,7 @@ describe('flow 77 signup content3', () => {
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImputflow77();
+					signUp.emailInput();
 					signUp.passwordInput();
 					signUp.passwordHint();
 					signUp.checkBoxes();
@@ -134,7 +134,7 @@ describe('flow 77 signup content3', () => {
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImputflow77();
+					signUp.emailInput();
 					signUp.passwordInput();
 					signUp.passwordHint();
 					signUp.checkBoxes();
@@ -152,7 +152,7 @@ describe('flow 77 signup content3', () => {
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImputflow77();
+					signUp.emailInput();
 					signUp.passwordInput();
 					signUp.passwordHint();
 					signUp.privacy();
@@ -170,7 +170,7 @@ describe('flow 77 signup content3', () => {
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImputflow77();
+					signUp.emailInput();
 					signUp.passwordInput();
 					signUp.passwordHint();
 					signUp.privacy();
@@ -188,7 +188,7 @@ describe('flow 77 signup content3', () => {
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImputflow77();
+					signUp.emailInput();
 					signUp.passwordInput();
 					signUp.passwordHint();
 					signUp.checkBoxes();
@@ -206,7 +206,7 @@ describe('flow 77 signup content3', () => {
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImputflow77();
+					signUp.emailInput();
 					signUp.passwordInput();
 					signUp.passwordHint();
 					signUp.checkBoxes()
@@ -228,7 +228,7 @@ describe('flow 77 signup content3', () => {
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImputflow77();
+					signUp.emailInput();
 					signUp.passwordInput();
 					signUp.passwordHint();
 					signUp.checkBoxes()
@@ -250,7 +250,7 @@ describe('flow 77 signup content3', () => {
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImputflow77();
+					signUp.emailInput();
 					signUp.passwordInput();
 					signUp.passwordHint();
 					signUp.privacy();
@@ -272,7 +272,7 @@ describe('flow 77 signup content3', () => {
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImputflow77();
+					signUp.emailInput();
 					signUp.passwordInput();
 					signUp.passwordHint();
 					signUp.checkBoxes();
@@ -294,7 +294,7 @@ describe('flow 77 signup content3', () => {
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImputflow77();
+					signUp.emailInput();
 					signUp.passwordInput();
 					signUp.passwordHint();
 					signUp.checkBoxes();
@@ -316,7 +316,7 @@ describe('flow 77 signup content3', () => {
 					signUp.lastNameLabel();
 					signUp.lastNameImput();
 					signUp.emailLabel();
-					signUp.emailImputflow77();
+					signUp.emailInput();
 					signUp.passwordInput();
 					signUp.passwordHint();
 					signUp.checkBoxes();
@@ -364,7 +364,7 @@ describe('flow 77 signup content3', () => {
 			signUp.lastNameLabel();
 			signUp.lastNameImput();
 			signUp.emailLabel();
-			signUp.emailImputflow77();
+			signUp.emailInput();
 			signUp.passwordInput();
 			signUp.passwordHint();
 			signUp.checkBoxes();

@@ -38,6 +38,9 @@ describe('flow 107all', () => {
 			homePage.visitFirstPage(links[i]);
 			homePage.buttonNew();
 
+			//organization_id
+			cy.window().its('organization_id').should('equal', '22')
+
 			const troubledInGeneralNewQuestion = new troubledInGeneralNew();
 			troubledInGeneralNewQuestion.troubledGeneralTitle();
 			troubledInGeneralNewQuestion.little();

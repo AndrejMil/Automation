@@ -24,6 +24,7 @@ import flow1Lst5 from '../pageObjects/flow1Lst-5';
 import flow1Lst6 from '../pageObjects/flow1Lst-6';
 import flow1Lst7 from '../pageObjects/flow1Lst-7';
 import flow1Lst8 from '../pageObjects/flow1Lst-8';
+import 'cypress-wait-until';
 
 import { url } from 'inspector';
 
@@ -218,12 +219,9 @@ describe('Flow 1', () => {
 			signUp.privacy();
 			signUp.signUpButton();
 
-			cy.wait(10000);
-
 			const report = new flow1SleepReport();
+			cy.waitUntil(() => report.logOut());
 			report.headerSleepReport();
-			report.logOut();
-			cy.wait(3000);
 			report.reportButton();
 
 			

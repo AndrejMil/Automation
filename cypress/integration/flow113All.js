@@ -28,9 +28,9 @@ import stateWork from '../pageObjects/stateWork';
 import googleEID from '../pageObjects/googleEID';
 import flow76Eligibility from '../pageObjects/flow76Eligibility';
 import googleCompanyInsurance from '../pageObjects/googleCompanyInsurance';
+import 'cypress-wait-until';
 
-
-var countryes = [
+let countryes = [
 	{ country: 'United Kingdom', value: 'GB' },
 	{ country: 'United States', value: 'US' },
 	{ country: 'Afghanistan', value: 'AF' },
@@ -279,7 +279,7 @@ var countryes = [
 	{ country: 'Zimbabwe', value: 'ZW' }
 ];
 
-var states = [
+let states = [
 	{ state: 'Alabama', value: 'Alabama' },
 	{ state: 'Alaska', value: 'Alaska' },
 	{ state: 'Arizona', value: 'Arizona' },
@@ -339,18 +339,18 @@ var states = [
 	{ state: 'Virgin Islands', value: 'VirginIslands' }
 ];
 
-var linkovi = [
+let links = [
 	'https://onboarding.qa.sleepio.com/google'
 ];
-var i = 0;
+let i = 0;
 describe('Flow 113', () => {
-	console.log(linkovi[i]);
+	console.log(links[i]);
 	it('Start the test', () => {
 	
-		for (; i < linkovi.length; i++) {
+		for (; i < links.length; i++) {
 			const home = new HomePage();
 			const homePage = new homePageNew();
-			homePage.visitFirstPage(linkovi[i]);
+			homePage.visitFirstPage(links[i]);
 			cy.get('.sl-order-2 > .sl-button').click({ force: true });
 
 			//organization_id
@@ -521,20 +521,16 @@ describe('Flow 113', () => {
 			signUp.checkBoxes();
 			signUp.privacy();
 			signUp.terms();
-
 			signUp.signUpButton();
-			cy.wait(7000);
 
 			const report = new flow1SleepReport();
-			cy.wait(3000);
+			cy.waitUntil(() => report.logOut());
 			report.headerSleepReport();
-			report.logOut();
 
 			cy.get( '.dark-blue-bg > div > .sl-button' ).click( { force: true } );
 			
 			const eligibility = new flow76Eligibility();
-			cy.wait(3000);
-			eligibility.coverage();
+			cy.waitUntil(() => eligibility.coverage());
 			eligibility.firstNameLabel();
 			eligibility.firstName();
 			cy.visit('https://onboarding.qa.sleepio.com/sleepio/google/113#6/1');

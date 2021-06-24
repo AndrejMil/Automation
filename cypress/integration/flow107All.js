@@ -22,11 +22,12 @@ import flow1Lst7 from '../pageObjects/flow1Lst-7';
 import stillProblem from '../pageObjects/stillProblem';
 import perscription from '../pageObjects/flow76prescription ';
 import flow1Lst8 from '../pageObjects/flow76Lst-8';
+import 'cypress-wait-until';
 
-var links = [
+let links = [
 	'https://onboarding.qa.sleepio.com/sleepio/bmc'
 ];
-var i = 0;
+let i = 0;
 describe('flow 107all', () => {
 	console.log(links[i]);
 	it('Start the test', () => {
@@ -168,11 +169,10 @@ describe('flow 107all', () => {
 			signUp.privacy();
 			signUp.terms();
 			signUp.signUpButton();
-			cy.wait( 7000 );
 			
 			const report = new flow1SleepReport();
+			cy.waitUntil(() => report.logOut());
 			report.headerSleepReport();
-			report.logOut();
 			cy.get('.dark-blue-bg > div > .sl-button').click({ force: true });
 
 			const lst2 = new flow1Lst2();

@@ -22,11 +22,14 @@ import flow1Lst7 from '../pageObjects/flow1Lst-7';
 import stillProblem from '../pageObjects/stillProblem';
 import perscription from '../pageObjects/flow76prescription ';
 import flow1Lst8 from '../pageObjects/flow76Lst-8';
+import 'cypress-wait-until';
+Cypress.config( 'requestTimeout', 20000 )
+Cypress.config('defaultCommandTimeout', 20000)
 
-var links = [
+let links = [
 	'https://onboarding.qa.sleepio.com/sleepio/platgen-test'
 ];
-var i = 0;
+let i = 0;
 describe('Flow 122', () => {
 	console.log(links[i]);
 	it('Start the test', () => {
@@ -37,6 +40,32 @@ describe('Flow 122', () => {
 			homePage.visitFirstPage(links[i]);
 			cy.get('.sl-order-2 > .sl-button').click({ force: true });
 
+			cy.intercept({
+				url: 'https://onboarding.qa.sleepio.com/auth/check_eligibility_for_organization_and_sign_up/'
+			} ).as( 'eligibilityCall' )
+			
+			cy.intercept( {
+				url: 'https://onboarding.qa.sleepio.com/auth/update_user_info/'
+			} ).as( 'updateUserInfo' )
+			
+			cy.intercept( {
+				url: 'https://onboarding.qa.sleepio.com/auth/me/'
+			} ).as( 'authMe' )
+
+			cy.intercept( 'GET', 'https://onboarding.qa.sleepio.com/auth/me/' ).as( 'getAuthMe' )
+			
+			cy.intercept( {
+				url: 'https://onboarding.qa.sleepio.com/api/service_method_proxy/RecordingAPI/2/post_events'
+			} ).as( 'postEvent' )
+		
+			cy.intercept( 'POST', 'https://onboarding.qa.sleepio.com/api/service_method_proxy/User/1/create_email_contact_with_user_id_and_flow_id').as( 'reportCall' )
+
+			cy.intercept( {
+				url: 'https://onboarding.qa.sleepio.com/api/service_method_proxy/Answer/1/create_update_answers_bulk'
+			} ).as( 'createUpdateAnswersBulk' )
+
+			
+			
 			//organization_id
 			cy.window().its('organization_id').should('equal', '136')
 			
@@ -170,16 +199,24 @@ describe('Flow 122', () => {
 			signUp.checkBoxes();
 			signUp.privacy();
 			signUp.terms();
-
 			signUp.signUpButton();
-			cy.wait(10000);
 
 			const report = new flow1SleepReport();
-			cy.wait(3000);
 			report.headerSleepReport();
-			report.logOut();
-
-			cy.get('.dark-blue-bg > div > .sl-button').click({ force: true });
+			cy.wait( '@eligibilityCall' ).then( () => {
+				cy.wait( '@authMe' ).then( () => {
+					cy.wait( '@getAuthMe' ).then( () => {
+						cy.wait( '@updateUserInfo' ).then( () => {
+							cy.wait( '@createUpdateAnswersBulk' )
+						})
+					})
+				} )
+				cy.wait('@reportCall')
+				report.logOut()
+			} )
+			
+			cy.get( '.dark-blue-bg > div > .sl-button' ).click();
+			
 
 			const lst1 = new flow122LST_1();
 			lst1.getIntoBedLabelflow122();

@@ -1,20 +1,20 @@
-import HomePage from '../integration/pageObjects/homePage';
-import improveYourSleep from '../integration/pageObjects/improveYourSleep';
-import howLong from '../integration/pageObjects/howLong';
-import stopsYou from '../integration/pageObjects/stopsYou';
-import troubledInGeneral from '../integration/pageObjects/troubledInGeneral';
-import importantThings from '../integration/pageObjects/importantThings';
-import manyNights from '../integration/pageObjects/manyNights';
-import gender from '../integration/pageObjects/gender';
-import employment from '../integration/pageObjects/employment';
-import manyHours from '../integration/pageObjects/howManyHours';
-import howLikely from '../integration/pageObjects/howLikely';
-import poorSleep from '../integration/pageObjects/poorSleep';
-import dob from '../integration/pageObjects/dob';
-import breathing from '../integration/pageObjects/breathing ';
-import snoring from '../integration/pageObjects/snoring';
-import expertGuides from '../integration/pageObjects/expertGuides';
-import SignUp from '../integration/pageObjects/SignUp';
+import HomePage from '../pageObjects/homePage';
+import improveYourSleep from '../pageObjects/improveYourSleep';
+import howLong from '../pageObjects/howLong';
+import stopsYou from '../pageObjects/stopsYou';
+import troubledInGeneral from '../pageObjects/troubledInGeneral';
+import importantThings from '../pageObjects/importantThings';
+import manyNights from '../pageObjects/manyNights';
+import gender from '../pageObjects/gender';
+import employment from '../pageObjects/employment';
+import manyHours from '../pageObjects/howManyHours';
+import howLikely from '../pageObjects/howLikely';
+import poorSleep from '../pageObjects/poorSleep';
+import dob from '../pageObjects/dob';
+import breathing from '../pageObjects/breathing ';
+import snoring from '../pageObjects/snoring';
+import expertGuides from '../pageObjects/expertGuides';
+import SignUp from '../pageObjects/SignUp';
 
 var linkovi = [
 	'https://onboarding.qa.sleepio.com/sleepio/abbott_deprecated/1',

@@ -1,12 +1,12 @@
-import flow126HomePage from './pageObjects/flow126HomePage';
-import daylightHelps from './pageObjects/daylightHelps';
-import whichSoundsLikeYou from './pageObjects/whichSoundsLikeYou';
-import assignedGroupProject from './pageObjects/assignedGroupProject';
-import importantDecision from './pageObjects/importantDecision';
-import importantNews from './pageObjects/importantNews';
-import wedding from './pageObjects/wedding';
-import upsettingNews from './pageObjects/upsettingNews';
-import returnYourCall from './pageObjects/returnYourCall';
+import flow126HomePage from '../pageObjects/flow126HomePage';
+import daylightHelps from '../pageObjects/daylightHelps';
+import whichSoundsLikeYou from '../pageObjects/whichSoundsLikeYou';
+import assignedGroupProject from '../pageObjects/assignedGroupProject';
+import importantDecision from '../pageObjects/importantDecision';
+import importantNews from '../pageObjects/importantNews';
+import wedding from '../pageObjects/wedding';
+import upsettingNews from '../pageObjects/upsettingNews';
+import returnYourCall from '../pageObjects/returnYourCall';
 
 let links = [
 	'https://onboarding.qa.trydaylight.com/daylight/deltaday/126#1/1'

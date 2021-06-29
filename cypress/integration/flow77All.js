@@ -22,6 +22,7 @@ import flow1Lst7 from '../pageObjects/flow1Lst-7';
 import stillProblem from '../pageObjects/stillProblem';
 import perscription from '../pageObjects/flow76prescription ';
 import flow1Lst8 from '../pageObjects/flow76Lst-8';
+import 'cypress-wait-until';
 
 let links = [
 	'https://onboarding.qa.sleepio.com/sleepio/bh2020/77#1/1'
@@ -184,12 +185,11 @@ describe('Flow 77', () => {
 			signUp.privacy();
 			signUp.terms();
 			signUp.signUpButton();
-			cy.wait(7000);
+			
 
 			cy.window().its('localStorage.sl-flow-progress').should('equal', '{"flowId":77,"currentStep":3,"currentPage":0}')
 			const report = new flow1SleepReport();
-			cy.wait(3000);
-			report.headerSleepReport();
+			cy.waitUntil(() => report.headerSleepReport());
 			report.logOut();
 
 			cy.get('.dark-blue-bg > div > .sl-button').click({ force: true });

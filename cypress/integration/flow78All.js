@@ -23,7 +23,7 @@ import stillProblem from '../pageObjects/stillProblem';
 import flow76Eligibility from '../pageObjects/flow76Eligibility';
 import perscription from '../pageObjects/flow76prescription ';
 import flow1Lst8 from '../pageObjects/flow76Lst-8';
-import flow1LogIn from '../pageObjects/flow1LogIn';
+import 'cypress-wait-until';
 
 var linkovi = [
 	'https://onboarding.qa.sleepio.com/sleepio/libertymutual/78#1/1'
@@ -169,14 +169,11 @@ describe('Flow 78', () => {
 			signUp.checkBoxes();
 			signUp.privacy();
 			signUp.terms();
-
 			signUp.signUpButton();
-			cy.wait(5000);
  
 			const report = new flow1SleepReport();
+			cy.waitUntil(() => report.logOut());
 			report.headerSleepReport();
-			report.logOut();
-			cy.wait(3000);
 			cy.get('.dark-blue-bg > div > .sl-button').click({ force: true });
 
 			const eligibility = new flow76Eligibility();

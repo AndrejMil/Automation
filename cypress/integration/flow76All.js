@@ -24,16 +24,17 @@ import sleepioExperts from '../pageObjects/sleepioExperts';
 import flow76Eligibility from '../pageObjects/flow76Eligibility';
 import perscription from '../pageObjects/flow76prescription ';
 import flow1Lst8 from '../pageObjects/flow76Lst-8';
+import 'cypress-wait-until';
 
-var linkovi = [
+let links = [
 	'https://onboarding.qa.sleepio.com/sleepio/holman/76#1/1'
 ];
 var i = 0;
 describe('flow76all', () => {
-	console.log(linkovi[i]);
+	console.log(links[i]);
 	it('Start the test', () => {
 		
-		for (; i < linkovi.length; i++) {
+		for (; i < links.length; i++) {
 			const home = new HomePage();
 			const homePage = new homePageNew();
 
@@ -186,17 +187,14 @@ describe('flow76all', () => {
 			signUp.privacy();
 			signUp.terms();
 			signUp.signUpButton();
-			cy.wait(7000);
 
 			const report = new flow1SleepReport();
+			cy.waitUntil(() => report.logOut());
 			report.headerSleepReport();
-			report.logOut();
-
 			cy.get('.dark-blue-bg > div > .sl-button').click({ force: true });
 
 			const eligibility = new flow76Eligibility();
-			cy.wait(3000);
-			eligibility.coverage();
+			cy.waitUntil(() => eligibility.coverage());
 			eligibility.firstNameLabel();
 			eligibility.firstName();
 			eligibility.midleNameLabel();

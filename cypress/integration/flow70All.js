@@ -23,16 +23,17 @@ import stillProblem from '../pageObjects/stillProblem';
 import sleepioExperts from '../pageObjects/sleepioExperts';
 import perscription from '../pageObjects/flow76prescription ';
 import flow1Lst8 from '../pageObjects/flow76Lst-8';
+import 'cypress-wait-until';
 
-var linkovi = [
+let links = [
 	'https://onboarding.qa.sleepio.com/sleepio/demo2020HI/70'
 ];
-var i = 0;
+let i = 0;
 describe('flow 70all', () => {
-	console.log(linkovi[i]);
+	console.log(links[i]);
 	it('Flow 70', () => {
 	
-		for (; i < linkovi.length; i++) {
+		for (; i < links.length; i++) {
 			const home = new HomePage();
 			const homePage = new homePageNew();
 			homePage.visitFirstPage(linkovi[i]);
@@ -185,13 +186,10 @@ describe('flow 70all', () => {
 			signUp.privacy(); 
 			signUp.terms();
 			signUp.signUpButton();
-			cy.wait(7000);
 
 			const report = new flow1SleepReport();
-
+			cy.waitUntil(() => report.logOut());
 			report.headerSleepReport();
-			report.logOut();
-			cy.wait(3000);
 			cy.get('.dark-blue-bg > div > .sl-button').click({ force: true });
 			cy.visit('https://onboarding.qa.sleepio.com/sleepio/demo2020HI/70#6/1');
 
